@@ -8,17 +8,17 @@ hero:
   tagline: My great project tagline
   actions:
     - theme: brand
-      text: Vercel
-      link: /vercel
+      text: Next
+      link: /next/turborepo
     - theme: brand
       text: React
-      link: /react
+      link: /react/design
     - theme: brand
       text: Vue
-      link: /vue
+      link: /vue/design
     - theme: brand
       text: Nest
-      link: /nest
+      link: /nest/design
 
 features:
   - title: Feature A

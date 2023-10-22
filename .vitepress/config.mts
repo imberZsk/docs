@@ -8,16 +8,17 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Vercel', link: '/vercel/turborepo' },
-      { text: 'React', link: '/react/turborepo' },
-      { text: 'Vue', link: '/vue/turborepo' },
-      { text: 'Nest', link: '/nest/turborepo' }
+      { text: 'Next', link: '/next/turborepo' },
+      { text: 'React', link: '/react/design' },
+      { text: 'Vue', link: '/vue/design' },
+      { text: 'Nest', link: '/nest/design' }
     ],
 
     sidebar: {
-      '/vercel/': { base: '/vercel/', items: sidebarGuide() },
-      '/react/': { base: '/react/', items: sidebarGuide() },
-      '/vue/': { base: '/vue/', items: sidebarGuide() }
+      '/next/': { base: '/next/', items: sidebarNext() },
+      '/react/': { base: '/react/', items: sidebarReact() },
+      '/vue/': { base: '/vue/', items: sidebarVue() },
+      '/nest/': { base: '/nest/', items: sidebarNest() }
     },
 
     socialLinks: [
@@ -27,7 +28,7 @@ export default defineConfig({
 })
 
 /* prettier-ignore */
-function sidebarGuide(): DefaultTheme.SidebarItem[] {
+function sidebarNext(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: 'Turbo',
@@ -39,7 +40,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
     },
     {
       text: 'Nextjs',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '路由系统', link: 'router' },
         { text: '数据fetch', link: 'fetch' },
@@ -57,10 +58,6 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Using a Custom Theme', link: 'custom-theme' },
-        { text: 'Extending the Default Theme', link: 'extending-default-theme' },
-        { text: 'Build-Time Data Loading', link: 'data-loading' },
-        { text: 'SSR Compatibility', link: 'ssr-compat' },
-        { text: 'Connecting to a CMS', link: 'cms' }
       ]
     },
     {
@@ -68,9 +65,53 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'MPA Mode', link: 'mpa-mode' },
-        { text: 'Sitemap Generation', link: 'sitemap-generation' }
+      ]
+    }
+  ]
+}
+
+/* prettier-ignore */
+function sidebarVue(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Vue设计与实现',
+      collapsed: false,
+      items: [
+        { text: '第一篇 框架设计概览', link: 'design' },
+        { text: '第二篇 响应系统', link: 'turbopack' },
+        { text: '第二篇 渲染器', link: 'turbopack' },
+        { text: '第二篇 组件化', link: 'turbopack' },
+        { text: '第二篇 编译器', link: 'turbopack' },
+        { text: '第二篇 服务端渲染', link: 'turbopack' },
+      ]
+    }
+  ]
+}
+
+/* prettier-ignore */
+function sidebarReact(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'React设计原理',
+      collapsed: false,
+      items: [
+        { text: 'Turborepo', link: 'turborepo' },
+        { text: 'Turbopack', link: 'turbopack' },
       ]
     },
-    { text: 'Config & API Reference', base: '/reference/', link: 'site-config' }
+  ]
+}
+
+/* prettier-ignore */
+function sidebarNest(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Nest',
+      collapsed: false,
+      items: [
+        { text: '1', link: 'turborepo' },
+        { text: '2', link: 'turbopack' },
+      ]
+    },
   ]
 }
