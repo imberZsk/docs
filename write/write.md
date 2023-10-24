@@ -11,12 +11,16 @@ function instanceof(a,b){
 
   //
   while(true){
-    if(l === r){
-      return true
-    }
-    l = l.__proto__
+
+  if(l===null){
+    return false
   }
-  return false
+
+  if(l === r){
+    return true
+  }
+  l = l.__proto__
+}
 }
 ```
 
