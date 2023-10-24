@@ -11,14 +11,16 @@ export default defineConfig({
       { text: 'Next', link: '/next/turborepo' },
       { text: 'React', link: '/react/design' },
       { text: 'Vue', link: '/vue/design' },
-      { text: 'Nest', link: '/nest/design' }
+      { text: 'Nest', link: '/nest/design' },
+      { text: 'Write', link: '/write/write' }
     ],
 
     sidebar: {
       '/next/': { base: '/next/', items: sidebarNext() },
       '/react/': { base: '/react/', items: sidebarReact() },
       '/vue/': { base: '/vue/', items: sidebarVue() },
-      '/nest/': { base: '/nest/', items: sidebarNest() }
+      '/nest/': { base: '/nest/', items: sidebarNest() },
+      '/write/': { base: '/write/', items: sidebarWrite() }
     },
 
     socialLinks: [
@@ -111,6 +113,20 @@ function sidebarNest(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '1', link: 'turborepo' },
         { text: '2', link: 'turbopack' },
+      ]
+    },
+  ]
+}
+
+/* prettier-ignore */
+function sidebarWrite(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Write',
+      collapsed: false,
+      items: [
+        { text: '手写', link: 'write' },
+        { text: '算法', link: 'turbopack' },
       ]
     },
   ]
