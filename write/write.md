@@ -146,7 +146,7 @@ function debounce(fn, time) {
 
 ```js
 function throttle(fn, time) {
-  let old = 0
+  let old = 0 //0可以立即执行
   return function () {
     const timestamp = Date.now()
     if (timestamp - old > time) {
@@ -156,3 +156,7 @@ function throttle(fn, time) {
   }
 }
 ```
+
+## 冒泡排序
+
+## 快速排序
