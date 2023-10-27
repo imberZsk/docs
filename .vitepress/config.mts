@@ -81,10 +81,10 @@ function sidebarVue(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '第一篇 框架设计概览', link: 'design' },
         { text: '第二篇 响应系统', link: 'turbopack' },
-        { text: '第二篇 渲染器', link: 'turbopack' },
-        { text: '第二篇 组件化', link: 'turbopack' },
-        { text: '第二篇 编译器', link: 'turbopack' },
-        { text: '第二篇 服务端渲染', link: 'turbopack' },
+        { text: '第三篇 渲染器', link: 'turbopack' },
+        { text: '第四篇 组件化', link: 'turbopack' },
+        { text: '第五篇 编译器', link: 'parser' },
+        { text: '第六篇 服务端渲染', link: 'turbopack' }
       ]
     }
   ]
@@ -126,7 +126,7 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '手写', link: 'write' },
-        { text: '算法', link: 'turbopack' },
+        { text: '算法', link: 'code' },
       ]
     },
   ]
