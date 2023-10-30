@@ -129,5 +129,21 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
         { text: '算法', link: 'code' },
       ]
     },
+    {
+      text: '数组',
+      collapsed: false,
+      items: [
+        { text: '二分查找', link: 'write' },
+        { text: '移除元素', link: 'code' },
+      ]
+    },
+    {
+      text: '链表',
+      collapsed: false,
+      items: [
+        { text: '移除链表元素', link: 'write' },
+        { text: '设计链表', link: 'code' },
+      ]
+    },
   ]
 }
