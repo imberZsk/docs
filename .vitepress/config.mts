@@ -9,7 +9,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Next', link: '/next/turborepo' },
-      { text: 'React', link: '/react/design' },
+      { text: 'React', link: '/react/idea' },
       { text: 'Vue', link: '/vue/design' },
       { text: 'Nest', link: '/nest/design' },
       { text: 'Write', link: '/write/write' }
@@ -94,11 +94,17 @@ function sidebarVue(): DefaultTheme.SidebarItem[] {
 function sidebarReact(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'React设计原理',
+      text: 'React技术揭秘',
       collapsed: false,
       items: [
-        { text: 'Turborepo', link: 'turborepo' },
-        { text: 'Turbopack', link: 'turbopack' },
+        { text: '第一章React理念（理念篇）', link: 'idea' },
+        { text: '第二章前置知识（理念篇）', link: 'pre' },
+        { text: '第三章render阶段（架构篇）', link: 'render' },
+        { text: '第四章commit阶段（架构篇）', link: 'commit' },
+        { text: '第五章Diff算法（实现篇）', link: 'turbopack' },
+        { text: '第六章状态更新（实现篇）', link: 'turbopack' },
+        { text: '第七章Hooks（实现篇）', link: 'turbopack' },
+        { text: '第八章ConcurrentMode', link: 'turbopack' },
       ]
     },
   ]
