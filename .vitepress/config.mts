@@ -12,7 +12,8 @@ export default defineConfig({
       { text: 'React', link: '/react/idea' },
       { text: 'Vue', link: '/vue/design' },
       { text: 'Nest', link: '/nest/design' },
-      { text: 'Write', link: '/write/write' }
+      { text: 'Write', link: '/write/write' },
+      { text: 'Animation', link: '/animation/pin' }
     ],
 
     sidebar: {
@@ -20,7 +21,8 @@ export default defineConfig({
       '/react/': { base: '/react/', items: sidebarReact() },
       '/vue/': { base: '/vue/', items: sidebarVue() },
       '/nest/': { base: '/nest/', items: sidebarNest() },
-      '/write/': { base: '/write/', items: sidebarWrite() }
+      '/write/': { base: '/write/', items: sidebarWrite() },
+      '/animation/': { base: '/animation/', items: sidebarAnimation() }
     },
 
     socialLinks: [
@@ -149,6 +151,28 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '移除链表元素', link: 'write' },
         { text: '设计链表', link: 'code' },
+      ]
+    },
+  ]
+}
+
+/* prettier-ignore */
+function sidebarAnimation(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'GSAP',
+      collapsed: false,
+      items: [
+        { text: '渐入效果', link: 'pin' },
+        { text: '视差效果', link: 'pin' },
+      ]
+    },
+    {
+      text: 'Framer Motion',
+      collapsed: false,
+      items: [
+        { text: '渐入效果', link: 'pin' },
+        { text: '视差效果', link: 'pin' },
       ]
     },
   ]
