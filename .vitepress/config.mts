@@ -165,6 +165,8 @@ function sidebarAnimation(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '渐入效果', link: 'pin' },
         { text: '视差效果', link: 'pin' },
+        { text: '滚动全屏', link: 'video' },
+        { text: '视频跟随滚动', link: 'video' },
       ]
     },
     {
@@ -173,6 +175,8 @@ function sidebarAnimation(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '渐入效果', link: 'pin' },
         { text: '视差效果', link: 'pin' },
+        { text: '滚动全屏', link: 'video' },
+        { text: '视频跟随滚动', link: 'video' },
       ]
     },
   ]
