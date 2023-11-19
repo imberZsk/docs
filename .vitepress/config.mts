@@ -77,6 +77,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
 /* prettier-ignore */
 function sidebarVue(): DefaultTheme.SidebarItem[] {
   return [
+    { text: 'vue源码调试', link: 'debug' },
     {
       text: 'Vue设计与实现',
       collapsed: false,
@@ -92,9 +93,9 @@ function sidebarVue(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-/* prettier-ignore */
 function sidebarReact(): DefaultTheme.SidebarItem[] {
   return [
+    { text: 'React源码调试', link: 'debug' },
     {
       text: 'React技术揭秘',
       collapsed: false,
@@ -106,9 +107,9 @@ function sidebarReact(): DefaultTheme.SidebarItem[] {
         { text: '第五章Diff算法（实现篇）', link: 'turbopack' },
         { text: '第六章状态更新（实现篇）', link: 'turbopack' },
         { text: '第七章Hooks（实现篇）', link: 'turbopack' },
-        { text: '第八章ConcurrentMode', link: 'turbopack' },
+        { text: '第八章ConcurrentMode', link: 'turbopack' }
       ]
-    },
+    }
   ]
 }
 
@@ -156,17 +157,25 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-/* prettier-ignore */
 function sidebarAnimation(): DefaultTheme.SidebarItem[] {
   return [
+    {
+      text: '基础效果',
+      collapsed: false,
+      items: [
+        { text: '全屏滚动效果', link: 'video' },
+        { text: '图片渐进式加载', link: 'video' },
+        { text: 'loading加载效果', link: 'video' }
+      ]
+    },
     {
       text: 'GSAP',
       collapsed: false,
       items: [
         { text: '渐入效果', link: 'pin' },
-        { text: '视差效果', link: 'pin' },
-        { text: '滚动全屏', link: 'video' },
-        { text: '视频跟随滚动', link: 'video' },
+        { text: 'pin效果', link: 'pin' },
+        { text: 'pin滚动全屏', link: 'video' },
+        { text: 'pin视频滚动', link: 'video' }
       ]
     },
     {
@@ -174,10 +183,11 @@ function sidebarAnimation(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '渐入效果', link: 'pin' },
-        { text: '视差效果', link: 'pin' },
-        { text: '滚动全屏', link: 'video' },
-        { text: '视频跟随滚动', link: 'video' },
+        { text: 'pin效果', link: 'pin' },
+        { text: 'pin效果', link: 'pin' },
+        { text: 'pin滚动全屏', link: 'video' },
+        { text: 'pin视频滚动', link: 'video' }
       ]
-    },
+    }
   ]
 }
