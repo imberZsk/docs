@@ -74,3 +74,5 @@ React15 的 Reconciler 采用递归的方式执行，数据保存在递归数据
 mount 时
 
 update 时
+
+## 总结
