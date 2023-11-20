@@ -175,7 +175,8 @@ function sidebarAnimation(): DefaultTheme.SidebarItem[] {
         { text: '渐入效果', link: 'pin' },
         { text: 'pin效果', link: 'pin' },
         { text: 'pin滚动全屏', link: 'video' },
-        { text: 'pin视频滚动', link: 'video' }
+        { text: 'pin视频滚动', link: 'video' },
+        { text: '滚动数字效果', link: 'video' }
       ]
     },
     {
@@ -184,7 +185,8 @@ function sidebarAnimation(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '渐入效果', link: 'pin' },
         { text: 'pin效果', link: 'pin' },
-        { text: 'pin效果', link: 'pin' },
+        { text: 'tab切换渐入效果', link: 'pin' },
+        { text: 'tab切换滚动线', link: 'pin' },
         { text: 'pin滚动全屏', link: 'video' },
         { text: 'pin视频滚动', link: 'video' }
       ]
