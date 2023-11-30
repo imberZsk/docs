@@ -24,9 +24,9 @@ React15 的架构可以分为两层，`Reconciler`（协调器）负责找出变
 
 React16 架构可以分为三层
 
-Scheduler（调度器）负责调度任务的优先级，高优先级优先进入 Reconciler，用 scheduler 代替 requestIdleCallback
+`Scheduler`（调度器）负责调度任务的优先级，高优先级优先进入 Reconciler，用 scheduler 代替 requestIdleCallback
 
-Reconciler（协调器）负责找出变化的组件，更新工作从递归变成了可以中断的 while 循环，每次循环都会调用 shouldYield 判断当前是否有剩余时间；Reconciler 和 Renderer 不再是交替工作，Reconcile 会为虚拟 DOM 打上增/删/更新的标记，都在内存中运行，只有所有组件都完成 Reconciler，才会统一交给 Renderer
+`Reconciler`（协调器）负责找出变化的组件，更新工作从递归变成了可以中断的 while 循环，每次循环都会调用 shouldYield 判断当前是否有剩余时间；Reconciler 和 Renderer 不再是交替工作，Reconcile 会为虚拟 DOM 打上增/删/更新的标记，都在内存中运行，只有所有组件都完成 Reconciler，才会统一交给 Renderer
 
 ```js
 function workLoopConcurrent() {
@@ -37,15 +37,23 @@ function workLoopConcurrent() {
 }
 ```
 
-Renderer（渲染器）负责将变化的组件渲染到页面上，由于工作都在内存中运行，不会更新页面上的 DOM，所以即使反复中断，用户也不会看见更新不完全的 DOM
+`Renderer`（渲染器）负责将变化的组件渲染到页面上，由于工作都在内存中运行，不会更新页面上的 DOM，所以即使反复中断，用户也不会看见更新不完全的 DOM
 
 ## Fiber 架构的心智模型
 
-代数效应：副作用从函数调用中分离 -> hooks
+代数效应：副作用从函数调用中分离 ->在 React 中的应用是 Hooks
 
-代数效应和生成器
+#### 代数效应和生成器 Generator
 
-代数效应和 Fiber
+弊端一：类似 `async`，`Generator` 也是`传染性`的，使用了`Generator`则上下文的其他函数也需要作出改变。这样心智负担比较重。
+
+弊端二：Generator 执行的中间状态是上下文关联的。（高优先级插队无法复用之前的）
+
+#### 代数效应和 Fiber
+
+Fiber 是`协程`的一种实现，是代数效应思想在 JS 中的体现
+
+React 内部实现了一套状态更新机制，支持任务不同优先级，可中断与恢复，并且恢复后可以服用之前的`中间状态`
 
 ## Fiber 架构的实现原理（Fiber 的含义）
 

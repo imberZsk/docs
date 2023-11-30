@@ -160,6 +160,14 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
 function sidebarAnimation(): DefaultTheme.SidebarItem[] {
   return [
     {
+      text: '总结',
+      collapsed: false,
+      items: [
+        { text: '动画效果总结', link: 'animate' },
+        { text: 'Next14项目总结', link: 'project' }
+      ]
+    },
+    {
       text: '基础效果',
       collapsed: false,
       items: [
