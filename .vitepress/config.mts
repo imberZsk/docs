@@ -2,18 +2,19 @@ import { defineConfig, type DefaultTheme } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'imber的文档',
+  title: 'imber',
   description: 'A VitePress Site',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Next', link: '/next/turborepo' },
-      { text: 'React', link: '/react/idea' },
       { text: 'Vue', link: '/vue/design' },
+      { text: 'React', link: '/react/idea' },
+      { text: 'Next', link: '/next/turborepo' },
       { text: 'Nest', link: '/nest/design' },
+      { text: 'DB', link: '/db/mongodb' },
       { text: 'Write', link: '/write/write' },
-      { text: 'Animation', link: '/animation/pin' }
+      { text: 'Other', link: '/other/git' }
     ],
 
     sidebar: {
@@ -22,7 +23,8 @@ export default defineConfig({
       '/vue/': { base: '/vue/', items: sidebarVue() },
       '/nest/': { base: '/nest/', items: sidebarNest() },
       '/write/': { base: '/write/', items: sidebarWrite() },
-      '/animation/': { base: '/animation/', items: sidebarAnimation() }
+      '/db/': { base: '/db/', items: sidebarDB() },
+      '/other/': { base: '/other/', items: sidebarOther() }
     },
 
     socialLinks: [
@@ -31,7 +33,6 @@ export default defineConfig({
   }
 })
 
-/* prettier-ignore */
 function sidebarNext(): DefaultTheme.SidebarItem[] {
   return [
     {
@@ -39,7 +40,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Turborepo', link: 'turborepo' },
-        { text: 'Turbopack', link: 'turbopack' },
+        { text: 'Turbopack', link: 'turbopack' }
       ]
     },
     {
@@ -60,21 +61,25 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
     {
       text: 'SWR',
       collapsed: false,
-      items: [
-        { text: 'Using a Custom Theme', link: 'custom-theme' },
-      ]
+      items: [{ text: 'Using a Custom Theme', link: 'custom-theme' }]
     },
     {
       text: 'Commerce',
       collapsed: false,
+      items: [{ text: 'MPA Mode', link: 'mpa-mode' }]
+    },
+    {
+      text: 'Animation',
+      collapsed: true,
       items: [
-        { text: 'MPA Mode', link: 'mpa-mode' },
+        { text: '全屏滚动效果', link: 'video' },
+        { text: '图片渐进式加载', link: 'video' },
+        { text: 'loading加载效果', link: 'video' }
       ]
     }
   ]
 }
 
-/* prettier-ignore */
 function sidebarVue(): DefaultTheme.SidebarItem[] {
   return [
     { text: 'vue源码调试', link: 'debug' },
@@ -113,7 +118,6 @@ function sidebarReact(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-/* prettier-ignore */
 function sidebarNest(): DefaultTheme.SidebarItem[] {
   return [
     {
@@ -121,13 +125,12 @@ function sidebarNest(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '1', link: 'turborepo' },
-        { text: '2', link: 'turbopack' },
+        { text: '2', link: 'turbopack' }
       ]
-    },
+    }
   ]
 }
 
-/* prettier-ignore */
 function sidebarWrite(): DefaultTheme.SidebarItem[] {
   return [
     {
@@ -135,7 +138,7 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '手写', link: 'write' },
-        { text: '算法', link: 'code' },
+        { text: '算法', link: 'code' }
       ]
     },
     {
@@ -143,7 +146,7 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '二分查找', link: 'write' },
-        { text: '移除元素', link: 'code' },
+        { text: '移除元素', link: 'code' }
       ]
     },
     {
@@ -151,16 +154,16 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '移除链表元素', link: 'write' },
-        { text: '设计链表', link: 'code' },
+        { text: '设计链表', link: 'code' }
       ]
-    },
+    }
   ]
 }
 
-function sidebarAnimation(): DefaultTheme.SidebarItem[] {
+function sidebarDB(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: '总结',
+      text: 'Prisma',
       collapsed: false,
       items: [
         { text: '动画效果总结', link: 'animate' },
@@ -168,36 +171,30 @@ function sidebarAnimation(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: '基础效果',
+      text: 'Mongodb',
+      collapsed: false,
+      items: [
+        { text: '动画效果总结', link: 'animate' },
+        { text: 'Next14项目总结', link: 'project' }
+      ]
+    },
+    {
+      text: 'Mysql',
       collapsed: false,
       items: [
         { text: '全屏滚动效果', link: 'video' },
         { text: '图片渐进式加载', link: 'video' },
         { text: 'loading加载效果', link: 'video' }
       ]
-    },
-    {
-      text: 'GSAP',
-      collapsed: false,
-      items: [
-        { text: '渐入效果', link: 'pin' },
-        { text: 'pin效果', link: 'pin' },
-        { text: 'pin滚动全屏', link: 'video' },
-        { text: 'pin视频滚动', link: 'video' },
-        { text: '滚动数字效果', link: 'video' }
-      ]
-    },
-    {
-      text: 'Framer Motion',
-      collapsed: false,
-      items: [
-        { text: '渐入效果', link: 'pin' },
-        { text: 'pin效果', link: 'pin' },
-        { text: 'tab切换渐入效果', link: 'pin' },
-        { text: 'tab切换滚动线', link: 'pin' },
-        { text: 'pin滚动全屏', link: 'video' },
-        { text: 'pin视频滚动', link: 'video' }
-      ]
     }
+  ]
+}
+
+function sidebarOther(): DefaultTheme.SidebarItem[] {
+  return [
+    { text: 'Git 常见操作', link: 'git' },
+    { text: 'Plate.js 编辑器', link: 'editor' },
+    { text: 'Docker 入门', link: 'docker' },
+    { text: 'Charles 入门', link: 'docker' }
   ]
 }
