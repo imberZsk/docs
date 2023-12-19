@@ -1,3 +1,27 @@
+## 页面吸附效果
+
+section {
+height: 100vh;
+scroll-snap-align: center;
+}
+
+main {
+height: 100vh;
+overflow-y: scroll;
+overflow-x: hidden;
+scroll-snap-type: y mandatory;
+}
+
+@layer base {
+section {
+@apply h-screen snap-center;
+}
+
+main {
+@apply h-screen snap-y snap-mandatory overflow-y-auto;
+}
+}
+
 ## 文字渐入效果
 
 ## 文字回弹效果
