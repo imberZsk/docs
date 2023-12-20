@@ -1,17 +1,3 @@
-# Next14 项目总结
-
-框架为 Next14 + turborepo pnpm monorepo + tailwind、动画库为 GSAP Framer-Motion
-
-## 项目基建
-
-#### turbopack
-
-#### turborepo 和 monorepo
-
-#### 普通工程化配置
-
-eslint prettier lint-staged commitLint
-
 #### 项目资源配置
 
 #### 图片支持自定义域名

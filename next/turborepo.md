@@ -72,3 +72,7 @@ Turborepo 可以把缓存的状态远程同步，需要使用 `turbo login`、`t
   }
 }
 ```
+
+## 注意事项
+
+子仓库的 `package.json` 里的 `name` 要指定，然后才能用 `pnpm add swr --filter web`

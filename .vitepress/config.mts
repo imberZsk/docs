@@ -47,6 +47,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
       text: 'Nextjs',
       collapsed: true,
       items: [
+        { text: '项目实战', link: 'practice' },
         { text: '路由系统', link: 'router' },
         { text: '数据fetch', link: 'fetch' },
         { text: '渲染', link: 'rendering' },
@@ -192,9 +193,9 @@ function sidebarDB(): DefaultTheme.SidebarItem[] {
 
 function sidebarOther(): DefaultTheme.SidebarItem[] {
   return [
-    { text: 'Git 常见操作', link: 'git' },
-    { text: 'Plate.js 编辑器', link: 'editor' },
-    { text: 'Docker 入门', link: 'docker' },
-    { text: 'Charles 入门', link: 'docker' }
+    { text: '聊聊 Next14', link: 'next14' },
+    { text: 'Next13 项目总结', link: 'next13' },
+    { text: '统一公司的项目规范', link: 'standard' },
+    { text: '思考vue3和react18的区别', link: 'compare' }
   ]
 }
