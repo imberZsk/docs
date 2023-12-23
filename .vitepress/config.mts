@@ -27,9 +27,7 @@ export default defineConfig({
       '/other/': { base: '/other/', items: sidebarOther() }
     },
 
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+    socialLinks: [{ icon: 'github', link: 'https://github.com/imberZsk' }]
   }
 })
 
