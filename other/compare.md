@@ -24,9 +24,9 @@ React 相对于 Vue 是比较自由的，React API 比 Vue API 少一些，更�
 
 <!-- ![image-20220727143817399.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df3f8a41dd6c4cdf883e8b86af84bf77~tplv-k3u1fbpfcp-watermark.image?) -->
 
-![](./101.awebp)
+![](./101.webp)
 
-![](./102.awebp)
+![](./102.webp)
 
 接下来开始找不同，找区别，对比出 vue 和 react 的差异
 
@@ -39,14 +39,14 @@ React 相对于 Vue 是比较自由的，React API 比 Vue API 少一些，更�
 - `JSX`是直接支持`TS`的
 - 对于`vue2`来说，`options api`需要到固定位置写逻辑，也是没有`react`灵活
 
-![](./103.awebp)
+![](./103.webp)
 
 ## 不同点 2：vue3 更智能的依赖收集
 
 - **vue3**在模板中的数据可以被模板自动查询，而 react 需要手动调用`useState`定义数据和修改数据的方法
 - **vue3**比如`watchEffect/computed`是可以自动寻找依赖的，而 reac 比如`useEffect/useMemo/useCallBack`的第二个参数数组需要写上依赖的数据
 
-![](./104.awebp)
+![](./104.webp)
 
 ## 不同点 3：vue3 和 react 优化手段不同
 

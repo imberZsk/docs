@@ -18,9 +18,9 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/next/': { base: '/next/', items: sidebarNext() },
-      '/react/': { base: '/react/', items: sidebarReact() },
       '/vue/': { base: '/vue/', items: sidebarVue() },
+      '/react/': { base: '/react/', items: sidebarReact() },
+      '/next/': { base: '/next/', items: sidebarNext() },
       '/nest/': { base: '/nest/', items: sidebarNest() },
       '/write/': { base: '/write/', items: sidebarWrite() },
       '/db/': { base: '/db/', items: sidebarDB() },
