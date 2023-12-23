@@ -1,6 +1,6 @@
 ## 调试仓库
 
-https://github.com/imberZsk/react-debugger
+https://github.com/imberZsk/demo/tree/main/react-debugger
 
 ## 源码流程图
 

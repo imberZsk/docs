@@ -2,7 +2,7 @@
 
 vercel 于 2023/10/16 发布 next14 版本，从[官网的博客](https://nextjs.org/blog)更新记录可以看到，最新的两个版本主要更新性能方面，具体 Next14 更新点可以看[官网](https://nextjs.org/blog/next-14)
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/850d0d6936d9431186bee24195b4b70c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2005&h=1342&s=668598&e=png&b=020202)
+![](./401.awebp)
 
 # 一、Nextjs 更新是要解决什么问题？
 
@@ -48,14 +48,14 @@ Turborepo 非常适合于你写一个项目开始的`starter`，建议使用 wit
 4. 使用 html 和 css 生成非交互的用户界面
 5. 最后，在客户端注水让页面可以交互（比如绑定点击事件）
 
-![Chart showing Server Rendering without Streaming](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6d51ba0fc5954b118ab43f0ef210cdd2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=612&s=395002&e=png&b=161616)
+![](./402.awebp)
 
 这些流程是`顺序和阻塞`的，在服务器上 只能在获取所有数据后才能生成 html，在客户端上 只有在页面中所有组件
 的代码都下载完后才能生成 UI！这就是传统的 SSR 的弊端。
 
 而流式渲染的出现允许将页面 html 分解为更小的块（Streaming 和 RSC 配合得很好，一个组件就可以视为一个块），并逐步将这些块从服务器发送到客户端，这样可以更快的显示页面某些部分，不必等所有数据加载后才呈现 UI；优先级高的组件或不依赖于数据的组件可以先发送，然后客户端选择性注水，React 可以更早的 `hydration`。
 
-![Chart showing Server Rendering with Streaming](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9745adc16eaa43d38bc2d4dbbee466a5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=730&s=479790&e=png&b=171717)
+![](./403.awebp)
 
 ### 5.2 嵌套 layout
 

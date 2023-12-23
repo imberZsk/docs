@@ -62,11 +62,11 @@ node 的版本配置一下 engines
 
 看一下苹果的响应式布局
 
-![屏幕录制2023-08-02 16.28.44.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f20e5297aa44151b365e92a8b920b03~tplv-k3u1fbpfcp-watermark.image?)
+![](./301.awebp)
 
 如果用 tailwind 很好实现，我们需要跟 UI 约定 breakpoint,也就是 chrome 浏览器控制台这个地方，hover 会给你说设备的宽度
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce1283448ea54fa58721188a10ee658f~tplv-k3u1fbpfcp-watermark.image?)
+![](./302.awebp)
 
 然后配置 tailwind
 
@@ -90,12 +90,13 @@ node 的版本配置一下 engines
 
 再来看看自适应布局,屏幕变大字体和内容都自适应变大
 
-![屏幕录制2023-08-02 16.45.12.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a51c78397b848869c268fa26536261d~tplv-k3u1fbpfcp-watermark.image?)
+![](./303.awebp)
 
 自适应布局使用 vw 很方便，蓝湖指定画布为 1000px
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94b4c5a046554779ad24b64bed2649c9~tplv-k3u1fbpfcp-watermark.image?)
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5662b5acb5a240debfbdd026950b259d~tplv-k3u1fbpfcp-watermark.image?)
+![](./304.awebp)
+
+![](./305.awebp)
 
 然后点击页面得到的元素，比如 100px,页面中就写 10vw 就实现的自适应布局（原理是画布为 1000px,页面宽度为 100vw,是 10:1 的关系）
 

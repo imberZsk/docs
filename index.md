@@ -9,13 +9,13 @@ hero:
   actions:
     - theme: brand
       text: Vue
-      link: /next/design
+      link: /vue/design
     - theme: brand
       text: React
-      link: /react/design
+      link: /react/idea
     - theme: brand
       text: Next
-      link: /vue/turborepo
+      link: /next/practice
     - theme: brand
       text: Nest
       link: /nest/design

@@ -106,6 +106,68 @@ const nonce = headers().get('x-nonce') || ''
 
 ## 国际化
 
+middleware.ts
+
+```js
+import { NextResponse } from 'next/server'
+import { match } from '@formatjs/intl-localematcher'
+import Negotiator from 'negotiator'
+import type { NextRequest } from 'next/server'
+
+const locales = ['zh-CN', 'en-US']
+const defaultLocale = 'zh-CN'
+
+function getLocale(request: NextRequest) {
+  const headers = {
+    'accept-language': request.headers.get('accept-language') || ''
+  }
+  const languages = new Negotiator({ headers }).languages()
+  return match(languages, locales, defaultLocale)
+}
+
+const { pathname } = request.nextUrl
+
+const pathnameHasLocale = locales.some(
+  (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+)
+
+if (pathnameHasLocale) return
+
+const locale = getLocale(request)
+
+if (locale === 'zh-CN') return
+
+request.nextUrl.pathname = `/${locale}${pathname}`
+return Response.redirect(request.nextUrl)
+
+export const config = {
+  matcher: [
+    {
+      source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
+      missing: [
+        { type: 'header', key: 'next-router-prefetch' },
+        { type: 'header', key: 'purpose', value: 'prefetch' }
+      ]
+    }
+  ]
+}
+```
+
+获取多语言 Json
+
+```js
+import 'server-only'
+
+const dictionaries = {
+  'en-US': () => import('@/config/en-US.json').then((module) => module.default),
+  'zh-CN': () => import('@/config/zh-CN.json').then((module) => module.default)
+}
+
+export type Locale = 'en-US' | 'zh-CN'
+
+export const getLang = async (locale: Locale) => dictionaries[locale]()
+```
+
 ## SSR
 
 关键是指定`fetch`的第二个参数为`{ cache: 'no-store' }`
@@ -167,4 +229,21 @@ export default async function PostList() {
 
   return posts.map((post) => <div>{post.name}</div>)
 }
+```
+
+## 水合不一致问题
+
+`suppressHydrationWarning`
+
+`https://react.dev/reference/react-dom/client/hydrateRoot#handling-different-client-and-server-content`
+
+可能不规则的 html 标签写法，如 p>div，或者数据水合出错
+
+```js
+const color = typeof window !== 'undefined' ? 'red' : 'blue'
+
+const [color, setColor] = useState < string > 'blue'
+useEffect(() => {
+  setColor('red')
+}, [])
 ```

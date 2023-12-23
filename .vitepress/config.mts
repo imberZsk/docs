@@ -10,11 +10,11 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Vue', link: '/vue/design' },
       { text: 'React', link: '/react/idea' },
-      { text: 'Next', link: '/next/turborepo' },
+      { text: 'Next', link: '/next/practice' },
       { text: 'Nest', link: '/nest/design' },
       { text: 'DB', link: '/db/mongodb' },
       { text: 'Write', link: '/write/write' },
-      { text: 'Other', link: '/other/git' }
+      { text: 'Other', link: '/other/next14' }
     ],
 
     sidebar: {
@@ -37,7 +37,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: 'Turbo',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: 'Turborepo', link: 'turborepo' },
         { text: 'Turbopack', link: 'turbopack' }
@@ -45,14 +45,13 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
     },
     {
       text: 'Nextjs',
-      collapsed: true,
+      // collapsed: true,
       items: [
         { text: '项目实战', link: 'practice' },
-        { text: '路由系统', link: 'router' },
+        { text: 'app 路由', link: 'router' },
         { text: '数据fetch', link: 'fetch' },
         { text: '渲染', link: 'rendering' },
         { text: '缓存', link: 'caching' },
-        { text: '样式', link: 'styling' },
         { text: '优化', link: 'styling' },
         { text: '配置', link: 'styling' },
         { text: 'deploying', link: 'styling' },
