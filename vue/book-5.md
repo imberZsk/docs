@@ -1,3 +1,5 @@
+# 编译器
+
 ## parse
 
 template 通过 parse（有限状态机生成 token，再通过 token 压栈） 转化为 AST，再通过 transform（插件架构） 转化为 JS AST，再通过 generator 字符串拼接生成 render 函数

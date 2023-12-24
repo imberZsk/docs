@@ -8,28 +8,73 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Vue', link: '/vue/design' },
-      { text: 'React', link: '/react/idea' },
-      { text: 'Next', link: '/next/practice' },
-      { text: 'Nest', link: '/nest/design' },
-      { text: 'DB', link: '/db/mongodb' },
+      { text: 'Vue', link: '/vue/book-1' },
+      { text: 'React', link: '/react/book-1' },
+      { text: 'Next', link: '/next/next-1' },
+      { text: 'animate', link: '/animate/gsap-1' },
+      { text: 'editor', link: '/editor/slate' },
+      { text: 'ai', link: '/ai/openAi' },
+      { text: 'Nest', link: '/nest/nest-1' },
+      { text: 'DB', link: '/db/mysql' },
       { text: 'Write', link: '/write/write' },
-      { text: 'Other', link: '/other/next14' }
+      { text: 'Juejin', link: '/juejin/article-1' },
+      { text: 'Blog', link: 'https://imber-blog.netlify.app/' }
     ],
 
     sidebar: {
       '/vue/': { base: '/vue/', items: sidebarVue() },
       '/react/': { base: '/react/', items: sidebarReact() },
       '/next/': { base: '/next/', items: sidebarNext() },
+      '/animate/': { base: '/animate/', items: sidebarAnimate() },
+      '/editor/': { base: '/editor/', items: sidebarEditor() },
+      '/ai/': { base: '/ai/', items: sidebarAi() },
       '/nest/': { base: '/nest/', items: sidebarNest() },
-      '/write/': { base: '/write/', items: sidebarWrite() },
       '/db/': { base: '/db/', items: sidebarDB() },
-      '/other/': { base: '/other/', items: sidebarOther() }
+      '/write/': { base: '/write/', items: sidebarWrite() },
+      '/juejin/': { base: '/juejin/', items: sidebarJuejin() }
     },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/imberZsk' }]
   }
 })
+
+function sidebarVue(): DefaultTheme.SidebarItem[] {
+  return [
+    { text: 'vue源码调试', link: 'debug' },
+    {
+      text: 'Vue设计与实现',
+      collapsed: false,
+      items: [
+        { text: '第一篇 框架设计概览', link: 'book-1' },
+        { text: '第二篇 响应系统', link: 'book-2' },
+        { text: '第三篇 渲染器', link: 'book-3' },
+        { text: '第四篇 组件化', link: 'book-4' },
+        { text: '第五篇 编译器', link: 'book-5' },
+        { text: '第六篇 服务端渲染', link: 'book-6' }
+      ]
+    }
+  ]
+}
+
+function sidebarReact(): DefaultTheme.SidebarItem[] {
+  return [
+    { text: 'React源码调试', link: 'debug' },
+    {
+      text: 'React技术揭秘',
+      collapsed: false,
+      items: [
+        { text: '第一章React理念（理念篇）', link: 'book-1' },
+        { text: '第二章前置知识（理念篇）', link: 'book-2' },
+        { text: '第三章render阶段（架构篇）', link: 'book-3' },
+        { text: '第四章commit阶段（架构篇）', link: 'book-4' },
+        { text: '第五章Diff算法（实现篇）', link: 'book-5' },
+        { text: '第六章状态更新（实现篇）', link: 'book-6' },
+        { text: '第七章Hooks（实现篇）', link: 'book-7' },
+        { text: '第八章ConcurrentMode', link: 'book-8' }
+      ]
+    }
+  ]
+}
 
 function sidebarNext(): DefaultTheme.SidebarItem[] {
   return [
@@ -43,78 +88,56 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
     },
     {
       text: 'SWR',
-      collapsed: true,
-      items: [{ text: 'Using a Custom Theme', link: 'custom-theme' }]
-    },
-    {
-      text: 'Commerce',
-      collapsed: true,
-      items: [{ text: 'MPA Mode', link: 'mpa-mode' }]
+      link: 'swr'
     },
     {
       text: 'Nextjs',
-      // collapsed: true,
+      collapsed: false,
       items: [
-        { text: '项目实战', link: 'practice' },
-        { text: 'app 路由', link: 'router' },
-        { text: '数据fetch', link: 'fetch' },
-        { text: '渲染', link: 'rendering' },
-        { text: '缓存', link: 'caching' },
-        { text: '优化', link: 'styling' },
-        { text: '配置', link: 'styling' },
-        { text: 'deploying', link: 'styling' },
-        { text: '升级', link: 'styling' }
+        { text: '项目实战', link: 'next-1' },
+        { text: 'app 路由', link: 'next-2' },
+        { text: '数据fetch', link: 'next-3' },
+        { text: '渲染', link: 'next-4' },
+        { text: '缓存', link: 'next-5' },
+        { text: '优化', link: 'next-6' },
+        { text: '配置', link: 'next-7' },
+        { text: '部署', link: 'next-8' },
+        { text: '升级', link: 'next-9' }
       ]
+    }
+  ]
+}
+
+function sidebarAnimate(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Gsap',
+      collapsed: false,
+      items: [{ text: '线条跟随视差效果', link: 'gsap-1' }]
     },
-
     {
-      text: 'Animation',
+      text: 'FramerMotion',
       collapsed: false,
-      items: [
-        { text: '全屏滚动效果', link: 'snap-animate' },
-        { text: '线条跟随视差效果', link: 'line-animate' },
-        { text: 'tab切换效果', link: 'tab-animate' }
-      ]
+      items: [{ text: 'tab切换效果', link: 'fm-1' }]
+    },
+    {
+      text: 'CSS',
+      collapsed: false,
+      items: [{ text: '全屏滚动效果', link: 'css-1' }]
     }
   ]
 }
 
-function sidebarVue(): DefaultTheme.SidebarItem[] {
+function sidebarEditor(): DefaultTheme.SidebarItem[] {
   return [
-    { text: 'vue源码调试', link: 'debug' },
-    {
-      text: 'Vue设计与实现',
-      collapsed: false,
-      items: [
-        { text: '第一篇 框架设计概览', link: 'design' },
-        { text: '第二篇 响应系统', link: 'turbopack' },
-        { text: '第三篇 渲染器', link: 'turbopack' },
-        { text: '第四篇 组件化', link: 'turbopack' },
-        { text: '第五篇 编译器', link: 'parser' },
-        { text: '第六篇 服务端渲染', link: 'turbopack' }
-      ]
-    }
+    { text: 'slate', link: 'slate' },
+    { text: 'prosemirror', link: 'prosemirror' },
+    { text: 'tiptap', link: 'tiptap' }
   ]
 }
 
-function sidebarReact(): DefaultTheme.SidebarItem[] {
-  return [
-    { text: 'React源码调试', link: 'debug' },
-    {
-      text: 'React技术揭秘',
-      collapsed: false,
-      items: [
-        { text: '第一章React理念（理念篇）', link: 'idea' },
-        { text: '第二章前置知识（理念篇）', link: 'pre' },
-        { text: '第三章render阶段（架构篇）', link: 'render' },
-        { text: '第四章commit阶段（架构篇）', link: 'commit' },
-        { text: '第五章Diff算法（实现篇）', link: 'turbopack' },
-        { text: '第六章状态更新（实现篇）', link: 'turbopack' },
-        { text: '第七章Hooks（实现篇）', link: 'turbopack' },
-        { text: '第八章ConcurrentMode', link: 'turbopack' }
-      ]
-    }
-  ]
+function sidebarAi(): DefaultTheme.SidebarItem[] {
+  return [{ text: 'openAi', link: 'openAi' }]
 }
 
 function sidebarNest(): DefaultTheme.SidebarItem[] {
@@ -122,39 +145,7 @@ function sidebarNest(): DefaultTheme.SidebarItem[] {
     {
       text: 'Nest',
       collapsed: false,
-      items: [
-        { text: '1', link: 'turborepo' },
-        { text: '2', link: 'turbopack' }
-      ]
-    }
-  ]
-}
-
-function sidebarWrite(): DefaultTheme.SidebarItem[] {
-  return [
-    {
-      text: 'Write',
-      collapsed: false,
-      items: [
-        { text: '手写', link: 'write' },
-        { text: '算法', link: 'code' }
-      ]
-    },
-    {
-      text: '数组',
-      collapsed: false,
-      items: [
-        { text: '二分查找', link: 'write' },
-        { text: '移除元素', link: 'code' }
-      ]
-    },
-    {
-      text: '链表',
-      collapsed: false,
-      items: [
-        { text: '移除链表元素', link: 'write' },
-        { text: '设计链表', link: 'code' }
-      ]
+      items: [{ text: 'nest1', link: 'nest-1' }]
     }
   ]
 }
@@ -162,38 +153,25 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
 function sidebarDB(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'Prisma',
-      collapsed: false,
-      items: [
-        { text: '动画效果总结', link: 'animate' },
-        { text: 'Next14项目总结', link: 'project' }
-      ]
-    },
-    {
-      text: 'Mongodb',
-      collapsed: false,
-      items: [
-        { text: '动画效果总结', link: 'animate' },
-        { text: 'Next14项目总结', link: 'project' }
-      ]
-    },
-    {
       text: 'Mysql',
       collapsed: false,
-      items: [
-        { text: '全屏滚动效果', link: 'video' },
-        { text: '图片渐进式加载', link: 'video' },
-        { text: 'loading加载效果', link: 'video' }
-      ]
+      items: [{ text: 'mysql', link: 'mysql' }]
     }
   ]
 }
 
-function sidebarOther(): DefaultTheme.SidebarItem[] {
+function sidebarWrite(): DefaultTheme.SidebarItem[] {
   return [
-    { text: '聊聊 Next14', link: 'next14' },
-    { text: 'Next13 项目总结', link: 'next13' },
-    { text: '统一公司的项目规范', link: 'standard' },
-    { text: '思考vue3和react18的区别', link: 'compare' }
+    { text: '手写', link: 'write' },
+    { text: '算法', link: 'code' }
+  ]
+}
+
+function sidebarJuejin(): DefaultTheme.SidebarItem[] {
+  return [
+    { text: '聊聊 Next14', link: 'article-4' },
+    { text: 'Next13 项目总结', link: 'article-3' },
+    { text: '统一公司的项目规范', link: 'article-2' },
+    { text: '思考vue3和react18的区别', link: 'article-1' }
   ]
 }

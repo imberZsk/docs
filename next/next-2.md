@@ -1,3 +1,5 @@
+# app 路由
+
 ## layout
 
 如切换 `tab` 的时候，`layout` 不会重新渲染，会保留状态，而且可以 `layout` 嵌套，在 `rootLayout` 里不要使用客户端组件。

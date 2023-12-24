@@ -9,22 +9,22 @@ hero:
   actions:
     - theme: brand
       text: Vue
-      link: /vue/design
+      link: /vue/book-1
     - theme: brand
       text: React
-      link: /react/idea
+      link: /react/book-1
     - theme: brand
       text: Next
-      link: /next/practice
+      link: /next/next-1
     - theme: brand
       text: Nest
-      link: /nest/design
+      link: /nest/nest-1
 
 features:
-  - title: Vue/React
-    details: 熟悉 Vue/React 源码，有多个项目实践落地
-  - title: Next
-    details: 有多个 Next C端 项目架构经验，掌握 Next 全栈开发，掌握 C端 动画开发
+  - title: Vue、React、Next
+    details: 熟悉 Vue/React 源码； Next C端 项目架构经验；掌握 Next 全栈开发；掌握 C端 动画开发。
   - title: Nest
-    details: 有 Nest 服务端、BFF经验
+    details: Nest 服务端、BFF
+  - title: Tags
+    details: C端（电商、官网、社区、动画）、AI、协同编辑器、全栈
 ---
