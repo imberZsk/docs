@@ -72,7 +72,8 @@ function sidebarReact(): DefaultTheme.SidebarItem[] {
         { text: '第七章Hooks（实现篇）', link: 'book-7' },
         { text: '第八章ConcurrentMode', link: 'book-8' }
       ]
-    }
+    },
+    { text: 'React Hooks', link: 'hooks' }
   ]
 }
 
