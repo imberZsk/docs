@@ -42,6 +42,16 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
+      text: 'SWR',
+      collapsed: true,
+      items: [{ text: 'Using a Custom Theme', link: 'custom-theme' }]
+    },
+    {
+      text: 'Commerce',
+      collapsed: true,
+      items: [{ text: 'MPA Mode', link: 'mpa-mode' }]
+    },
+    {
       text: 'Nextjs',
       // collapsed: true,
       items: [
@@ -56,23 +66,14 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
         { text: '升级', link: 'styling' }
       ]
     },
-    {
-      text: 'SWR',
-      collapsed: false,
-      items: [{ text: 'Using a Custom Theme', link: 'custom-theme' }]
-    },
-    {
-      text: 'Commerce',
-      collapsed: false,
-      items: [{ text: 'MPA Mode', link: 'mpa-mode' }]
-    },
+
     {
       text: 'Animation',
-      collapsed: true,
+      collapsed: false,
       items: [
-        { text: '全屏滚动效果', link: 'video' },
-        { text: '图片渐进式加载', link: 'video' },
-        { text: 'loading加载效果', link: 'video' }
+        { text: '全屏滚动效果', link: 'snap-animate' },
+        { text: '线条跟随视差效果', link: 'line-animate' },
+        { text: 'tab切换效果', link: 'tab-animate' }
       ]
     }
   ]
