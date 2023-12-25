@@ -239,12 +239,13 @@ export default async function PostList() {
 
 可能不规则的 html 标签写法，如 p>div，或者数据水合出错
 
-```js
-const color = typeof window !== 'undefined' ? 'red' : 'blue'
+```jsx
+const text = typeof window !== 'undefined' ? '1' : '2'
 
-const [color, setColor] = useState < string > 'blue'
+const [text, setText] = useState('1')
+
 useEffect(() => {
-  setColor('red')
+  setText('2')
 }, [])
 ```
 
