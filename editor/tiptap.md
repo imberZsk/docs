@@ -1,5 +1,3 @@
-# 选择 tiptap 作为编辑框架的理由
-
 ## headless
 
 `tiptap` 支持自由控制页面样式，它自己本身没有样式只提供逻辑，比如自定义类
@@ -54,11 +52,11 @@ const editor = new Editor({
 
 3. 另外它属于商业开源库，有自己的公司和团队，有些 `pro` 插件和它的云看板需要收费。这些收费功能也可以自己开发。这种开源项目和 `WangEditor` 个人项目不同，会持续维护。
 
-## 易于集成
+## 使用已有插件
 
 比如一个分割线插件，只需要很少的步骤就可使用，可以在 [examples](https://tiptap.dev/docs/editor/examples/default) 找到大部分功能
 
-#### 下载和配置
+下载和配置
 
 ```js
 import HorizontalRule from './horizontalRule'
@@ -66,6 +64,7 @@ import HorizontalRule from './horizontalRule'
 const editor = useEditor({
   extensions: [HorizontalRule],
   content: '<p>Hello World! </p>',
+  // 可以传入编辑器里
   editorProps: {
     attributes: {
       class:
@@ -75,7 +74,7 @@ const editor = useEditor({
 })
 ```
 
-#### 使用
+使用
 
 ```jsx
 <button onClick={() => editor.chain().focus().setHorizontalRule().run()}>
@@ -97,9 +96,89 @@ run() 执行。
 className={editor.isActive('bold') ? 'is-active' : ''}
 ```
 
-## 易于拓展
+## 自定义插件
 
-写一个自定义的插件
+写一个自定义的插件，可以参考 https://tiptap.dev/docs/editor/guide/custom-extensions
+
+## read-only
+
+所见即所得，也可以自己写渲染代码
+
+```js
+import { EditorContent, useEditor } from '@tiptap/react'
+import StarterKit from '@tiptap/starter-kit'
+import React, { useEffect, useState } from 'react'
+
+export default () => {
+  const [editable, setEditable] = useState(false)
+  const editor = useEditor({
+    editable,
+    content: `
+        <p>
+          This text is <strong>read-only</strong>. No matter what you try, you are not able to edit something. Okay, if you toggle the checkbox above you’ll be able to edit the text.
+        </p>
+        <p>
+          If you want to check the state, you can call <code>editor.isEditable()</code>.
+        </p>
+      `,
+    extensions: [StarterKit]
+  })
+
+  useEffect(() => {
+    if (!editor) {
+      return undefined
+    }
+
+    editor.setEditable(editable)
+  }, [editor, editable])
+
+  if (!editor) {
+    return null
+  }
+
+  return (
+    <>
+      <div className="checkbox">
+        <input
+          type="checkbox"
+          id="editable"
+          value={editable}
+          onChange={(event) => setEditable(event.target.checked)}
+        />
+        <label htmlFor="editable">editable</label>
+      </div>
+      <EditorContent editor={editor} />
+    </>
+  )
+}
+```
+
+## 监听数据变化
+
+```js
+const editor = new Editor({
+  content: `<p>Example Content</p>`,
+
+  onUpdate: ({ editor }) => {
+    const json = editor.getJSON()
+  }
+})
+```
+
+## nodes、marks
+
+**nodes**：节点大部分是块级元素，如 `h1`，不同的 `JSON` 的 `type` 字段，文本是`"paragraph"`，`h1` 是`"heading"（attrs:level:）`，可以套娃
+
+![1-3](1-3.png)
+
+**marks**：可以将一个或多个标记应用于节点，例如添加粗体和斜体等内联格式或其他附加信息。就是一个标记，和 `type` 同级的，像 `props`，在 `content > marks` 里标记
+
+![Alt text](1-4.png)
+
+## 可参考资料
+
+- [novel](https://github.com/steven-tey/novel)，在线 [Demo](https://novel.sh/) 地址
+- [tittap template](https://github.com/ueberdosis/tiptap-templates)，在线 [Demo](https://templates.tiptap.dev/NTFHDfnbFd) 地址
 
 ## 一些思考
 
