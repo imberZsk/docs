@@ -156,7 +156,7 @@ function sidebarDB(): DefaultTheme.SidebarItem[] {
     {
       text: 'Mysql',
       collapsed: false,
-      items: [{ text: 'mysql', link: 'mysql' }]
+      items: [{ text: 'mysql + prisma', link: 'mysql' }]
     }
   ]
 }
