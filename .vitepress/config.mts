@@ -125,6 +125,11 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
       text: 'CSS',
       collapsed: false,
       items: [{ text: '全屏滚动效果', link: 'css-1' }]
+    },
+    {
+      text: 'Three',
+      collapsed: false,
+      items: [{ text: '3D模型', link: 'three-1' }]
     }
   ]
 }
@@ -138,7 +143,10 @@ function sidebarEditor(): DefaultTheme.SidebarItem[] {
 }
 
 function sidebarAi(): DefaultTheme.SidebarItem[] {
-  return [{ text: 'openAi', link: 'openAi' }]
+  return [
+    { text: 'openAi', link: 'openAi' },
+    { text: '通义千问', link: 'tongyi' }
+  ]
 }
 
 function sidebarNest(): DefaultTheme.SidebarItem[] {
