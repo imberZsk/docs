@@ -1,23 +1,4 @@
-## 扩展现有扩展
+## 思考要做一个什么样的编辑器
 
-```js
-// 1. Import the extension
-import BulletList from '@tiptap/extension-bullet-list'
-
-// 2. Overwrite the keyboard shortcuts
-const CustomBulletList = BulletList.extend({
-  addKeyboardShortcuts() {
-    return {
-      'Mod-l': () => this.editor.commands.toggleBulletList()
-    }
-  }
-})
-
-// 3. Add the custom extension to your editor
-new Editor({
-  extensions: [
-    CustomBulletList()
-    // …
-  ]
-})
-```
+1. 这个编辑器能不能复用，如发不到 npm 上，然后可以在别的项目里下载
+2. 是不是提供一个 demo 版本，然后功能都以插件包的形式

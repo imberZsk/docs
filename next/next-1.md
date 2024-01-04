@@ -387,3 +387,12 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 ```
+
+## title 插槽
+
+```js
+title: {
+    template: '%s | Acme Dashboard',
+    default: 'Acme Dashboard',
+  },
+```

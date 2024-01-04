@@ -6,7 +6,7 @@
 
 ![Alt text](1-2.jpg)
 
-配置插件 [@tiptap/starter-kit](https://tiptap.dev/docs/editor/api/extensions/starter-kit)
+通过配置插件 [@tiptap/starter-kit](https://tiptap.dev/docs/editor/api/extensions/starter-kit) `HTMLAttributes`，别的插件同理
 
 ```js
 import StarterKit from '@tiptap/starter-kit'
@@ -76,7 +76,7 @@ const editor = useEditor({
 
 使用
 
-```jsx
+```js
 <button onClick={() => editor.chain().focus().setHorizontalRule().run()}>
   horizontal rule
 </button>
@@ -179,6 +179,8 @@ const editor = new Editor({
 
 - [novel](https://github.com/steven-tey/novel)，在线 [Demo](https://novel.sh/) 地址
 - [tittap template](https://github.com/ueberdosis/tiptap-templates)，在线 [Demo](https://templates.tiptap.dev/NTFHDfnbFd) 地址
+- [BlockNote](https://github.com/TypeCellOS/BlockNote)
+- [think](https://github.com/fantasticit/think)
 
 ## 一些思考
 
