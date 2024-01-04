@@ -73,7 +73,8 @@ function sidebarReact(): DefaultTheme.SidebarItem[] {
         { text: '第八章ConcurrentMode', link: 'book-8' }
       ]
     },
-    { text: 'React Hooks', link: 'hooks' }
+    { text: 'React Hooks', link: 'hooks' },
+    { text: 'Formik', link: 'formik' }
   ]
 }
 
