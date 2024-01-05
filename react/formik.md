@@ -1,163 +1,130 @@
-## 巨 nice 的 react 表单
-
-```js
-import React from 'react'
-import { useFormik } from 'formik'
-
-const SignupForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      email: ''
-    },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
-    }
-  })
-  return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="email">Email Address</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-      />
-
-      <button type="submit">Submit</button>
-    </form>
-  )
-}
-```
-
 ## formik
 
 ```js
 import React from 'react'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
+import ReactDOM from 'react-dom'
+import { Formik, Form, useField } from 'formik'
+import * as Yup from 'yup'
 
-const Basic = () => (
-  <div>
-    <h1>Any place in your app!</h1>
-    <Formik
-      initialValues={{ email: '', password: '' }}
-      validate={(values) => {
-        const errors = {}
-        if (!values.email) {
-          errors.email = 'Required'
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address'
-        }
-        return errors
-      }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2))
-          setSubmitting(false)
-        }, 400)
-      }}
-    >
-      {({ isSubmitting }) => (
-        <Form>
-          <Field type="email" name="email" />
-          <ErrorMessage name="email" component="div" />
-          <Field type="password" name="password" />
-          <ErrorMessage name="password" component="div" />
-          <button type="submit" disabled={isSubmitting}>
-            Submit
-          </button>
-        </Form>
-      )}
-    </Formik>
-  </div>
-)
+const MyTextInput = ({ label, ...props }) => {
+  // meta用来显示错误信息
+  const [field, meta] = useField(props)
+  return (
+    <>
+      <label htmlFor={props.id || props.name}>{label}</label>
+      <input className="text-input" {...field} {...props} />
+      {meta.touched && meta.error ? (
+        <div className="error">{meta.error}</div>
+      ) : null}
+    </>
+  )
+}
 
-export default Basic
-```
+const MyCheckbox = ({ children, ...props }) => {
+  const [field, meta] = useField({ ...props, type: 'checkbox' })
+  return (
+    <div>
+      <label className="checkbox-input">
+        <input type="checkbox" {...field} {...props} />
+        {children}
+      </label>
+      {meta.touched && meta.error ? (
+        <div className="error">{meta.error}</div>
+      ) : null}
+    </div>
+  )
+}
 
-```js
-import React from 'react'
-import { useFormik } from 'formik'
-
-// A custom validation function. This must return an object
-// which keys are symmetrical to our values/initialValues
-const validate = (values) => {
-  const errors = {}
-  if (!values.firstName) {
-    errors.firstName = 'Required'
-  } else if (values.firstName.length > 15) {
-    errors.firstName = 'Must be 15 characters or less'
-  }
-
-  if (!values.lastName) {
-    errors.lastName = 'Required'
-  } else if (values.lastName.length > 20) {
-    errors.lastName = 'Must be 20 characters or less'
-  }
-
-  if (!values.email) {
-    errors.email = 'Required'
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address'
-  }
-
-  return errors
+const MySelect = ({ label, ...props }) => {
+  const [field, meta] = useField(props)
+  return (
+    <div>
+      <label htmlFor={props.id || props.name}>{label}</label>
+      <select {...field} {...props} />
+      {meta.touched && meta.error ? (
+        <div className="error">{meta.error}</div>
+      ) : null}
+    </div>
+  )
 }
 
 const SignupForm = () => {
-  // Pass the useFormik() hook initial form values, a validate function that will be called when
-  // form values change or fields are blurred, and a submit function that will
-  // be called when the form is submitted
-  const formik = useFormik({
-    initialValues: {
-      firstName: '',
-      lastName: '',
-      email: ''
-    },
-    validate,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
-    }
-  })
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="firstName">First Name</label>
-      <input
-        id="firstName"
-        name="firstName"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.firstName}
-      />
-      {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
+    <>
+      <h1>Subscribe!</h1>
+      <Formik
+        initialValues={{
+          firstName: '',
+          lastName: '',
+          email: '',
+          acceptedTerms: false, // added for our checkbox
+          jobType: '' // added for our select
+        }}
+        validationSchema={Yup.object({
+          firstName: Yup.string()
+            .max(15, 'Must be 15 characters or less')
+            .required('Required'),
+          lastName: Yup.string()
+            .max(20, 'Must be 20 characters or less')
+            .required('Required'),
+          email: Yup.string()
+            .email('Invalid email address')
+            .required('Required'),
+          acceptedTerms: Yup.boolean()
+            .required('Required')
+            .oneOf([true], 'You must accept the terms and conditions.'),
+          jobType: Yup.string()
+            .oneOf(
+              ['designer', 'development', 'product', 'other'],
+              'Invalid Job Type'
+            )
+            .required('Required')
+        })}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            alert(JSON.stringify(values, null, 2))
+            setSubmitting(false)
+          }, 400)
+        }}
+      >
+        <Form>
+          <MyTextInput
+            label="First Name"
+            name="firstName"
+            type="text"
+            placeholder="Jane"
+          />
 
-      <label htmlFor="lastName">Last Name</label>
-      <input
-        id="lastName"
-        name="lastName"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.lastName}
-      />
-      {formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
+          <MyTextInput
+            label="Last Name"
+            name="lastName"
+            type="text"
+            placeholder="Doe"
+          />
 
-      <label htmlFor="email">Email Address</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-      />
-      {formik.errors.email ? <div>{formik.errors.email}</div> : null}
+          <MyTextInput
+            label="Email Address"
+            name="email"
+            type="email"
+            placeholder="jane@formik.com"
+          />
 
-      <button type="submit">Submit</button>
-    </form>
+          <MySelect label="Job Type" name="jobType">
+            <option value="">Select a job type</option>
+            <option value="designer">Designer</option>
+            <option value="development">Developer</option>
+            <option value="product">Product Manager</option>
+            <option value="other">Other</option>
+          </MySelect>
+
+          <MyCheckbox name="acceptedTerms">
+            I accept the terms and conditions
+          </MyCheckbox>
+
+          <button type="submit">Submit</button>
+        </Form>
+      </Formik>
+    </>
   )
 }
 ```
-
-https://codesandbox.io/p/sandbox/formik-v2-tutorial-final-ge1pt
-官网很多 demo

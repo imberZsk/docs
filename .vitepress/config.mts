@@ -74,7 +74,9 @@ function sidebarReact(): DefaultTheme.SidebarItem[] {
       ]
     },
     { text: 'React Hooks', link: 'hooks' },
-    { text: 'Formik', link: 'formik' }
+    { text: 'Formik', link: 'formik' },
+    { text: 'Immer', link: 'immer' },
+    { text: 'amap', link: 'amap' }
   ]
 }
 
@@ -138,7 +140,6 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
 function sidebarEditor(): DefaultTheme.SidebarItem[] {
   return [
     { text: 'slate', link: 'slate' },
-    { text: 'prosemirror', link: 'prosemirror' },
     { text: 'tiptap', link: 'tiptap' }
   ]
 }
