@@ -76,7 +76,8 @@ function sidebarReact(): DefaultTheme.SidebarItem[] {
     { text: 'React Hooks', link: 'hooks' },
     { text: 'Formik', link: 'formik' },
     { text: 'Immer', link: 'immer' },
-    { text: 'amap', link: 'amap' }
+    { text: 'amap', link: 'amap' },
+    { text: 'components', link: 'components' }
   ]
 }
 
