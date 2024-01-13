@@ -1,4 +1,6 @@
-## formik
+## formik 和 yup 基础用法
+
+`pnpm i formik yup`
 
 ```js
 import React from 'react'
@@ -127,4 +129,24 @@ const SignupForm = () => {
     </>
   )
 }
+```
+
+## 用 helpers 组件内自定义修改数据
+
+```js
+function MyToggleBox({ children, ...props }) {
+  const [field, meta, helpers] = useField({ ...props })
+
+  const toggleIsDefault = useCallback(async () => {
+    await helpers.setValue(!field.value) // 反转 isDefault 的值
+  }, [field.value, helpers])
+
+  return ()
+}
+```
+
+## 在组件外修改 Formik 数据
+
+```js
+
 ```

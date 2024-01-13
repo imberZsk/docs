@@ -1,5 +1,7 @@
 ## useImmer
 
+`pnpm i use-immer`
+
 ```js
 const tar = arr.map(({ name, id }) => ({
   label: name,

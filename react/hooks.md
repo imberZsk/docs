@@ -6,71 +6,13 @@ useMemo 和 useCallback 都是接受函数和依赖数组两个参数；不同�
 
 它们使是用来做性能优化的，但是自身也有性能开销，滥用反而造成性能浪费，要知道它们怎么性能优化的，得先去知道 React.memo，它的浅比较让父组件更新子组件不用更新
 
-1、将一个函数作为 props 传递给子组件，如果这个函数每次渲染都会被重新创建，就会导致子组件每次都会被重新渲染，使用 useCallback 使该函数引用保持不变再结合 React.memo 减少子组件重复更新
+1、❤️ 将一个函数作为 props 传递给子组件，如果这个函数每次渲染都会被重新创建，就会导致子组件每次都会被重新渲染，使用 useCallback 使该函数引用保持不变再结合 React.memo 减少子组件重复更新
 
-```js
-import { memo, useCallback } from 'react'
-import Button from '@/comps/custom-button'
-import { useState } from 'react'
+2、❤️ 当使用自定义 hook 的时候，如果要返回函数，可以包一层 useCallback
 
-const UseCallbackAndUseMemo: React.FC = () => {
-  const [num, setNum] = useState(0)
+3、在使用 useEffect 的依赖项列表中，如果有函数，则需要先将函数使用 useCallback 进行包裹，这样可以保证依赖项变化时不会重新创建函数，从而避免不必要的副作用；
 
-  const fn1 = () => {
-    console.log('fn1')
-  }
-
-  const fn2 = useCallback(() => {
-    console.log('fn2')
-  }, [])
-
-  return (
-    <div>
-      <Button
-        click={() => {
-          // 父组件的状态更新，不影响子组件的时候，也就是说这个状态跟子组件没关系
-          setNum(num + 1)
-        }}
-      >
-        减少子组件重新渲染/优化自定义hook
-      </Button>
-      <Child fn={fn1}></Child>
-      <ChildWithUseCallback fn={fn2}></ChildWithUseCallback>
-      <h1>{num}</h1>
-    </div>
-  )
-}
-
-type IChildProps = {
-  fn: () => void
-}
-
-const Child: React.FC<IChildProps> = memo(({ fn }) => {
-  console.log('没有用useCallback，导致子组件重新更新')
-  return (
-    <div className="my-10">
-      <Button click={fn}>memo without useCallback</Button>
-    </div>
-  )
-})
-
-const ChildWithUseCallback: React.FC<IChildProps> = memo(({ fn }) => {
-  console.log('用了useCallback，子组件不用重新更新')
-  return (
-    <div className="my-10">
-      <Button click={fn}>memo with useCallback</Button>
-    </div>
-  )
-})
-
-export default UseCallbackAndUseMemo
-```
-
-2、在使用 useEffect 的依赖项列表中，如果有函数，则需要先将函数使用 useCallback 进行包裹，这样可以保证依赖项变化时不会重新创建函数，从而避免不必要的副作用；
-
-3、在使用 useMemo 的计算函数中，如果需要调用复杂的函数操作或者存在大量的计算，也可以使用 useCallback 提高性能；
-
-4、当使用自定义 hook 的时候，如果要返回函数，可以包一层 useCallback，看了 ahooks 的源码，其实情况挺少的
+4、在使用 useMemo 的计算函数中，如果需要调用复杂的函数操作或者存在大量的计算，也可以使用 useCallback 提高性能；
 
 ## useImperativeHandle
 
@@ -159,10 +101,6 @@ const UseContextAndUseReducer: React.FC = () => {
       <CountContext.Provider value={count}>
         <Child></Child>
       </CountContext.Provider>
-      <br />
-      <StateDemo></StateDemo>
-      <br />
-      <ReducerDemo></ReducerDemo>
     </div>
   )
 }
@@ -172,118 +110,6 @@ const Child: React.FC = () => {
   const count = useContext(CountContext)
   return <div>子组件收到数据共享：{count}</div>
 }
-
-// useState修改[{}]
-const StateDemo = () => {
-  const inputRef = useRef<HTMLInputElement>(null)
-
-  const [state, setState] = useState([
-    {
-      name: 'imber',
-      age: 18
-    },
-    {
-      name: 'ding',
-      age: 16
-    }
-  ])
-
-  // 如果用state管理数据需要每次解构一层，再在新的数据上处理后setState
-  const add = () => {
-    const obj = {
-      name: inputRef.current?.value || 'hello',
-      age: 10
-    }
-    const newState = [...state]
-    newState.push(obj)
-    setState(newState)
-  }
-
-  return (
-    <div>
-      state管理数据
-      <br />
-      <div>
-        <span onClick={add}> 新增：</span>{' '}
-        <input className="text-black" type="text" ref={inputRef} />
-      </div>
-      {state.map((item, index) => {
-        return (
-          <div className="flex" key={index}>
-            <br />
-            <div className="mr-10">name:{item.name}</div>
-            <div>age:{item.age}</div>
-          </div>
-        )
-      })}
-    </div>
-  )
-}
-
-// useReducer修改[{}]
-const ReducerDemo = () => {
-  const inputRef = useRef<HTMLInputElement>(null)
-
-  const initValue = [
-    {
-      name: 'imber',
-      age: 18
-    },
-    {
-      name: 'ding',
-      age: 16
-    }
-  ]
-
-  type Action = {
-    type: string
-    payload: {
-      name: string
-      age: number
-    }
-  }
-
-  const reducer = (state: typeof initValue, action: Action) => {
-    console.log(action)
-    switch (action.type) {
-      case 'add':
-        return [...state, action.payload]
-        break
-      default:
-        return state
-    }
-  }
-
-  const [state, dispatch] = useReducer(reducer, initValue)
-
-  const add = () => {
-    dispatch({
-      type: 'add',
-      payload: { name: inputRef.current?.value || '', age: 18 }
-    })
-  }
-
-  return (
-    <div>
-      reducer管理数据
-      <div>
-        <span onClick={add}> 新增：</span>{' '}
-        <input className="text-black" type="text" ref={inputRef} />
-      </div>
-      {state.map((item, index) => {
-        return (
-          <div className="flex" key={index}>
-            <br />
-            <div className="mr-10">name:{item.name}</div>
-            <div>age:{item.age}</div>
-          </div>
-        )
-      })}
-    </div>
-  )
-}
-
-export default UseContextAndUseReducer
 ```
 
 ## useLayoutEffect
@@ -320,37 +146,7 @@ export default UseLayoutEffect
 
 用于生成可以传递给可访问性属性的唯一 ID，但是不能用于列表渲染的 key
 
-使用服务器渲染，useId 要求服务器和客户端上具有相同的组件树。如果您在服务器上渲染的树和客户端不完全匹配，则生成的 ID 将不匹配
-
-```jsx
-import { useId } from 'react'
-
-function PasswordField() {
-  const passwordHintId = useId()
-  return (
-    <>
-      <label>
-        Password:
-        <input type="password" aria-describedby={passwordHintId} />
-      </label>
-      <p id={passwordHintId}>
-        The password should contain at least 18 characters
-      </p>
-    </>
-  )
-}
-
-export default function App() {
-  return (
-    <>
-      <h2>Choose password</h2>
-      <PasswordField />
-      <h2>Confirm password</h2>
-      <PasswordField />
-    </>
-  )
-}
-```
+暂不清楚实际场景
 
 ## useDebugValue
 

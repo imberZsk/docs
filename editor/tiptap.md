@@ -1,3 +1,9 @@
+## 编辑器技术选型
+
+可通过键盘上下左右切换 PPT
+
+<iframe src="https://editor-tiptap.netlify.app/1" width="100%" height="390px"></iframe>
+
 ## headless
 
 `tiptap` 支持自由控制页面样式，它自己本身没有样式只提供逻辑，比如自定义类

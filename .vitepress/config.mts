@@ -140,8 +140,8 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
 
 function sidebarEditor(): DefaultTheme.SidebarItem[] {
   return [
-    { text: 'slate', link: 'slate' },
-    { text: 'tiptap', link: 'tiptap' }
+    { text: 'tiptap', link: 'tiptap' },
+    { text: 'slate', link: 'slate' }
   ]
 }
 
