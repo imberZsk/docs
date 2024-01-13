@@ -1,4 +1,4 @@
-## formik 和 yup 基础用法
+## formik 和 yup
 
 `pnpm i formik yup`
 
@@ -139,6 +139,7 @@ function MyToggleBox({ children, ...props }) {
 
   const toggleIsDefault = useCallback(async () => {
     await helpers.setValue(!field.value) // 反转 isDefault 的值
+    // 有时候函数作为依赖，可能是用了useCallback，引用不会变化，同理useXXX也是
   }, [field.value, helpers])
 
   return ()
@@ -148,5 +149,11 @@ function MyToggleBox({ children, ...props }) {
 ## 在组件外修改 Formik 数据
 
 ```js
+const formRef = useRef(null)
 
+<Formik ref={formRef}></Formik>
+
+formRef.current.setValues((values) => {
+  return {}
+})
 ```

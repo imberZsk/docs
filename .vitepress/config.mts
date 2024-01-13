@@ -12,7 +12,7 @@ export default defineConfig({
       { text: 'React', link: '/react/book-1' },
       { text: 'Next', link: '/next/next-1' },
       { text: 'animate', link: '/animate/gsap-1' },
-      { text: 'editor', link: '/editor/slate' },
+      { text: 'editor', link: '/editor/tiptap' },
       { text: 'ai', link: '/ai/openAi' },
       { text: 'Nest', link: '/nest/nest-1' },
       { text: 'DB', link: '/db/mysql' },

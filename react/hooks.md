@@ -73,7 +73,7 @@ const MyInput = forwardRef(function FaHandleSon(props: MyInputProps, ref) {
 export default UseImperativeHandle
 ```
 
-## useContext 和 useReducer
+## useContext
 
 这两个 hooks 结合可以用于管理一些简单的状态（一般是[{}]形式的数据，很方便做增删改查），但是稍微复杂点的时候就不适用了，一般项目还是状态管理比较适用
 
@@ -83,7 +83,7 @@ useReducer 类似于 useState，功能类似 redux，适用于单个状态管理
 
 ```jsx
 import Button from '@/comps/custom-button'
-import { createContext, useContext, useReducer, useRef, useState } from 'react'
+import { createContext, useContext, useRef, useState } from 'react'
 
 // 创建context
 const CountContext = createContext(0)
@@ -111,6 +111,8 @@ const Child: React.FC = () => {
   return <div>子组件收到数据共享：{count}</div>
 }
 ```
+
+## useReducer
 
 ## useLayoutEffect
 
