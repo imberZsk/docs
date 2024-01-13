@@ -26,5 +26,5 @@ features:
   - title: Nest
     details: Nest 服务端、BFF
   - title: Tags
-    details: C端（电商、官网、社区、动画）、AI、协同编辑器、全栈
+    details: C端（电商、官网、社区、动画、H5营销活动）、AI、协同编辑器、全栈
 ---
