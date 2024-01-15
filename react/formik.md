@@ -71,6 +71,7 @@ const SignupForm = () => {
             .required('Required'),
           email: Yup.string()
             .email('Invalid email address')
+            .matches(/^[0-9]+$/, '手机号码只能包含数字')
             .required('Required'),
           acceptedTerms: Yup.boolean()
             .required('Required')
