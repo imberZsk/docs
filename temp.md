@@ -100,3 +100,13 @@ async function fn() {
 }
 fn()
 ```
+
+## 端口冲突
+
+```js
+sudo lsof -i :80
+```
+
+```js
+sudo kill <PID>
+```
