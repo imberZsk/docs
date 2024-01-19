@@ -424,6 +424,12 @@ NEXT_PUBLIC_BASE_URL=/api
 NEXT_PUBLIC_BASE_URL=https://xxx.com
 ```
 
+使用的时候
+
+```js
+process.enc.NEXT_PUBLIC_BASE_URL
+```
+
 ## 图片安全
 
 ```js

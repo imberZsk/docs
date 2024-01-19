@@ -57,8 +57,8 @@ const MyInput = forwardRef(function FaHandleSon(props: MyInputProps, ref) {
           inputRef.current?.scrollIntoView()
         }
       }
-    },
-    []
+    }
+    // []
   )
   return (
     <div className="py-10">
