@@ -396,3 +396,68 @@ title: {
     default: 'Acme Dashboard',
   },
 ```
+
+## 接口代理
+
+next.config.js
+
+```js
+async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://xxx.com/:path*' // 配置代理地址为 https://myplus-api.meizu.cn
+      }
+    ]
+  },
+```
+
+.env.development
+
+```js
+NEXT_PUBLIC_BASE_URL=/api
+```
+
+.env.production
+
+```js
+NEXT_PUBLIC_BASE_URL=https://xxx.com
+```
+
+## 图片安全
+
+```js
+images: {
+  remotePatterns: [
+    {
+      protocol: 'http',
+      hostname: 'xxx.com',
+      port: '',
+      pathname: '/xxx/**'
+    }
+  ]
+}
+```
+
+## 走 CDN 时打包不一致问题
+
+```js
+const { execSync } = require('node:child_process')
+
+generateBuildId: async () => {
+  try {
+    // 由于docker那边没有git,所以不能这样
+    const gitHash = execSync('git rev-parse HEAD').toString().trim()
+    return gitHash
+  } catch (error) {
+    console.error('获取Git提交哈希时发生错误:', error)
+    return null // 返回null或其他默认值作为构建ID
+  }
+}
+```
+
+## 页面 304 问题
+
+```js
+export const dynamic = 'force-dynamic'
+```

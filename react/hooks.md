@@ -191,6 +191,8 @@ function subscribe(callback: any) {
 
 降低更新的优先级，更新意味着视图渲染，所以当更新拥有不同优先级后，这意味着视图渲染拥有不同优先级
 
+在时间很长的时候有效果，要不然 loading 会闪现
+
 ```js
 const [isPending, startTransition] = useTransition()
 ```
