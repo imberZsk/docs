@@ -1,13 +1,16 @@
 ## Next14 主题切换最佳实践
 
+- 项目准备
 - 主题切换方案
 - 结合 tailwind 快速开发
-- 持久化缓存
-- 系统同步
-- 多标签同步
-- 解决闪屏问题/同时处理 CSP
+- 持久化缓存问题
+- 多标签同步问题
+- 系统主题同步优化
+- 解决闪屏问题
+- CSP 问题
 - 服务端和客户端渲染不一致问题
-- view-transition
+- antfu 大佬博客酷炫主题切换
+- 封装成一个好用的 hook
 
 ## 项目准备
 
@@ -342,7 +345,7 @@ const Button: React.FC = () => {
 export default Button
 ```
 
-## 解决闪屏问题/同时处理 CSP
+## 解决闪屏问题
 
 ![Alt text](6-5.gif)
 
@@ -387,7 +390,7 @@ export default function RootLayout({
 }
 ```
 
-在 `button.tsx` 里做兼容，服务端的时候初始状态 return 掉
+在 `button.tsx` 里做兼容，服务端的时候初始状态，通过函数懒执行可以只触发一次 useEffect
 
 ```jsx
 'use client'
@@ -405,19 +408,172 @@ const Button: React.FC = () => {
   }
 
   const [theme, setTheme] = useState(init)
+
+  // 之前的代码
 }
 
 export default Button
+```
+
+## CSP 问题
+
+![Alt text](image-5.png)
+
+问题：这个问题要设置了 [CSP](https://nextjs.org/docs/app/building-your-application/configuring/content-security-policy) 才会有的问题，C 端项目往往需要 `CSP` 策略还防止 `XSS`，而我们自己加入的脚本会和 `CSP` 策略冲突
+
+解决方案：设置自己写的脚本不受 `CSP` 限制
+
+```jsx
+import { headers } from 'next/headers'
+
+const nonce = headers().get('x-nonce') || ''
+
+
+<script
+  nonce={nonce}
+  async
+  dangerouslySetInnerHTML={{
+    __html: `
+      const item = localStorage.getItem('theme') || 'light';
+      document.documentElement.classList.toggle('dark', item === 'dark');
+      document.documentElement.classList.toggle('light', item === 'light');
+    `
+  }}
+></script>
 ```
 
 ## 服务端和客户端渲染不一致问题
 
 ![Alt text](image-4.png)
 
-问题：
+问题：由于初始值为 `light`，服务端渲染为为 `dark`，社区比较出名的`next-themes`也有这个问题
 
-解决方案：
+解决方案：目前看好像是[不可避免](https://react.dev/reference/react-dom/client/hydrateRoot#suppressing-unavoidable-hydration-mismatch-errors)的，所以学习 `react`官网说的抑制报错添加`suppressHydrationWarning`
 
-## view-transition
+![Alt text](image-6.png)
+
+```js
+<html lang="en" suppressHydrationWarning>
+  <body>
+    {/* 新增 */}
+    <script
+      nonce={nonce}
+      async
+      dangerouslySetInnerHTML={{
+        __html: `
+              const item = localStorage.getItem('theme') || 'light';
+              document.documentElement.classList.toggle('dark', item === 'dark');
+              document.documentElement.classList.toggle('light', item === 'light');
+            `
+      }}
+    ></script>
+    {children}
+  </body>
+</html>
+```
+
+## antfu 大佬博客酷炫主题切换
+
+![Alt text](6-7.gif)
+
+优化方案：`document.startViewTransition`这是一个新出的属性，可以在 antfu 大佬的博客上看到，目前由于兼容性问题，就不管了
 
 ## 封装成一个好用的 hook
+
+最后为了提高复用性，封装成一个`useTheme`的`hook`
+
+```jsx
+import { useEffect, useState } from 'react'
+
+const useTheme = () => {
+  const init = () => {
+    if (typeof window === 'undefined') {
+      return 'light'
+    }
+    const classList = document.documentElement.classList
+    return classList.contains('dark') ? 'dark' : 'light'
+  }
+
+  const [theme, setTheme] = useState(init)
+
+  // 初始化theme
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('theme') || 'light'
+    setTheme(storedTheme)
+  }, [])
+
+  // 当theme变化的时候切换html上的class属性
+  useEffect(() => {
+    const classList = document.documentElement.classList
+    classList.toggle('dark', theme === 'dark')
+    classList.toggle('light', theme === 'light')
+    // 变化操作
+  }, [theme])
+
+  // 监听storage事件，更新主题
+  useEffect(() => {
+    const handleStorageChange = (event: StorageEvent) => {
+      if (event.key === 'theme') {
+        setTheme(event.newValue || 'light')
+      }
+    }
+
+    window.addEventListener('storage', handleStorageChange)
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange)
+    }
+  }, [])
+
+  // 新增：监听系统切换事件，更新主题
+  useEffect(() => {
+    const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const handleSystemThemeChange = (event: MediaQueryListEvent) => {
+      const newTheme = event.matches ? 'dark' : 'light'
+      setTheme(newTheme)
+      localStorage.setItem('theme', newTheme) // 持久化缓存
+    }
+
+    mediaQueryList.addEventListener('change', handleSystemThemeChange)
+
+    return () => {
+      mediaQueryList.removeEventListener('change', handleSystemThemeChange)
+    }
+  }, [])
+
+  // 切换事件
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    setTheme(newTheme)
+    localStorage.setItem('theme', newTheme) // 持久化缓存
+  }
+
+  return { theme, toggleTheme }
+}
+
+export default useTheme
+```
+
+使用的时候引入一下
+
+```jsx
+'use client'
+
+import useTheme from './hook'
+
+const Button: React.FC = () => {
+  const { toggleTheme } = useTheme()
+
+  return (
+    <button
+      onClick={toggleTheme}
+      className="text-[#000000] dark:text-[#ffffff]"
+    >
+      切换主题
+    </button>
+  )
+}
+
+export default Button
+```
