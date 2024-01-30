@@ -181,6 +181,9 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
 
 function sidebarJuejin(): DefaultTheme.SidebarItem[] {
   return [
+    { text: 'SEO优化', link: 'article-7' },
+    { text: 'Next14主题切换最佳实践', link: 'article-6' },
+    { text: '响应式瀑布流', link: 'article-5' },
     { text: '聊聊 Next14', link: 'article-4' },
     { text: 'Next13 项目总结', link: 'article-3' },
     { text: '统一公司的项目规范', link: 'article-2' },
