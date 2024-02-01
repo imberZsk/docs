@@ -525,7 +525,7 @@ const useTheme = () => {
     }
   }, [])
 
-  // 新增：监听系统切换事件，更新主题
+  // 监听系统切换事件，更新主题
   useEffect(() => {
     const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
 
