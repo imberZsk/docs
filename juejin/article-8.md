@@ -346,108 +346,11 @@ useGSAP(() => {
 })
 ```
 
-## Framer Motion 实现（3）效果
-
-虽然 `Framer Motion` 写复杂有点有点复杂，但一些简单动画还是很香的 😊
-
-```js
-import Image from 'next/image'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useLayoutEffect, useRef, useState } from 'react'
-import type { Block1218 } from '../../type'
-
-export default function Section24(props: { data: Block1218 }) {
-  const { name, bg } = props.data
-
-  const targetRef = (useRef < HTMLDivElement) | (null > null)
-
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ['start start', 'end end']
-  })
-
-  const [target, setTarget] = useState('inset(0px 0px)')
-
-  useLayoutEffect(() => {
-    if (window.innerWidth && window.innerWidth < 1480) {
-      setTarget(`inset(${240}px ${380}px)`)
-      return
-    }
-    setTarget(`inset(${450}px ${890}px)`)
-
-    const resizeHandle = () => {
-      if (window.innerWidth && window.innerWidth < 1480) {
-        setTarget(`inset(${250}px ${446}px)`)
-        return
-      }
-      setTarget(`inset(${450}px ${890}px)`)
-    }
-
-    window.addEventListener('resize', resizeHandle)
-
-    return () => {
-      window.removeEventListener('resize', resizeHandle)
-    }
-  }, [])
-
-  const inset = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [target, 'inset(0px 0px)']
-  )
-
-  const color = useTransform(scrollYProgress, [0, 1], ['#000000', '#ffffff'])
-
-  const position = useTransform(scrollYProgress, (pos) => {
-    if (pos === 0) return 'relative'
-    return pos >= 1 ? 'relative' : 'fixed'
-  })
-
-  // pin完之后transition到最后
-  const y = useTransform(scrollYProgress, (pos) => {
-    if (pos === 1) return '2000px'
-  })
-
-  return (
-    <motion.section
-      className="section24 relative h-[calc(100vh_+_2000px)] min-h-[1000px] pb-[2000px]"
-      ref={targetRef}
-    >
-      <motion.div
-        className="relative left-0 top-0 flex h-screen w-screen bg-white"
-        style={{ position, y }}
-      >
-        <motion.div
-          className="absolute left-[50%] top-[6vw] z-[2] mb-[84px] translate-x-[-50%] text-center text-[42px] font-bold leading-[1.4] text-black"
-          style={{ color }}
-        >
-          {name.split('$').map((item, index) => {
-            return (
-              <p className="whitespace-nowrap" key={index}>
-                {item}
-              </p>
-            )
-          })}
-        </motion.div>
-        <motion.div
-          className="m-auto h-full w-full overflow-hidden"
-          style={{ clipPath: inset }}
-        >
-          <Image
-            alt=""
-            className="h-full w-full object-cover"
-            height={5120}
-            src={bg}
-            width={5120}
-          ></Image>
-        </motion.div>
-      </motion.div>
-    </motion.section>
-  )
-}
-```
-
 ![Alt text](a-5.gif)
+
+## GSAP 控制线条
+
+## GSAP 控制视频
 
 ## 浅谈原理
 

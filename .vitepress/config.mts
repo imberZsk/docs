@@ -181,7 +181,8 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
 
 function sidebarJuejin(): DefaultTheme.SidebarItem[] {
   return [
-    { text: '复杂 Web 动画开发', link: 'article-8' },
+    { text: '复杂 Web 动画开发(FramerMotion)', link: 'article-9' },
+    { text: '复杂 Web 动画开发(GSAP)', link: 'article-8' },
     { text: 'SEO优化', link: 'article-7' },
     { text: 'Next14主题切换最佳实践', link: 'article-6' },
     { text: '响应式瀑布流', link: 'article-5' },
