@@ -1,3 +1,7 @@
+## 学习思想
+
+实现方法可能有很多种，学习思想尤其重要
+
 ## 调试仓库
 
 [https://github.com/imberZsk/demo/tree/main/react-debugger](https://github.com/imberZsk/demo/tree/main/react-debugger)

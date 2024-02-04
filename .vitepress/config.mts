@@ -12,8 +12,8 @@ export default defineConfig({
       { text: 'React', link: '/react/book-1' },
       { text: 'Next', link: '/next/next-1' },
       { text: 'animate', link: '/animate/gsap-1' },
-      { text: 'editor', link: '/editor/tiptap' },
-      { text: 'ai', link: '/ai/openAi' },
+      // { text: 'editor', link: '/editor/tiptap' },
+      // { text: 'ai', link: '/ai/openAi' },
       { text: 'Nest', link: '/nest/nest-1' },
       { text: 'DB', link: '/db/mysql' },
       { text: 'Write', link: '/write/write' },
@@ -26,8 +26,8 @@ export default defineConfig({
       '/react/': { base: '/react/', items: sidebarReact() },
       '/next/': { base: '/next/', items: sidebarNext() },
       '/animate/': { base: '/animate/', items: sidebarAnimate() },
-      '/editor/': { base: '/editor/', items: sidebarEditor() },
-      '/ai/': { base: '/ai/', items: sidebarAi() },
+      // '/editor/': { base: '/editor/', items: sidebarEditor() },
+      // '/ai/': { base: '/ai/', items: sidebarAi() },
       '/nest/': { base: '/nest/', items: sidebarNest() },
       '/db/': { base: '/db/', items: sidebarDB() },
       '/write/': { base: '/write/', items: sidebarWrite() },
@@ -138,19 +138,19 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-function sidebarEditor(): DefaultTheme.SidebarItem[] {
-  return [
-    { text: 'tiptap', link: 'tiptap' },
-    { text: 'slate', link: 'slate' }
-  ]
-}
+// function sidebarEditor(): DefaultTheme.SidebarItem[] {
+//   return [
+//     { text: 'tiptap', link: 'tiptap' },
+//     { text: 'slate', link: 'slate' }
+//   ]
+// }
 
-function sidebarAi(): DefaultTheme.SidebarItem[] {
-  return [
-    { text: 'openAi', link: 'openAi' },
-    { text: '通义千问', link: 'tongyi' }
-  ]
-}
+// function sidebarAi(): DefaultTheme.SidebarItem[] {
+//   return [
+//     { text: 'openAi', link: 'openAi' },
+//     { text: '通义千问', link: 'tongyi' }
+//   ]
+// }
 
 function sidebarNest(): DefaultTheme.SidebarItem[] {
   return [
@@ -181,7 +181,7 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
 
 function sidebarJuejin(): DefaultTheme.SidebarItem[] {
   return [
-    { text: '复杂 Web 动画开发(FramerMotion)', link: 'article-9' },
+    { text: '复杂 Web 动画开发(Motion)', link: 'article-9' },
     { text: '复杂 Web 动画开发(GSAP)', link: 'article-8' },
     { text: 'SEO优化', link: 'article-7' },
     { text: 'Next14主题切换最佳实践', link: 'article-6' },
