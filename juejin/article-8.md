@@ -103,6 +103,89 @@ export const useFadeIn = ({
 }
 ```
 
+## 依次入场效果
+
+![Alt text](a-7.gif)
+
+主要是`stagger`属性做依次动画
+
+```jsx
+import Image from 'next/image'
+import { gsap } from 'gsap'
+import type { Block1218 } from '../../type'
+import { useFadeIn, useIsomorphicLayoutEffect } from '../../hooks'
+
+export default function Section8(props: { data: Block1218 }) {
+  const { data } = props
+
+  useFadeIn({ target: '.section8', item: '.section8-title' })
+
+  useGSAP(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.section8-wrapper',
+          start: '0% 80%',
+          end: '0% 80%',
+          toggleActions: 'play none reverse none'
+        }
+      })
+
+      .from('.section8-item', {
+        x: 200,
+        opacity: 0,
+        scale: 0.5,
+        stagger: 0.1,
+        ease: 'back.out(1.7)'
+      })
+  })
+  const map = {
+    0: 'mr-[67px]',
+    1: 'mr-[59px]',
+    2: 'mr-[43px]'
+  }
+  return (
+    <section className="section8 relative h-[1400px] w-screen overflow-hidden text-center text-white">
+      <Image
+        alt=""
+        className="absolute left-0 top-0 z-[-1] h-full w-full object-cover"
+        height={5120}
+        src={data.bg}
+        width={5120}
+      />
+      <div className="mx-auto w-fit">
+        <div className="section8-title">
+          <div className="m-auto !mb-[40px] text-[60px] font-bold">
+            {data.name}
+          </div>
+          <div className="mb-[120px] text-[20px] font-bold leading-[36px]">
+            {data.tex.split('$').map((item, index) => {
+              return <p key={index}>{item}</p>
+            })}
+          </div>
+        </div>
+      </div>
+      <div className="section8-wrapper absolute bottom-[133px] left-[50%] flex w-[1200px] translate-x-[-50%] pl-[280px]">
+        {data.node.map((item, index) => {
+          return (
+            <div
+              className={`section8-item text-left ${map[index]}`}
+              key={index}
+            >
+              <div className="text-[24px] font-bold text-[373737]">
+                {' '}
+                {item.title}
+              </div>
+              <div className="text-[14px] font-bold"> {item.desc}</div>
+            </div>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
+```
+
 ## 跟随鼠标滚动动画（1）
 
 ![Alt text](a-1.gif)
