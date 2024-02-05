@@ -398,3 +398,21 @@ export default function Section24(props: { data: Block1218 }) {
   )
 }
 ```
+
+## 弹窗效果
+
+`https://codesandbox.io/p/sandbox/app-store-ui-using-react-and-framer-motion-ecgc2?file=%2Fsrc%2FCard%2Fanimations.ts`
+
+## 控制视频播放
+
+`https://www.framer.com/motion/scroll-function/##element-scroll-progress`
+
+## 控制线条
+
+`https://www.framer.com/motion/scroll-animations/##spring-smoothing`
+
+## 手风琴效果
+
+`https://codesandbox.io/s/framer-motion-accordion-qx958`
+
+## 卡片效果

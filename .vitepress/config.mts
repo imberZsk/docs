@@ -181,6 +181,7 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
 
 function sidebarJuejin(): DefaultTheme.SidebarItem[] {
   return [
+    { text: '🚀🚀 手摸手开发一个很 🔥 的卡片效果', link: 'article-14' },
     { text: '复杂 Web 动画开发(Motion)', link: 'article-9' },
     { text: '复杂 Web 动画开发(GSAP)', link: 'article-8' },
     { text: 'SEO优化', link: 'article-7' },

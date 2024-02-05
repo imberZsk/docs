@@ -1,4 +1,4 @@
-#### 初始化项目
+## 初始化项目
 
 - vscode 里下好插件：eslint，prettier，stylelint
 
@@ -8,13 +8,13 @@
 
 - 后面有可能遇到 ts 类型错误，可以提前安装一个`pnpm i @types/node -D`
 
-#### 配置 npm 使用淘宝镜像
+## 配置 npm 使用淘宝镜像
 
 - 配置`npmrc`
 
       registry = "https://registry.npmmirror.com/"
 
-#### 配置 node 版本限制提示
+## 配置 node 版本限制提示
 
 - package.json 中配置
 
@@ -24,7 +24,7 @@
   },
   ```
 
-#### 配置 eslint 检查代码规范
+## 配置 eslint 检查代码规范
 
 > eslint 处理代码规范,prettier 处理代码风格
 > eslint 选择只检查错误不处理风格，这样 eslint 就不会和 prettier 冲突
@@ -99,7 +99,7 @@
   },
   ```
 
-#### 配置 prettier 检查代码风格
+## 配置 prettier 检查代码风格
 
 > prettier 格式化风格，因为使用 tailwind，使用 tailwind 官方插件
 
@@ -147,7 +147,7 @@
   npx prettier --write .//使用Prettier格式化所有文件
   ```
 
-#### 配置 husky 使用 git hook
+## 配置 husky 使用 git hook
 
 > 记得要初始化一个 git 仓库，husky 能执行 git hook，在 commit 的时候对文件进行操作
 
@@ -161,7 +161,7 @@
 
   `npx husky add .husky/pre-commit "npm run lint-staged"`，pre-commit 使用 lint-staged
 
-#### 配置 commitlint 检查提交信息
+## 配置 commitlint 检查提交信息
 
 > 提交规范参考：<https://www.conventionalcommits.org/en/v1.0.0/>
 
@@ -171,7 +171,7 @@
 
       { extends: ['@commitlint/config-conventional'] }
 
-#### 配置 lint-staged 增量式检查
+## 配置 lint-staged 增量式检查
 
 - 安装`pnpm i -D lint-staged `
 
@@ -196,7 +196,7 @@
   }
   ```
 
-#### 配置 vite（代理/别名/drop console 等）
+## 配置 vite（代理/别名/drop console 等）
 
 > 如果有兼容性考虑，需要使用 legacy 插件，vite 也有 vscode 插件，也可以下载使用
 
@@ -283,7 +283,7 @@
 
 - 如果想删除 console，可以按`h`去 help 帮助，再按`c`就可以 clear console
 
-#### 配置 tsconfig
+## 配置 tsconfig
 
 - tsconfig.json 需要支持别名
 
@@ -315,7 +315,7 @@
   }
   ```
 
-#### 配置 router
+## 配置 router
 
 - 安装：`pnpm i react-router-dom`
 
@@ -347,7 +347,7 @@
   )
   ```
 
-#### 配置 zustand 状态管理
+## 配置 zustand 状态管理
 
 - 安装`pnpm i zustand `
 
@@ -395,12 +395,12 @@
   export default ZustandDemo
   ```
 
-#### 配置 antd
+## 配置 antd
 
 - 新版本的 antd，直接下载就可以用，如果用到它的图片再单独下载`pnpm i antd`
 - 注意 antd5 版本的 css 兼容性不好，如果项目有兼容性要求，需要去单独配置
 
-#### 配置 Tailwind css
+## 配置 Tailwind css
 
 `pnpm i tailwindcss autoprefixer postcss `
 
@@ -461,7 +461,7 @@ module.exports = {
 }
 ```
 
-#### 封装 fetch 请求
+## 封装 fetch 请求
 
 > 这个封装仅供参考，TS 类型有点小问题
 
@@ -665,7 +665,7 @@ export { request, Request }
 
 ```
 
-#### 如果用 axios 请求
+## 如果用 axios 请求
 
 request.ts
 
@@ -812,7 +812,7 @@ export type ReqTitle = {
 }
 ```
 
-#### 配置 mobx（可不用）
+## 配置 mobx（可不用）
 
 - 安装`pnpm i mobx mobx-react-lite`
 
@@ -850,7 +850,7 @@ export type ReqTitle = {
   export default observer(Home)
   ```
 
-#### 配置 changelog（可不用）
+## 配置 changelog（可不用）
 
 `pnpm i conventional-changelog-cli -D`
 
@@ -864,7 +864,7 @@ export type ReqTitle = {
 }
 ```
 
-#### 配置 editorConfig 统一编辑器（可不用）
+## 配置 editorConfig 统一编辑器（可不用）
 
 > editorConfig，可以同步编辑器差异，其实大部分工作 prettier 做了，需要下载 editorConfig vscode 插件
 > 有编辑器差异的才配置一下，如果团队都是 vscode 就没必要了
@@ -884,7 +884,7 @@ export type ReqTitle = {
       #换行符lf
       end_of_line = lf
 
-#### 配置 stylelint 检查 CSS 规范（可不用）
+## 配置 stylelint 检查 CSS 规范（可不用）
 
 > stylelint 处理 css 更专业,但是用了 tailwind 之后用处不大了
 
@@ -917,9 +917,9 @@ export type ReqTitle = {
   npx stylelint "**/*.css" --fix//格式化所有css,自动修复css
   ```
 
-#### 下面是 h5 项目（可不用）
+## 下面是 h5 项目（可不用）
 
-#### 配置`vconsole`（h5）
+## 配置`vconsole`（h5）
 
 - 安装`pnpm i vconsole -D`
 
@@ -930,12 +930,12 @@ export type ReqTitle = {
   new VConsole({ theme: 'dark' })
   ```
 
-#### antd 换成 mobile antd（h5）
+## antd 换成 mobile antd（h5）
 
 - `pnpm remove antd`
 - `pnpm add antd-mobile`
 
-#### 配置 postcss-px-to-viewport（废弃）
+## 配置 postcss-px-to-viewport（废弃）
 
 - 把蓝湖设计稿尺寸固定为 1000px(100px 我试过蓝湖直接白屏了)，然后你点出来的值比如是 77px，那你只需要写 7.7vw 就实现了自适应布局，就不再需要这个插件了
 
