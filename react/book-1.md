@@ -24,7 +24,7 @@ React15 的架构可以分为两层，`Reconciler`（协调器）负责找出变
 
 React16 架构可以分为三层
 
-`Scheduler`（调度器）负责调度任务的优先级，高优先级优先进入 Reconciler，用 scheduler 代替 requestIdleCallback
+`Scheduler`（调度器）负责调度任务的优先级，高优先级优先进入 `Reconciler`，用 `scheduler` 代替 `requestIdleCallback`
 
 `Reconciler`（协调器）负责找出变化的组件，更新工作从递归变成了可以中断的 while 循环，每次循环都会调用 shouldYield 判断当前是否有剩余时间；Reconciler 和 Renderer 不再是交替工作，Reconcile 会为虚拟 DOM 打上增/删/更新的标记，都在内存中运行，只有所有组件都完成 Reconciler，才会统一交给 Renderer
 
@@ -69,18 +69,33 @@ React15 的 Reconciler 采用递归的方式执行，数据保存在递归数据
 
 每个 Fiber 节点保留了本次更新中该组件改变的状态、要执行的工作（需要被删除/被插入到页面/被更新）
 
-```js
-111
-```
-
 ## Fiber 架构的工作原理
 
 双缓存：内存中构建并直接替换的技术
 
-双缓冲 Fiber 树，workInProgress 和 Current 交替，通过 alternate 连接
+双缓冲 Fiber 树，`workInProgress` 和 `Current` 交替，通过 `alternate` 连接
 
-mount 时
+#### mount 时
 
-update 时
+创建 `fiberRootNode` 和 `rootFiber`，其中 fiberRoot 时整个应用的根节点只有一个，rootFiber 时`<App/>`所在组件树的根节点，多次 `ReactDOM.render`
+渲染不同组件树，会拥有不同的`rootFiber`，刚开始由于时首屏渲染，页面中没有挂载任何`DOM`，所以`fiberRootNode.current`指向 `rootFiber`且后面没任何节点
+
+然后时 render 阶段，在内存中依次创建 fiber 节点并连接在一起构建 fiber 树，也就是 `workInProgress Fiber` 树，会尝试复用 `current Fiber` 树，在首屏渲染时只有 `rootFiber` 存在对应的 `current fiber`
+
+然后到了 `commit` 阶段，构建完的 `workInProgress Fiber`渲染到页面，然后`fiberRootNode`的`current`指向`workInProgress Fiber`,变为`current Fiber`树
+
+#### update 时
+
+点击加一时，开启一次新的 `render` 阶段并构建一颗新的`workInProgress Fiber`树，也复用 `current fiber` 树对应数据(是否复用取决于 diff)，然后 commit 阶段渲染到页面，`workInProgress`变为`current`
 
 ## 总结
+
+新老 React 架构有什么区别？老的 React 架构只有两层也就是协调器找出变化和渲染器将变化的部分渲染到页面，而新的架构多了一层 `Scheduler` 调度器，协调器找出变化后首先走调度器，看是否有时间执行，再走渲染器渲染到页面
+
+为什么需要 fiber？由于老的 `stack reconciler` 是递归不可中断的更新，在组件树较大时可能会造成卡顿，为了解决这个问题，React 用 `fiber` 实现了异步可打断更新，解决卡顿问题
+
+fiber 的理解？作为架构来说是 `fiber reconciler` 一种新架构，作为静态数据结构来说，每个 fiber 对应了一个 `React Element`，保存了节点信息，作为动态工作单元来说，每个 fiber 节点保留了本次更新中组件改变的状态，要执行的工作
+
+fiber 存了哪些信息举例？比如静态数据结构 `tag，key，type`，用于连接其它节点生成 fiber 树的 `return sibling child`，作为动态工作单元的 `memoizedProps，updateQueue，memoizedState`，还有调度相关的 `lanes，alternate` 等
+
+fiber 工作原理？
