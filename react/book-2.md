@@ -69,3 +69,16 @@ const ReactElement = function (type, key, ref, self, source, owner, props) {
 所以，在组件 mount 时，`Reconciler 根据 JSX 描述的组件内容生成组件对应的 Fiber 节点`。
 
 在 `update 时，Reconciler 将 JSX 与 Fiber 节点保存的数据对比，生成组件对应的 Fiber 节点，并根据对比结果为 Fiber 节点打上标记`
+
+## 总结
+
+#### 说一下对 JSX 的理解？
+
+`React` 认为逻辑和 `UI` 是密切相关的，React 的核心思想是将界面拆分为可重用的组件，每个组件都包含了自己的逻辑和 UI
+
+`JSX` 是对 `JS` 语法对拓展，它是需要被 `babel` 编译后使用的，通过 `bable/plugin-transform-react-jsx` 编译成 `React.createElement`（也可以显示编译成别的）
+
+源码中 `React.createElement` 最终会调用 `ReactElement` 方法返回一个包含组件数据的对象，这个对象是个 `React Element`
+使用了 `JSX` 其实性能不如 `Vue` 的模版语法，因为 `JSX` 非常灵活，无法做静态编译优化，而 `template` 限制了只能写的东西，所以能静态优化
+
+![Alt text](image.png)
