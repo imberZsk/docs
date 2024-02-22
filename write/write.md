@@ -170,3 +170,11 @@ function throttle(fn, time) {
 ## 版本号排序
 
 ## 柯里化
+
+## 响应式
+
+## 推拽
+
+## 字符串全排列
+
+## promise
