@@ -137,3 +137,27 @@ docs
 #### 学境
 
 空闲看看
+
+## git
+
+删除和同步远程被删除的分支
+git push origin --delete
+git remote prune origin
+
+删除远程 tag 和本地 tag
+git push origin --delete v1.0.0
+git tag -d v1.0.0
+
+## 数字效果
+
+```js
+t1.from(
+  '.num2',
+  {
+    textContent: 0,
+    duration: 1,
+    roundProps: 'textContent' // 将属性值舍入为整数
+  },
+  'spin'
+)
+```
