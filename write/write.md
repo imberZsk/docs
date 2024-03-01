@@ -178,3 +178,28 @@ function throttle(fn, time) {
 ## 字符串全排列
 
 ## promise
+
+## useLatest
+
+```js
+const [count, setCount] = useState(1)
+
+const useLatest = (value) => {
+  const tarRef = useRef(value)
+  console.log('first')
+  tarRef.current = value
+  return tarRef
+}
+
+const target = useLatest(count)
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCount(target.current + 1)
+    console.log(target.current) /// 1
+  }, 1000)
+  return () => {
+    clearInterval(interval)
+  }
+}, [])
+```
