@@ -161,3 +161,7 @@ t1.from(
   'spin'
 )
 ```
+
+## vscode 重制命令面板
+
+View: Reset View Locations
