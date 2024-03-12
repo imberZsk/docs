@@ -12,7 +12,7 @@ export default defineConfig({
       { text: 'React', link: '/react/book-1' },
       { text: 'Next', link: '/next/next-1' },
       { text: 'animate', link: '/animate/gsap-1' },
-      // { text: 'editor', link: '/editor/tiptap' },
+      { text: 'editor', link: '/editor/tiptap' },
       // { text: 'ai', link: '/ai/openAi' },
       { text: 'Nest', link: '/nest/nest-1' },
       { text: 'DB', link: '/db/mysql' },
@@ -26,7 +26,7 @@ export default defineConfig({
       '/react/': { base: '/react/', items: sidebarReact() },
       '/next/': { base: '/next/', items: sidebarNext() },
       '/animate/': { base: '/animate/', items: sidebarAnimate() },
-      // '/editor/': { base: '/editor/', items: sidebarEditor() },
+      '/editor/': { base: '/editor/', items: sidebarEditor() },
       // '/ai/': { base: '/ai/', items: sidebarAi() },
       '/nest/': { base: '/nest/', items: sidebarNest() },
       '/db/': { base: '/db/', items: sidebarDB() },
@@ -138,12 +138,13 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-// function sidebarEditor(): DefaultTheme.SidebarItem[] {
-//   return [
-//     { text: 'tiptap', link: 'tiptap' },
-//     { text: 'slate', link: 'slate' }
-//   ]
-// }
+function sidebarEditor(): DefaultTheme.SidebarItem[] {
+  return [
+    { text: 'tiptap', link: 'tiptap' },
+    { text: 'slate', link: 'slate' },
+    { text: 'standard', link: 'standard' }
+  ]
+}
 
 // function sidebarAi(): DefaultTheme.SidebarItem[] {
 //   return [
