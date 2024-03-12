@@ -247,3 +247,31 @@ function reverseLinkedList(head) {
   return prev
 }
 ```
+
+## 版本号排序
+
+```js
+function compareVersion(version1, version2) {
+  const v1 = version1.split('.')
+  const v2 = version2.split('.')
+
+  const length = Math.max(v1.length, v2.length)
+
+  for (let i = 0; i < length; i++) {
+    const num1 = parseInt(v1[i] || 0)
+    const num2 = parseInt(v2[i] || 0)
+
+    if (num1 !== num2) {
+      return num1 - num2
+    }
+  }
+
+  return 0
+}
+
+function sortVersions(versions) {
+  return versions.sort(compareVersion)
+}
+
+console.log(sortVersions(['0.1.2', '0.2.1', '0.0.1', '2.0.0', '1.0.221']))
+```
