@@ -46,6 +46,13 @@ model Post {
 npx prisma migrate dev --name init
 ```
 
+## 定义数据模型
+
+数据模型需要与数据库保持一致。有两种方式使其保持一致：
+
+- 手动修改数据模型，然后运行 `npx prisma migrate dev`修改数据库，使其保持一致
+- 手动修改数据库，然后运行 `npx prisma db pull` 修改数据模型，使其保持一致
+
 ## RSC 里查询数据
 
 ```js
