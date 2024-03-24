@@ -7,18 +7,18 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Vue', link: '/vue/book-1' },
-      { text: 'React', link: '/react/book-1' },
-      { text: 'Next', link: '/next/next-1' },
-      { text: 'animate', link: '/animate/gsap-1' },
-      { text: 'editor', link: '/editor/tiptap' },
+      { text: 'Home', link: '/' }
+      // { text: 'editor', link: '/editor/tiptap' },
+      // { text: 'Next', link: '/next/next-1' },
+      // { text: 'animate', link: '/animate/gsap-1' },
+      // { text: 'DB', link: '/db/mysql' },
+      // { text: 'Vue', link: '/vue/book-1' },
+      // { text: 'React', link: '/react/book-1' },
       // { text: 'ai', link: '/ai/openAi' },
-      { text: 'Nest', link: '/nest/nest-1' },
-      { text: 'DB', link: '/db/mysql' },
-      { text: 'Write', link: '/write/write' },
-      { text: 'Juejin', link: '/juejin/article-1' },
-      { text: 'Blog', link: 'https://imber-blog.netlify.app/' }
+      // { text: 'Nest', link: '/nest/nest-1' },
+      // { text: 'Write', link: '/write/write' },
+      // { text: 'Juejin', link: '/juejin/article-1' },
+      // { text: 'Blog', link: 'https://imber-blog.netlify.app/' }
     ],
 
     sidebar: {
