@@ -7,8 +7,8 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' }
-      // { text: 'editor', link: '/editor/tiptap' },
+      { text: 'Home', link: '/' },
+      { text: 'editor', link: '/editor/tiptap' }
       // { text: 'Next', link: '/next/next-1' },
       // { text: 'animate', link: '/animate/gsap-1' },
       // { text: 'DB', link: '/db/mysql' },
@@ -140,9 +140,14 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
 
 function sidebarEditor(): DefaultTheme.SidebarItem[] {
   return [
-    { text: 'tiptap', link: 'tiptap' },
-    { text: 'slate', link: 'slate' },
-    { text: 'standard', link: 'standard' }
+    { text: '编辑器技术选型', link: 'select' },
+    { text: 'tiptap简介', link: 'tiptap' },
+    { text: 'tiptap-nextjs初始化', link: 'project-standard' },
+    { text: 'tiptap mvp版本', link: 'mvp' },
+    { text: 'tiptap 插件开发', link: 'tiptap-plugin' },
+    { text: '定制化 AI 插件 🔥', link: 'ai' },
+    { text: '相关功能', link: 'other' }
+    // { text: 'slate', link: 'slate' },
   ]
 }
 

@@ -1,8 +1,10 @@
-## 编辑器技术选型
+> 认识 tiptap，它的 headless，大量的官方 demo/extensions 等
 
-可通过键盘上下左右切换 PPT
+## why tiptap？
 
-<iframe src="https://editor-tiptap.netlify.app/1" width="100%" height="390px"></iframe>
+`tiptap` 解决我的问题，概念清晰，有很多 `demo，extension`，能让我快速完成开发工作，基于 tiptap 实现了一款类似`notion`的编辑器
+
+![alt text](image-5.png)
 
 ## headless
 
@@ -159,16 +161,10 @@ export default () => {
 }
 ```
 
-## 监听数据变化
+## 获取编辑器数据
 
 ```js
-const editor = new Editor({
-  content: `<p>Example Content</p>`,
-
-  onUpdate: ({ editor }) => {
-    const json = editor.getJSON()
-  }
-})
+editor.getJSON().content
 ```
 
 ## nodes、marks
@@ -190,10 +186,8 @@ const editor = new Editor({
 
 ## 一些思考
 
-1. `tiptap` 插件使用清晰，插件开箱即用，能减少大量开发时间
-
-2. 它想法很好，它有个入门套件，叫，可以通过 `starterKit` 一个插件就能把常用功能覆盖掉，而且也支持修改这些常用功能，减少了很大一部分代码
-
-3. 封装的一些方法和拓展，符合函数式编程思想，比如操作按钮支持 `bold` 功能，可以去看它的 `example`，或者去看它拓展插件，可以快速实现该功能，而且仅仅是函数调用的方式（清晰优雅）
-
-4. 一些细节也到位，比如 `focus`，不阻止用户输入，自定义样式 `headless`，自定义输出等，协同也支持，不过用不上
+1. 从复用性/性能/开发体验（易上手）/健壮性（规范且可维护）/可拓展性来看，tiptap 都是很好的选择
+2. `tiptap` 插件使用清晰，插件开箱即用，能减少大量开发时间
+3. 它想法很好，它有个入门套件，叫，可以通过 `starterKit` 一个插件就能把常用功能覆盖掉，而且也支持修改这些常用功能，减少了很大一部分代码
+4. 封装的一些方法和拓展，符合函数式编程思想，比如操作按钮支持 `bold` 功能，可以去看它的 `example`，或者去看它拓展插件，可以快速实现该功能，而且仅仅是函数调用的方式（清晰优雅）
+5. 一些细节也到位，比如 `focus`，不阻止用户输入，自定义样式 `headless`，自定义输出等，协同也支持，不过用不上
