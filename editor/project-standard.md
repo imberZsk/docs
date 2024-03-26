@@ -159,3 +159,5 @@ module.exports = {
 ![alt text](image-9.png)
 
 `hooks` 应该划分为业务 `hook` 和通用 `hook`，通用 `hooks` 放在 `app` 同级，业务 `hook` 放在用到的文件同级
+
+同理，还可以创建一个`config`，放静态数据
