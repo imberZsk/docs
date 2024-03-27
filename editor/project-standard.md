@@ -47,7 +47,7 @@ npx create-next-app
 虽然新版 `eslint` 在初始化的时候，也就是 `eslint --init` 初始化配置文件的时候，可以选择不处理风格，让 `prettier` 去处理，已经可以和 `prettier` 互不影响了；但官网目前还是让我们使用 `eslint-config-prettier` 来避免冲突
 
 ```js
-pnpm i -D prettier eslint-config-prettier
+pnpm i -D prettier eslint-config-prettier prettier-plugin-tailwindcss
 ```
 
 配置.prettierrc.json

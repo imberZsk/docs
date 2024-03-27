@@ -167,6 +167,36 @@ export default () => {
 editor.getJSON().content
 ```
 
+## 监听编辑器变化
+
+可以自动保存草稿
+
+```js
+const CustomExtension = Extension.create({
+  onCreate() {
+    // The editor is ready.
+  },
+  onUpdate() {
+    // The content has changed.
+  },
+  onSelectionUpdate({ editor }) {
+    // The selection has changed.
+  },
+  onTransaction({ transaction }) {
+    // The editor state has changed.
+  },
+  onFocus({ event }) {
+    // The editor is focused.
+  },
+  onBlur({ event }) {
+    // The editor isn’t focused anymore.
+  },
+  onDestroy() {
+    // The editor is being destroyed.
+  }
+})
+```
+
 ## nodes、marks
 
 **nodes**：节点大部分是块级元素，如 `h1`，不同的 `JSON` 的 `type` 字段，文本是`"paragraph"`，`h1` 是`"heading"（attrs:level:）`，可以套娃

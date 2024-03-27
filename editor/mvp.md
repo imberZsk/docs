@@ -299,6 +299,24 @@ export const uploadImage = async (editor: Editor) => {
 </button>
 ```
 
+## 气泡组件
+
+#### 安装插件
+
+```js
+pnpm i @tiptap/extension-bubble-menu
+```
+
+#### 注入编辑器
+
+```js
+import BubbleMenu from '@tiptap/extension-bubble-menu'
+
+export const extensions = [BubbleMenu]
+```
+
+#### 使用插件
+
 ## 其它插件
 
 还有些可能会用的，但是 `starter-kit` 里没有的
