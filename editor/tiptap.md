@@ -197,6 +197,15 @@ const CustomExtension = Extension.create({
 })
 ```
 
+或者
+
+```js
+editor.on('update', () => {
+  // 字数实时统计
+  const wordCount = editor.getText().length
+})
+```
+
 ## nodes、marks
 
 **nodes**：节点大部分是块级元素，如 `h1`，不同的 `JSON` 的 `type` 字段，文本是`"paragraph"`，`h1` 是`"heading"（attrs:level:）`，可以套娃
