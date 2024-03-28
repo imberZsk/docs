@@ -53,6 +53,24 @@ useEffect(() => {
 ## loading
 
 ```js
+const [loading, serLoading] = useState(false)
+
+{
+  loading && (
+    <div
+      className="absolute left-0 top-0 flex h-full w-full items-center justify-center bg-[rgba(0,0,0,0.1)]"
+      style={{ backdropFilter: 'blur(5px)' }}
+      onClick={(e) => {
+        e.stopPropagation()
+      }}
+    >
+      <div className="loader-ui"></div>
+    </div>
+  )
+}
+```
+
+```css
 .loader_ui {
   display: block;
   width: 130px;

@@ -145,7 +145,7 @@ function sidebarEditor(): DefaultTheme.SidebarItem[] {
     { text: 'tiptap-nextjs初始化', link: 'project-standard' },
     { text: 'tiptap mvp版本', link: 'mvp' },
     { text: 'tiptap 插件开发', link: 'tiptap-plugin' },
-    { text: '定制化 AI 插件 🔥', link: 'ai' },
+    { text: '定制化 AI 功能 🔥', link: 'ai' },
     { text: '相关功能', link: 'other' }
     // { text: 'slate', link: 'slate' },
   ]
