@@ -8,8 +8,8 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'editor', link: '/editor/tiptap' }
-      // { text: 'Next', link: '/next/next-1' },
+      { text: 'editor', link: '/editor/tiptap' },
+      { text: 'Next', link: '/next/next-1' }
       // { text: 'animate', link: '/animate/gsap-1' },
       // { text: 'DB', link: '/db/mysql' },
       // { text: 'Vue', link: '/vue/book-1' },
@@ -84,30 +84,33 @@ function sidebarReact(): DefaultTheme.SidebarItem[] {
 function sidebarNext(): DefaultTheme.SidebarItem[] {
   return [
     {
+      text: 'Nextjs',
+      collapsed: false,
+      items: [
+        // { text: '项目实战', link: 'next-1' },
+        // { text: 'app 路由', link: 'next-2' },
+        // { text: '数据fetch', link: 'next-3' },
+        // { text: '渲染', link: 'next-4' }
+      ]
+    },
+    {
       text: 'Turbo',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: 'Turborepo', link: 'turborepo' },
         { text: 'Turbopack', link: 'turbopack' }
       ]
     },
+    // {
+    //   text: 'SWR',
+    //   link: 'swr'
+    // },
     {
-      text: 'SWR',
-      link: 'swr'
-    },
-    {
-      text: 'Nextjs',
+      text: 'Strapi',
       collapsed: false,
       items: [
-        { text: '项目实战', link: 'next-1' },
-        { text: 'app 路由', link: 'next-2' },
-        { text: '数据fetch', link: 'next-3' },
-        { text: '渲染', link: 'next-4' },
-        { text: '缓存', link: 'next-5' },
-        { text: '优化', link: 'next-6' },
-        { text: '配置', link: 'next-7' },
-        { text: '部署', link: 'next-8' },
-        { text: '升级', link: 'next-9' }
+        { text: 'Strapi简介', link: 'strapi' },
+        { text: 'Strapi部署', link: 'strapi-deploy' }
       ]
     }
   ]
