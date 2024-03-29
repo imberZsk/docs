@@ -49,3 +49,11 @@ JWT_SECRET=ytRFl69z6mHFG0TrUzitRg==
 点击可能出现报错
 
 ![alt text](image-15.png)
+
+需要到阿里云 `ECS` 中配置安全组开放 `888` 端口
+
+![alt text](image-16.png)
+
+宝塔里的安全配置一下
+
+![alt text](image-17.png)
