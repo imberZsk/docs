@@ -57,3 +57,14 @@ JWT_SECRET=ytRFl69z6mHFG0TrUzitRg==
 宝塔里的安全配置一下
 
 ![alt text](image-17.png)
+
+## supabase
+
+[supabase](https://supabase.com/)首页选择 `start your project`，然后 `github` 登陆
+
+![alt text](image-18.png)
+
+点击连接，可以看到要写在`.env`文件里的连接内容
+![alt text](image-19.png)
+
+注意修改密码和修改端口号 `5432`

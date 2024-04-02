@@ -148,3 +148,26 @@ export const uploadOss = async ({ accessKeyId, accessKeySecret, stsToken, path, 
   return url
 }
 ```
+
+## shadcn
+
+#### 安装
+
+```js
+npx shadcn-ui@latest init
+```
+
+![alt text](image-22.png)
+
+#### 使用
+
+```js
+npx shadcn-ui@latest add button
+```
+
+## middleware.ts 还遇到过两个坑
+
+middleware.ts 放在 src 目录下（总之要和 app 一个目录，不一定是根目录）
+直接写 NextResponse.redirect('/mobile') 会报错的（如下图），必须是绝对路径 NextResponse.redirect(url.origin + '/mobile')
+
+## https://supabase.com/ 云数据库
