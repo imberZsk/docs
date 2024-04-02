@@ -109,8 +109,8 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
       text: 'Strapi',
       collapsed: false,
       items: [
-        { text: 'Strapi简介', link: 'strapi' },
-        { text: 'Strapi部署', link: 'strapi-deploy' }
+        { text: 'Strapi简介', link: 'strapi' }
+        // { text: 'Strapi部署', link: 'strapi-deploy' }
       ]
     }
   ]

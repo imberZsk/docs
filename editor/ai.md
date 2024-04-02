@@ -53,7 +53,7 @@ const decodedData = CryptoJS.enc.Base64.parse(encodedData).toString(
 
 对接 `ai` 的数据，一般都喜欢用这个打字稿效果，所以这几步最后的代码大约是这样
 
-```tsx s
+```tsx
 import CryptoJS from 'crypto-js'
 import Typed from 'typed.js'
 
@@ -128,7 +128,7 @@ const text = editor.storage.markdown.serializer.serialize(slice.content)
 
 ## 气泡栏插件
 
-气泡栏插件是基于`@tiptap/extension-bubble-menu`的，而这个插件是基于[https://atomiks.github.io/tippyjs/v6/all-props/](tippyjs)的
+气泡栏插件是基于`@tiptap/extension-bubble-menu`的，而这个插件是基于[tippyjs](https://atomiks.github.io/tippyjs/v6/all-props/)的
 
 #### 下载
 
