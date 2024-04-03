@@ -112,7 +112,9 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
         { text: 'Strapi简介', link: 'strapi' }
         // { text: 'Strapi部署', link: 'strapi-deploy' }
       ]
-    }
+    },
+    { text: 'NextAuth', link: 'nextAuth' }
+    // { text: 'Strapi部署', link: 'strapi-deploy' }
   ]
 }
 

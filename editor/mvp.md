@@ -317,6 +317,12 @@ export const extensions = [BubbleMenu]
 
 #### 使用插件
 
+#### 350px 问题
+
+设置了默认 350px
+
+使用 `flex` 或者 `inline-flex`
+
 ## 其它插件
 
 还有些可能会用的，但是 `starter-kit` 里没有的
