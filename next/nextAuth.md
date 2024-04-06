@@ -55,7 +55,7 @@ npx prisma db push
 npx prisma migrate dev --name init
 ```
 
-## 三个页面
+## 四个页面
 
 #### 首页 /
 
@@ -135,6 +135,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
 ## 实现 Github 登陆
 
+![alt text](process.jpg)
+
+首先到根页面，因为访问需要权限才能去 `dashboard`，所以有个入口先去 `/login` 的入口，`/login` 可以 `Github` 登陆也可以`sign up`去注册账号，`Github` 登陆的话就跳回 `dashboard`，`sign up` 注册了账号的话还需要跳到 `login` 登陆
+
 ![alt text](image-34.png)
 
 在这里加代码
@@ -162,11 +166,17 @@ function LoginWithGitHub() {
 
 ![alt text](image-33.png)
 
-点击就是 `Github` 登陆了
+点击就是 `Github` 登陆了，登陆后会看到多了 `3` 个 `cookie`
+
+![alt text](image-35.png)
+
+## 中间件判断是否登陆
 
 ## Database Adapters
 
-## 同步数据库
+#### 同步数据库
+
+## 验证账号密码登陆
 
 ## 踩坑
 
