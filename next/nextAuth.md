@@ -170,13 +170,234 @@ function LoginWithGitHub() {
 
 ![alt text](image-35.png)
 
+## 获取登陆信息
+
+主要是`await auth()`
+
+```tsx
+import { Button } from '@/components/ui/button'
+import { auth, signOut } from 'auth'
+
+interface User {
+  name: string
+  email: string
+  image: string
+}
+
+function LoginOut() {
+  return (
+    <form
+      action={async () => {
+        'use server'
+        await signOut()
+      }}
+    >
+      <Button>退出登陆</Button>
+    </form>
+  )
+}
+
+export default async function Home() {
+  const session = (await auth()) as { user: User }
+  const { user } = session
+
+  return (
+    <main className="">
+      <div className="absolute left-[50%] mt-[30vh] translate-x-[-50%] translate-y-[-50%]">
+        <div>你已经登陆，你现在在dashboard</div>
+        <br />
+        <div>
+          <div>用户名：{user.name}</div>
+          <br />
+          <LoginOut></LoginOut>
+        </div>
+      </div>
+    </main>
+  )
+}
+```
+
 ## 中间件判断是否登陆
+
+具体判断保护路由，看下一个点 `Adapters`的 `auth.ts` 配置代码
+
+```ts
+import NextAuth from 'next-auth'
+import { authConfig } from './auth.config'
+
+export default NextAuth(authConfig).auth
+
+export const config = {
+  // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
+  matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)']
+}
+```
 
 ## Database Adapters
 
-#### 同步数据库
+用户登录信息持久化到数据库，参考`https://authjs.dev/getting-started/adapters`和`https://authjs.dev/reference/adapter/prisma`
 
-## 验证账号密码登陆
+需要安装`@auth/prisma-adapter`，然后配置`prisma`和`auth.ts`
+
+配置 `schema.prisma`
+
+```prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  posts         Post[]
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+```
+
+配置`auth.ts`
+
+```ts
+import NextAuth from 'next-auth'
+import GitHub from 'next-auth/providers/github'
+import { PrismaAdapter } from '@auth/prisma-adapter'
+import type { NextAuthConfig } from 'next-auth'
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
+const config = {
+  adapter: PrismaAdapter(prisma),
+  theme: {
+    logo: 'https://next-auth.js.org/img/logo/logo-sm.png'
+  },
+  providers: [GitHub],
+  callbacks: {
+    authorized({ request: { nextUrl }, auth }) {
+      const isLoggedIn = !!auth?.user
+      // 如果是这个页面就要鉴权
+      const isOnDashboard = nextUrl.pathname.startsWith('/dashboard')
+      if (isOnDashboard) {
+        if (isLoggedIn) return true
+        return false // Redirect unauthenticated users to login page
+      } else if (isLoggedIn) {
+        return Response.redirect(new URL('/dashboard', nextUrl))
+      }
+      return true
+    }
+  }
+} satisfies NextAuthConfig
+
+export const { handlers, auth, signIn, signOut } = NextAuth(config)
+```
+
+## 邮箱登陆
+
+参考`https://authjs.dev/getting-started/providers/email-tutorial`
+
+#### 安装 nodemailer
+
+`pnpm i nodemailer`
+
+#### 配置邮箱
+
+我用的网易邮箱大师，先回到旧版，然后开启服务
+
+![alt text](image-37.png)
+
+![alt text](image-38.png)
+
+![alt text](image-39.png)
+
+然后就拿到了密钥
+
+#### 配置.env
+
+`PASSWORD` 不是你的邮箱登录密码，而是刚才开启 `SMTP` 时的密钥
+每个邮箱的 `SMTP` 端口都不一样，自己 `Google` 查一下，`163` 邮箱的端口是 `25`
+
+```js
+EMAIL_SERVER=smtp://userame:PASSWORD@smtp.163.com:25
+EMAIL_FROM=userame@163.com
+```
+
+#### 配置 auth.ts
+
+在 `providers` 里面加配置
+
+```ts
+import Email from 'next-auth/providers/nodemailer'
+
+export const config = {
+  providers: [
+    GitHub,
+    Email({
+      server: process.env.EMAIL_SERVER,
+      from: process.env.EMAIL_FROM
+    })
+  ]
+} satisfies NextAuthConfig
+
+export const { handlers, auth, signIn, signOut } = NextAuth(config)
+```
+
+此时就多了一个邮箱选项，但是要项目上线后才能使用邮箱登陆
+
+![alt text](image-40.png)
+
+<!-- ## 验证账号密码登陆 -->
 
 ## 踩坑
 
@@ -187,3 +408,7 @@ function LoginWithGitHub() {
 `server action` 里报错如下，重启 `vscode` 就行了
 
 ![alt text](image-29.png)
+
+使用 `adapter` 后会有报错，原因是不能直接在 `middleware` 里使用 `prisma/client`，也就是不能直接`export { auth as middleware } from 'auth'`，需要重新在中间价配置 `nextAuth`
+
+![alt text](image-36.png)
