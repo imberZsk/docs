@@ -9,7 +9,8 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'editor', link: '/editor/tiptap' },
-      { text: 'Next', link: '/next/next-1' }
+      { text: 'Next', link: '/next/next-1' },
+      { text: 'Docker', link: '/docker/docker' }
       // { text: 'animate', link: '/animate/gsap-1' },
       // { text: 'DB', link: '/db/mysql' },
       // { text: 'Vue', link: '/vue/book-1' },
@@ -25,6 +26,7 @@ export default defineConfig({
       '/vue/': { base: '/vue/', items: sidebarVue() },
       '/react/': { base: '/react/', items: sidebarReact() },
       '/next/': { base: '/next/', items: sidebarNext() },
+      '/docker/': { base: '/docker/', items: sidebarDocker() },
       '/animate/': { base: '/animate/', items: sidebarAnimate() },
       '/editor/': { base: '/editor/', items: sidebarEditor() },
       // '/ai/': { base: '/ai/', items: sidebarAi() },
@@ -95,7 +97,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
     },
     {
       text: 'Turbo',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: 'Turborepo', link: 'turborepo' },
         { text: 'Turbopack', link: 'turbopack' }
@@ -107,15 +109,25 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
     // },
     {
       text: 'Strapi',
-      collapsed: false,
+      collapsed: true,
       items: [
-        { text: 'Strapi简介', link: 'strapi' }
+        { text: 'Strapi', link: 'strapi' }
         // { text: 'Strapi部署', link: 'strapi-deploy' }
       ]
     },
-    { text: 'NextAuth', link: 'nextAuth' }
-    // { text: 'Strapi部署', link: 'strapi-deploy' }
+    {
+      text: 'NextAuth',
+      collapsed: true,
+      items: [
+        { text: 'NextAuth', link: 'nextAuth' }
+        // { text: 'Strapi部署', link: 'strapi-deploy' }
+      ]
+    }
   ]
+}
+
+function sidebarDocker(): DefaultTheme.SidebarItem[] {
+  return [{ text: 'Docker', link: 'docker' }]
 }
 
 function sidebarAnimate(): DefaultTheme.SidebarItem[] {
