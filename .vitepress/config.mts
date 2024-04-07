@@ -8,7 +8,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'editor', link: '/editor/tiptap' },
+      { text: 'Editor', link: '/editor/tiptap' },
       { text: 'Next', link: '/next/next-1' },
       { text: 'Docker', link: '/docker/docker' }
       // { text: 'animate', link: '/animate/gsap-1' },
