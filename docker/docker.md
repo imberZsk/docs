@@ -24,6 +24,10 @@
 
 ![alt text](image-2.png)
 
+## docker hub
+
+[Docker Hub](https://hub.docker.com/?_gl=1*h8exxe*_ga*MTkyNDAxOTY1OS4xNzAyMzUyMjE0*_ga_XJWPQMJYHQ*MTcxMjU0NDkyOC45LjEuMTcxMjU0NDkyOS41OS4wLjA.)是一个镜像仓库，可以搜索镜像，下载镜像，上传镜像。
+
 ## 搜索镜像
 
 ![alt text](image-3.png)
@@ -55,6 +59,79 @@
 
 ## 数据卷
 
+![alt text](image-6.png)
+
+- 在 docker run 命令的时候，使用 -v 数据卷:容器内目录 可以完成数据卷挂载
+- 当创建容器时，如果挂载了数据卷且数据卷不存在，则自动创建
+
+## 本地数据卷挂载
+
+![alt text](image-7.png)
+
+## Dockerfile 语法
+
+![alt text](image-9.png)
+
+[官网](https://docs.docker.com/reference/dockerfile/)
+
+![alt text](image-10.png)
+
+![alt text](image-11.png)
+
 ## 自定义镜像
 
+![alt text](image-8.png)
+
 ## 网络
+
+`docker network create -d bridge react-notes`
+
+-d 参数指定 Docker 网络类型，有 bridge、overlay。其中 overlay 网络类型用于 Swarm mode。react-notes 为我们的自定义网络的名字。
+
+`docker run -p 6379:6379 --network react-notes redis redis-server`
+
+`docker network inspect react-notes`
+
+![alt text](image-12.png)
+
+<!-- #### Dockerfile dockerignore
+
+拷贝 Dockerfile 和 .dockerignore 到跟目录
+配置 next.config.js output: "standalone"
+执行之前中的 docker 命令 -->
+
+## DockerCompose
+
+![alt text](image-14.png)
+
+![alt text](image-13.png)
+
+## 宝塔
+
+宝塔需要注意 `nginx` 重启
+
+`nginx` 静态目录 `cd /usr/share/nginx/html`
+
+## Demo - 本地
+
+#### 项目里新建 Dockerfile
+
+```Dockerfile
+FROM node:18-alpine
+# 这个指令的意思就是简单粗暴的将当前目录的所有文件拷贝到 /app下
+WORKDIR /app
+COPY . .
+RUN npm install --registry=https://registry.npmmirror.com && npm run build
+CMD npm start
+EXPOSE 3000
+```
+
+#### 打包成镜像
+
+`docker image build -t next-docker-learn-demo:0.0.1 .`
+
+#### 运行镜像
+
+开启一个容器运行镜像
+
+`docker run -p 4000:3000 next-docker-learn-demo:0.0.1`
