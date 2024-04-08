@@ -106,6 +106,29 @@
 
 ![alt text](image-13.png)
 
+先创建`docker-compose.yml`
+
+```yaml
+version: '3.8'
+services:
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+    command: redis-server
+
+  nextapp:
+    build: .
+    ports:
+      - '4000:3000'
+    depends_on:
+      - redis
+```
+
+运行容器
+
+`docker-compose up`
+
 ## 宝塔
 
 宝塔需要注意 `nginx` 重启
