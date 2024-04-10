@@ -1,3 +1,7 @@
+## 总结
+
+需要先在 `github` 生成需要配置 `nextAuth` 的 `.env` 里的三个配置，然后在 `auth.ts` 中配置 `provider` 支持 `github`，再在 `app/api/auth/[...nextauth]/route.ts` 中配置拦截路由，还可以通过 `Adapters` 和数据库同步
+
 ## NextAuth
 
 ![alt text](image-20.png)

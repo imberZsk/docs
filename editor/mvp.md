@@ -1,3 +1,5 @@
+## 前言
+
 > tiptap 是基于 prosemirror 的富文本编辑器，开箱即用，所以 mvp 版本是比较简单的，但是要合理划分逻辑，让文件不臃肿，提高可维护性
 >
 > 之前已经说过，[starter-kit](https://tiptap.dev/docs/editor/api/extensions/starter-kit) 包含了很多插件，如果还需要更多插件，需要去下载和注入插件，可以在[examples](https://tiptap.dev/docs/editor/examples/default) 和 [extensions](https://tiptap.dev/docs/editor/extensions)找插件（如文中的 Image 图片上传插件，placeholder 插件），找不到就自己手写一个插件

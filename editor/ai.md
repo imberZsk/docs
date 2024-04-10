@@ -1,3 +1,9 @@
+## 总结
+
+- [@microsoft/fetch-event-source](https://github.com/Azure/fetch-event-source) 获取 `text/event-stream` 流式数据
+- [typed.js](https://github.com/mattboldt/typed.js) 打字稿效果
+- `crypto-js` 解析 `base64` 文本
+
 ## 当 AI 加入编辑器
 
 我这里选用的是气泡栏插件，AI 显示的文本在气泡栏，然后点击气泡栏的按钮，AI 输入的文本会替换到编辑器中。

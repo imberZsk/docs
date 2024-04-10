@@ -1,8 +1,15 @@
-> 编辑器功能复杂，再加上 nextjs14 较为新颖，所以目录规范也重要，使项目更加健壮
->
-> 文章包括 nextjs14 初始化
->
-> 参考 [Nextjs 官网 - ESLint](https://nextjs.org/docs/app/building-your-application/configuring/eslint)
+## 总结
+
+基础配置，`eslint、prettier、lint-staged、husky、commitlint`，参考 [Nextjs 官网 - ESLint](https://nextjs.org/docs/app/building-your-application/configuring/eslint)
+
+目录划分
+
+- `middleware.ts` 需要和 `app` 同一层目录
+- `lib` 目录，放公共的函数和 `actions.ts`（`server action`）
+- `components`，拆分的组件，`shadcn` 的组件
+- `hooks`，全局 `hook`
+- `styles`，全局样式
+- `.env.development` 和 `.env.production` 配置 `NEXT_PUBLIC_BASE_URL=xxx`
 
 ## 初始化
 
@@ -48,17 +55,6 @@ npx create-next-app
 
 ```js
 pnpm i -D prettier eslint-config-prettier prettier-plugin-tailwindcss
-```
-
-配置.prettierrc.json
-
-```json
-{
-  "extends": ["next/core-web-vitals", "prettier"],
-  "rules": {
-    "no-unused-vars": "error"
-  }
-}
 ```
 
 配置.prettierrc.json
@@ -151,7 +147,7 @@ module.exports = {
 
 - styles 目录：放样式相关的文件
 - utils 目录：放方法相关的文件
-- ui 目录：放组件相关的文件
+- components 目录：放组件相关的文件
 - lib 目录：请求和数据相关文件，如果是全栈开发，`lib` 里面还可以放 `server actions` 相关文件
 
 ## hooks 划分

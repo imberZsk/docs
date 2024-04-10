@@ -1,8 +1,13 @@
-> 认识 tiptap，它的 headless，大量的官方 demo/extensions 等
+## 总结
+
+- `headless`
+- 大量的官方 [demo/extensions](https://tiptap.dev/docs/editor/examples/default)
+- `novel`，在线 [Demo](https://novel.sh/) 地址
+- [block-editor](https://juejin.cn/post/6891840180198735886)
 
 ## why tiptap？
 
-`tiptap` 解决我的问题，概念清晰，有很多 `demo，extension`，能让我快速完成开发工作，基于 tiptap 实现了一款类似`notion`的编辑器
+`tiptap` 解决我的问题，概念清晰，有很多 `demo，extension`，能让我快速完成开发工作，基于 tiptap 实现了一款类似`notion`的编辑器，[block-editor](https://juejin.cn/post/6891840180198735886) 架构
 
 ![alt text](image-5.png)
 

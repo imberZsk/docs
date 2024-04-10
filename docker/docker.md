@@ -137,7 +137,13 @@ services:
 
 ## Demo - 本地
 
+#### 先在服务器下载 docker
+
+宝塔下载
+
 #### 项目里新建 Dockerfile
+
+可参考[example](https://github.com/vercel/next.js/tree/canary/examples/with-docker)
 
 ```Dockerfile
 FROM node:18-alpine
@@ -151,10 +157,82 @@ EXPOSE 3000
 
 #### 打包成镜像
 
-`docker image build -t next-docker-learn-demo:0.0.1 .`
+`docker build -t nextjs-docker .`
 
 #### 运行镜像
 
 开启一个容器运行镜像
 
-`docker run -p 4000:3000 next-docker-learn-demo:0.0.1`
+`docker run -p 3000:3000 nextjs-docker`
+
+## Github Action
+
+![alt text](image-15.png)
+
+## 服务器上新建 rsa
+
+`ssh-keygen -t rsa`
+
+`ls ~/.ssh`可以查看有没有
+
+![alt text](image-16.png)
+
+## 配置 Github Actions
+
+`.github/workflows/deploy-test.yml`
+
+```yml
+name: deloy test
+
+on:
+  push:
+    branches:
+      - test-deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build & Deploy
+        env:
+          HOSTNAME: ${{secrets.MY_IP}}
+          USER_NAME: ${{secrets.MY_USER}}
+          PRIVATE_KEY: ${{ secrets.MY_RSA }}
+
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+            cd /docker-test ;
+            echo '------ cd done ------' ;
+            git checkout test-deploy
+            git checkout .
+            git pull origin test-deploy
+            echo '------ git pull done ------' ;
+            docker rm $(docker stop $(docker ps -a -q --filter ancestor=huashuiai-web-docker))
+            echo '------ docker rm done ------' ;
+            docker build -t huashuiai-web-docker .
+            echo '------ docker build done ------'
+            docker run -d -p 3000:3000 huashuiai-web-docker
+            echo '------ docker run done ------' ;
+          '
+      - name: success
+        run: echo "deploy success"
+```
+
+`secrets` 和项目里的 `setting` 这个地方对应
+
+![alt text](image-17.png)
+
+## 免密连接云服务器
+
+生成公钥和丝钥`ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+
+打开本地公钥`cat ~/.ssh/id_rsa.pub`
+
+复制到云服务器`~/.ssh/authorized_keys`目录
+
+## 免密 ssh 连接 Github
+
+打开本地公钥`cat ~/.ssh/id_rsa.pub`
+
+新建一个 ssh key `https://github.com/settings/keys`，名字随便取

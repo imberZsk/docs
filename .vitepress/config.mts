@@ -100,6 +100,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
       collapsed: true,
       items: [
         { text: 'Turborepo', link: 'turborepo' },
+        // { text: 'Turborepo 快速使用', link: '' },
         { text: 'Turbopack', link: 'turbopack' }
       ]
     },
@@ -120,7 +121,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
       collapsed: true,
       items: [
         { text: 'NextAuth', link: 'nextAuth' }
-        // { text: 'Strapi部署', link: 'strapi-deploy' }
+        // { text: 'NextAuth 快速使用 🔥', link: 'nextAuth-starter' }
       ]
     }
   ]
@@ -160,9 +161,9 @@ function sidebarEditor(): DefaultTheme.SidebarItem[] {
     { text: '编辑器技术选型', link: 'select' },
     { text: 'tiptap简介', link: 'tiptap' },
     { text: 'tiptap-nextjs初始化', link: 'project-standard' },
-    { text: 'tiptap mvp版本', link: 'mvp' },
+    { text: 'tiptap mvp版本（快速使用）🔥', link: 'mvp' },
     { text: 'tiptap 插件开发', link: 'tiptap-plugin' },
-    { text: '定制化 AI 功能 🔥', link: 'ai' },
+    { text: '定制化 AI 功能 ', link: 'ai' },
     { text: '相关功能', link: 'other' }
     // { text: 'slate', link: 'slate' },
   ]
