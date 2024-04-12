@@ -157,7 +157,7 @@ export default Demo
 
 #### SSR
 
-组件使用 async，然后里面一个 await 请求就可以 SSR 了，build 成功后会看到页面是哪一种
+关键是指定`fetch`的第二个参数为`{ cache: 'no-store' }`
 
 ```js
 const Demo: React.FC = async () => {
@@ -175,7 +175,7 @@ export default Demo
 
 #### SSG
 
-SSG 需要使用 generateStaticParams
+关键是将  `fetch()`  默认为  `cache: 'force-cache'`（也可以指定动态路径`generateStaticParams`，相当于 `pages router` 的 `getStaticPaths`，如果指定 `fallback` 只有 `true` 和 `false` ，没有 `blocking` 了）
 
 ```js
 export async function generateStaticParams() {
@@ -195,7 +195,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
 #### ISR
 
-ISR 比 SSG 多一个 revalidate
+关键是指定`fetch`的第二个参数为`{ revalidate: 'xxx秒' }`
 
 ```js
 export const dynamicParams = true

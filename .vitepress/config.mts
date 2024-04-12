@@ -10,7 +10,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Editor', link: '/editor/tiptap' },
       { text: 'Next', link: '/next/next-1' },
-      { text: 'Docker', link: '/docker/docker' }
+      { text: 'Docker', link: '/docker/docker' },
       // { text: 'animate', link: '/animate/gsap-1' },
       // { text: 'DB', link: '/db/mysql' },
       // { text: 'Vue', link: '/vue/book-1' },
@@ -18,7 +18,7 @@ export default defineConfig({
       // { text: 'ai', link: '/ai/openAi' },
       // { text: 'Nest', link: '/nest/nest-1' },
       // { text: 'Write', link: '/write/write' },
-      // { text: 'Juejin', link: '/juejin/article-1' },
+      { text: 'Juejin', link: '/juejin/article-1' }
       // { text: 'Blog', link: 'https://imber-blog.netlify.app/' }
     ],
 
@@ -205,12 +205,12 @@ function sidebarWrite(): DefaultTheme.SidebarItem[] {
 
 function sidebarJuejin(): DefaultTheme.SidebarItem[] {
   return [
-    { text: '🚀🚀 手摸手开发一个很 🔥 的卡片效果', link: 'article-14' },
+    { text: '手摸手开发一个很 🔥 的卡片效果', link: 'article-14' },
     { text: '复杂 Web 动画开发(Motion)', link: 'article-9' },
     { text: '复杂 Web 动画开发(GSAP)', link: 'article-8' },
-    { text: 'SEO优化', link: 'article-7' },
+    // { text: 'SEO优化', link: 'article-7' },
     { text: 'Next14主题切换最佳实践', link: 'article-6' },
-    { text: '响应式瀑布流', link: 'article-5' },
+    // { text: '响应式瀑布流', link: 'article-5' },
     { text: '聊聊 Next14', link: 'article-4' },
     { text: 'Next13 项目总结', link: 'article-3' },
     { text: '统一公司的项目规范', link: 'article-2' },

@@ -221,6 +221,8 @@ jobs:
 
 `secrets` 和项目里的 `setting` 这个地方对应
 
+注意 `rsa` 是本地的 `id_rsa`，不是 `id_rsa.pub`
+
 ![alt text](image-17.png)
 
 ## 免密连接云服务器

@@ -170,3 +170,7 @@ npx shadcn-ui@latest add button
 `middleware.ts` 放在 src 目录下（总之要和 app 一个目录，不一定是根目录）
 
 直接写 `NextResponse.redirect('/mobile')` 会报错的（如下图），必须是绝对路径 `NextResponse.redirect(url.origin + '/mobile')`
+
+## @tailwindcss/typography
+
+[@tailwindcss/typography](https://github.com/tailwindlabs/tailwindcss-typography?tab=readme-ov-file)
