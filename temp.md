@@ -165,3 +165,14 @@ t1.from(
 ## vscode 重制命令面板
 
 View: Reset View Locations
+
+## 项目
+
+- 全栈项目
+- 商城/电商项目
+- H5 项目
+- 跨端项目 RN/Electron
+- 微信小程序项目
+- 3D 项目
+- AI 项目
+- 协同编辑器
