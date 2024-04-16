@@ -164,8 +164,11 @@ function sidebarEditor(): DefaultTheme.SidebarItem[] {
     { text: 'tiptap mvp版本（快速使用）🔥', link: 'mvp' },
     { text: 'tiptap 插件开发', link: 'tiptap-plugin' },
     { text: '定制化 AI 功能 ', link: 'ai' },
-    { text: '相关功能', link: 'other' }
-    // { text: 'slate', link: 'slate' },
+    { text: '相关功能', link: 'other' },
+    {
+      text: '所有功能（持续更新）',
+      link: '/editor-all/editor-all'
+    }
   ]
 }
 
