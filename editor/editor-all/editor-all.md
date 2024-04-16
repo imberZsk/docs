@@ -1,4 +1,4 @@
-> Document, Paragraph, Text 这三个是必须使用的，[starter-kit](https://tiptap.dev/docs/editor/api/extensions/starter-kit) 自带而且不需要样式，HardBreak 强制换行没有用，[History](https://tiptap.dev/docs/editor/api/extensions/history)历史纪录 暂未使用
+> Document, Paragraph, Text 这三个是必须使用的，[starter-kit](https://tiptap.dev/docs/editor/api/extensions/starter-kit) 自带而且不需要样式，HardBreak 强制换行没有用，[History](https://tiptap.dev/docs/editor/api/extensions/history) 支持历史纪录
 
 ## 标题
 
@@ -72,7 +72,7 @@ TODO:...有 bug ，待开发
 
 ![alt text](image-10.png)
 
-## 间隙光标
+## 间隙光标（从这里上面都是 stater-kit 包含的功能）
 
 TODO:黑色模式光标有问题，后续可能不要这个功能改为点击空白区域增加段落
 
@@ -103,3 +103,21 @@ TODO:黑色模式光标有问题，后续可能不要这个功能改为点击空
 [Slash Command](https://tiptap.dev/docs/editor/experiments/commands)，这是个实验性功能，需要参考 [suggestion](https://tiptap.dev/docs/editor/api/utilities/suggestion) 和 [tiptap-templates](https://templates.tiptap.dev/RF98Ccw8tn)
 
 ![alt text](image-15.png)
+
+## 任务列表
+
+[TaskList](https://tiptap.dev/docs/editor/api/nodes/task-list)
+
+![alt text](image-16.png)
+
+## 对齐方式
+
+[TextAlign](https://tiptap.dev/docs/editor/api/extensions/text-align)
+
+![alt text](image-17.png)
+
+## 上下标
+
+[Superscript](https://tiptap.dev/docs/editor/api/marks/superscript)[、Subscript](https://tiptap.dev/docs/editor/api/marks/subscript)
+
+![alt text](image-18.png)
