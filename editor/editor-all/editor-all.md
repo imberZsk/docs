@@ -1,4 +1,4 @@
-> Document, Paragraph, Text 这三个是必须使用的，[starter-kit](https://tiptap.dev/docs/editor/api/extensions/starter-kit) 自带而且不需要样式，HardBreak 强制换行没有用，[History](https://tiptap.dev/docs/editor/api/extensions/history) 支持历史纪录
+> Document, Paragraph, Text 这三个是必须使用的，[starter-kit](https://tiptap.dev/docs/editor/api/extensions/starter-kit) 自带而且不需要样式，HardBreak 强制换行没有用，[History](https://tiptap.dev/docs/editor/api/extensions/history) 支持历史纪录可以撤回和还原
 
 ## 标题
 
@@ -98,12 +98,6 @@ TODO:黑色模式光标有问题，后续可能不要这个功能改为点击空
 
 ![alt text](image-14.png)
 
-## Slash Command
-
-[Slash Command](https://tiptap.dev/docs/editor/experiments/commands)，这是个实验性功能，需要参考 [suggestion](https://tiptap.dev/docs/editor/api/utilities/suggestion) 和 [tiptap-templates](https://templates.tiptap.dev/RF98Ccw8tn)
-
-![alt text](image-15.png)
-
 ## 任务列表
 
 [TaskList](https://tiptap.dev/docs/editor/api/nodes/task-list)
@@ -121,3 +115,29 @@ TODO:黑色模式光标有问题，后续可能不要这个功能改为点击空
 [Superscript](https://tiptap.dev/docs/editor/api/marks/superscript)[、Subscript](https://tiptap.dev/docs/editor/api/marks/subscript)
 
 ![alt text](image-18.png)
+
+## 文字颜色
+
+[Highlight](https://tiptap.dev/docs/editor/api/marks/highlight)
+
+![alt text](image-19.png)
+
+## Slash Command
+
+[Slash Command](https://tiptap.dev/docs/editor/experiments/commands)，这是个实验性功能，需要参考 [suggestion](https://tiptap.dev/docs/editor/api/utilities/suggestion) 和 [tiptap-templates](https://templates.tiptap.dev/RF98Ccw8tn)
+
+![alt text](image-15.png)
+
+## Column 支持左右排列
+
+自定义的插件，参考 [schema](https://tiptap.dev/docs/editor/api/schema)、[custom-extensions](https://tiptap.dev/docs/editor/guide/custom-extensions)
+
+踩坑：不能使用 `tiptap-markdown`，会有冲突
+
+![alt text](image-20.png)
+
+## 超链接
+
+[Link](https://tiptap.dev/docs/editor/api/marks/link)
+
+![alt text](image-21.png)
