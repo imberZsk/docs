@@ -146,9 +146,9 @@ module.exports = {
 ![alt text](image-8.png)
 
 - styles 目录：放样式相关的文件
-- utils 目录：放方法相关的文件
 - components 目录：放组件相关的文件
-- lib 目录：请求和数据相关文件，如果是全栈开发，`lib` 里面还可以放 `server actions` 相关文件
+- lib 目录：请求和数据相关文件，如果是全栈开发，`lib` 里面还可以放 `server actions` 相关文件，utils 也放这里
+- hooks 目录：放 `hooks`
 
 ## hooks 划分
 

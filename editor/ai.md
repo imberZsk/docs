@@ -199,11 +199,17 @@ const TiptapBubble = ({ editor, open, onOpenChange }: TiptapBubbleProps) => {
           <button
             onClick={() => {
               onOpenChange(true)
-              const slice = editor.state.selection.content()
-              const text = editor.storage.markdown.serializer.serialize(
-                slice.content
-              )
-              setSelection(text)
+
+              const state = editor.state
+              if (state) {
+                const { selection } = state
+                const text = state.doc.textBetween(
+                  selection.from,
+                  selection.to,
+                  ''
+                )
+                setSelection(text)
+              }
               instanceRef.current.setProps({ placement: 'bottom-start' })
             }}
             className={`${
