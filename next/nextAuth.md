@@ -137,6 +137,22 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 })
 ```
 
+## 配置 `app/api/auth/[...nextauth]/route.ts`
+
+```js
+import { handlers } from 'auth'
+export const { GET, POST } = handlers
+```
+
+这个 `auth` 具体看怎么配置路径别名，比如
+
+```js
+"paths": {
+"@/*": ["./src/*"],
+"auth": ["./auth"]
+}
+```
+
 ## 实现 Github 登陆
 
 ![alt text](process.jpg)

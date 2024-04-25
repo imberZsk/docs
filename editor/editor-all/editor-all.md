@@ -148,6 +148,32 @@ TODO:黑色模式光标有问题，后续可能不要这个功能改为点击空
 
 ## Image 上传
 
-参考[Image](https://tiptap.dev/docs/editor/api/nodes/image),并加上可以修改图片的气泡框
+参考[Image](https://tiptap.dev/docs/editor/api/nodes/image)，并加上可以修改图片的气泡框，这里后序还是自定义插件`imageBlock`，体验会更好
 
 ![alt text](image-22.png)
+
+## 图片拖拽上传
+
+需要手写 `imageUploader` 插件和拖拽上传逻辑
+
+![alt text](image-23.png)
+
+## 图片拖入编辑器中即可上传
+
+[file-handler](https://tiptap.dev/docs/editor/api/extensions/file-handler)，pro extension 需要设置 [npm 代理](https://cloud.tiptap.dev/pro-extensions)，免费，记得 `gitignore`
+
+![alt text](image.gif)
+
+## 拖拽排序
+
+`@tiptap-pro/extension-drag-handle-react`
+
+![alt text](2.gif)
+
+![alt text](image-24.png)
+
+## 表格
+
+[@tiptap/extension-table @tiptap/extension-table-row @tiptap/extension-table-header](https://tiptap.dev/docs/editor/extensions)，这个 `@tiptap/extension-table-cell` 从新定义了
+
+![alt text](image-25.png)
