@@ -70,13 +70,25 @@ pnpm i -D prettier eslint-config-prettier prettier-plugin-tailwindcss
 }
 ```
 
+## .vscode/setting.json
+
+```json
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
+```
+
 ## lint-staged
 
 ```js
 pnpm i -D lint-staged
 ```
 
-配置.lintstagedrc.js
+配置 .lintstagedrc.js
 
 ```js
 const path = require('path')
@@ -88,6 +100,14 @@ const buildEslintCommand = (filenames) =>
 
 module.exports = {
   '*.{js,jsx,ts,tsx}': [buildEslintCommand]
+}
+```
+
+配置 package.json
+
+```json
+"scripts": {
+  "lint-staged": "lint-staged"
 }
 ```
 
@@ -113,19 +133,16 @@ npx husky add .husky/pre-commit "npm run lint-staged"
 
 ## commitlint
 
-配置`.lintstagedrc.js`
+安装
+
+`pnpm i @commitlint/config-conventional @commitlint/cli`
+
+下载
+
+`commitlintrc.json`
 
 ```js
-const path = require('path')
-
-const buildEslintCommand = (filenames) =>
-  `next lint --fix --file ${filenames
-    .map((f) => path.relative(process.cwd(), f))
-    .join(' --file ')}`
-
-module.exports = {
-  '*.{js,jsx,ts,tsx}': [buildEslintCommand]
-}
+{ "extends": ["@commitlint/config-conventional"] }
 ```
 
 ## src 目录
