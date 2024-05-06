@@ -3,28 +3,28 @@
 layout: home
 
 hero:
-  name: 'imber 的文档'
-  # text: 'A Site'
-  # tagline: 全栈偏前端
+  name: 'imber’s Docs'
   actions:
-    - theme: brand
-      text: Vue
-      link: /vue/book-1
-    - theme: brand
-      text: React
-      link: /react/book-1
     - theme: brand
       text: Next
       link: /next/next-1
     - theme: brand
-      text: Nest
-      link: /nest/nest-1
+      text: Editor
+      link: /editor/select
+    - theme: brand
+      text: Web Animation
+      link: /animation/gsap-1
+    - theme: brand
+      text: Web 3D
+      link: /three/three-1
 
 features:
-  - title: Vue、React、Next
-    details: 熟悉 Vue/React 源码； Next C端 项目架构经验；掌握 Next 全栈开发；掌握 C端 动画开发。
-  # - title: Nest
-  #   details: Nest 服务端、BFF
-  - title: Tags
-    details: C端（电商、官网、社区、动画、H5营销活动）、AI、协同编辑器、全栈、Threejs
+  - title: Next
+    details: Next.js14、Tailwindcss、Prisma、TypeScript、Vercel、PostgreSql、Supabase、NextAuth、Docker、Github Action、Strapi 等一套海外技术栈
+  - title: Editor
+    details: 基于 ProseMirror、Tiptap 的 Block-editor 富文本编辑器，支持 MD、AI、协同
+  - title: Web Animation
+    details: 基于 GSAP、Framer Motion 的复杂 Web 动画，以时间轴为维度的补间动画，滚动视差动画
+  - title: Web 3D
+    details: 基于 Blender 的 3D 建模，基于 Threejs 的 Web 3D 模型渲染
 ---
