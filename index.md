@@ -20,7 +20,7 @@ hero:
 
 features:
   - title: Next
-    details: Tailwindcss、TypeScript、Next.js14、Shadcn、Prisma、PostgreSql、Supabase、NextAuth、Docker、Github Action、Strapi 等一套海外技术栈
+    details: Tailwindcss、TypeScript、Next.js14、Shadcn、Prisma、PostgreSql、Supabase、NextAuth、Docker、Github Action、Strapi 等海外技术栈
   - title: Editor
     details: 基于 ProseMirror、Tiptap 的 Block-editor 富文本编辑器，支持 MD、AI、协同
   - title: Web Animation
