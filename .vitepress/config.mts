@@ -10,7 +10,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Next', link: '/next/next-1' },
       { text: 'Editor', link: '/editor/tiptap' },
-      { text: 'Web Animation', link: '/animation/gsap-1' },
+      { text: 'Web Animation', link: '/animation/fm-codesandbox' },
       { text: 'Web 3D', link: '/juejin/article-1' }
     ],
 
@@ -80,25 +80,25 @@ function sidebarEditor(): DefaultTheme.SidebarItem[] {
 function sidebarAnimate(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'Gsap',
+      text: 'Framer Motion',
       collapsed: false,
-      items: [{ text: '线条跟随视差效果', link: 'gsap-1' }]
-    },
-    {
-      text: 'FramerMotion',
-      collapsed: false,
-      items: [{ text: 'tab切换效果', link: 'fm-1' }]
-    },
-    {
-      text: 'CSS',
-      collapsed: false,
-      items: [{ text: '全屏滚动效果', link: 'css-1' }]
-    },
-    {
-      text: 'Three',
-      collapsed: false,
-      items: [{ text: '3D模型', link: 'three-1' }]
+      items: [{ text: 'Codesanbox视差效果', link: 'fm-codesandbox' }]
     }
+    // {
+    //   text: 'FramerMotion',
+    //   collapsed: false,
+    //   items: [{ text: 'tab切换效果', link: 'fm-1' }]
+    // },
+    // {
+    //   text: 'CSS',
+    //   collapsed: false,
+    //   items: [{ text: '全屏滚动效果', link: 'css-1' }]
+    // },
+    // {
+    //   text: 'Three',
+    //   collapsed: false,
+    //   items: [{ text: '3D模型', link: 'three-1' }]
+    // }
   ]
 }
 
