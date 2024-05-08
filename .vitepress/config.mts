@@ -29,7 +29,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: 'Nextjs',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '工程化配置', link: 'next-project' },
         { text: '图片配置', link: 'image' },
