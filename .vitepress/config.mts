@@ -98,7 +98,21 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
     {
       text: 'Framer Motion',
       collapsed: false,
-      items: [{ text: 'Codesanbox视差效果', link: 'fm-codesandbox' }]
+      items: [
+        { text: 'pin效果', link: 'fm-pin-1' },
+        { text: 'Codesanbox视差效果', link: 'fm-codesandbox' },
+        { text: 'tab切换效果', link: 'fm-tab' }
+      ]
+    },
+    {
+      text: 'GSAP',
+      collapsed: false,
+      items: [
+        { text: 'useGSAP', link: 'useGSAP' },
+        { text: 'gsap和gsap/gsap-core', link: 'gsap-core' },
+        { text: 'scrollTrigger', link: 'scrollTrigger' },
+        { text: 'pin效果', link: 'gsap-pin-1' }
+      ]
     }
     // {
     //   text: 'FramerMotion',
