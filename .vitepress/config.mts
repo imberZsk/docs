@@ -109,7 +109,7 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'useGSAP', link: 'useGSAP' },
-        { text: 'gsap和gsap/gsap-core', link: 'gsap-core' },
+        { text: 'gsap的各种包', link: 'gsap-core' },
         { text: 'scrollTrigger', link: 'scrollTrigger' },
         { text: 'pin效果', link: 'gsap-pin-1' }
       ]

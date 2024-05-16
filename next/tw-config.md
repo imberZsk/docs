@@ -84,6 +84,7 @@ fontSize: {
 
 ## 响应式布局
 
+通常最好先为设计实现移动布局
 vw
 
 ## clsx 解决类名冲突 cva tailwind-animate classnames
