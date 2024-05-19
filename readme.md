@@ -1,4 +1,4 @@
-![](./md.png)
+![](https://cdn.jsdelivr.net/gh/imberZsk/docs/md.png)
 
 ## 项目介绍
 
