@@ -55,12 +55,12 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
       text: 'Tailwind',
       collapsed: true,
       items: [{ text: '优雅的使用Tailwind', link: 'tw-config' }]
-    },
-    {
-      text: 'Typescript',
-      collapsed: true,
-      items: [{ text: 'Typescript规则问题', link: 'ts-qaq' }]
     }
+    // {
+    //   text: 'Typescript',
+    //   collapsed: true,
+    //   items: [{ text: 'Typescript规则问题', link: 'ts-qaq' }]
+    // }
     // zustand
     // {
     //   text: 'Strapi',
