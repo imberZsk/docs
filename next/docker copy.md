@@ -1,6 +1,6 @@
 ## Docker
 
-![alt text](image.png)
+![alt text](docker-image.png)
 
 ## 资源
 
@@ -16,13 +16,13 @@
 
 `Docker Desktop` 和 `VSCode` 插件
 
-![alt text](image-1.png)
+![alt text](docker-image-1.png)
 
 ## docker init
 
 项目里 `docker init` 可以生成
 
-![alt text](image-2.png)
+![alt text](docker-image-2.png)
 
 ## docker hub
 
@@ -30,11 +30,11 @@
 
 ## 搜索镜像
 
-![alt text](image-3.png)
+![alt text](docker-image-3.png)
 
 ## Optional settings
 
-![alt text](image-4.png)
+![alt text](docker-image-4.png)
 
 ## docker run 命令常见参数
 
@@ -55,32 +55,32 @@
 
 参考[官网](https://docs.docker.com/reference/cli/docker/container/run/)
 
-![alt text](image-5.png)
+![alt text](docker-image-5.png)
 
 ## 数据卷
 
-![alt text](image-6.png)
+![alt text](docker-image-6.png)
 
 - 在 docker run 命令的时候，使用 -v 数据卷:容器内目录 可以完成数据卷挂载
 - 当创建容器时，如果挂载了数据卷且数据卷不存在，则自动创建
 
 ## 本地数据卷挂载
 
-![alt text](image-7.png)
+![alt text](docker-image-7.png)
 
 ## Dockerfile 语法
 
-![alt text](image-9.png)
+![alt text](docker-image-9.png)
 
 [官网](https://docs.docker.com/reference/dockerfile/)
 
-![alt text](image-10.png)
+![alt text](docker-image-10.png)
 
-![alt text](image-11.png)
+![alt text](docker-image-11.png)
 
 ## 自定义镜像
 
-![alt text](image-8.png)
+![alt text](docker-image-8.png)
 
 ## 网络
 
@@ -92,7 +92,7 @@
 
 `docker network inspect react-notes`
 
-![alt text](image-12.png)
+![alt text](docker-image-12.png)
 
 <!-- #### Dockerfile dockerignore
 
@@ -102,9 +102,9 @@
 
 ## DockerCompose
 
-![alt text](image-14.png)
+![alt text](docker-image-14.png)
 
-![alt text](image-13.png)
+![alt text](docker-image-13.png)
 
 先创建`docker-compose.yml`
 
@@ -167,7 +167,7 @@ EXPOSE 3000
 
 ## Github Action
 
-![alt text](image-15.png)
+![alt text](docker-image-15.png)
 
 ## 服务器上新建 rsa
 
@@ -175,7 +175,7 @@ EXPOSE 3000
 
 `ls ~/.ssh`可以查看有没有
 
-![alt text](image-16.png)
+![alt text](docker-image-16.png)
 
 ## 配置 Github Actions
 
@@ -223,7 +223,7 @@ jobs:
 
 注意 `rsa` 是本地的 `id_rsa`，不是 `id_rsa.pub`
 
-![alt text](image-17.png)
+![alt text](docker-image-17.png)
 
 ## 免密连接云服务器
 

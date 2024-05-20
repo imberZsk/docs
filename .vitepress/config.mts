@@ -43,7 +43,6 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
         { text: 'APP 路由', link: 'next-app-router' },
         { text: '3个路由 Hook', link: 'next-router-hook' },
         { text: '状态管理', link: 'context' },
-        { text: 'TurboRepo', link: 'turborepo' },
         { text: '缓存问题', link: 'next-cache' },
         { text: '服务端客户端渲染不一致', link: 'next-render-different' },
         { text: '部署相关', link: 'next-deploy' },
@@ -55,26 +54,55 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
       text: 'Tailwind',
       collapsed: true,
       items: [{ text: '优雅的使用Tailwind', link: 'tw-config' }]
+    },
+    {
+      text: 'TurboRepo',
+      collapsed: true,
+      items: [{ text: 'TurboRepo', link: 'turboRepo' }]
+    },
+    {
+      text: 'Prisma',
+      collapsed: true,
+      items: [{ text: 'Prisma', link: 'prisma' }]
+    },
+    {
+      text: 'Supabase',
+      collapsed: true,
+      items: [{ text: 'Supabase', link: 'supabase' }]
+    },
+    {
+      text: 'Postgresql',
+      collapsed: true,
+      items: [{ text: 'Postgresql', link: 'postgresql' }]
+    },
+    {
+      text: 'NextAuth',
+      collapsed: true,
+      items: [{ text: 'NextAuth', link: 'nextAuth' }]
+    },
+    {
+      text: 'Strapi',
+      collapsed: true,
+      items: [
+        { text: 'Strapi', link: 'strapi' }
+        // { text: 'Strapi部署', link: 'strapi-deploy' }
+      ]
+    },
+    {
+      text: 'Docker',
+      collapsed: true,
+      items: [
+        { text: 'Strapi', link: 'strapi' }
+        // { text: 'Strapi部署', link: 'strapi-deploy' }
+      ]
     }
+
     // {
     //   text: 'Typescript',
     //   collapsed: true,
     //   items: [{ text: 'Typescript规则问题', link: 'ts-qaq' }]
     // }
     // zustand
-    // {
-    //   text: 'Strapi',
-    //   collapsed: true,
-    //   items: [
-    //     { text: 'Strapi', link: 'strapi' }
-    //     // { text: 'Strapi部署', link: 'strapi-deploy' }
-    //   ]
-    // },
-    // {
-    //   text: 'NextAuth',
-    //   collapsed: true,
-    //   items: [{ text: 'NextAuth', link: 'nextAuth' }]
-    // }
   ]
 }
 
@@ -135,10 +163,10 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
 
 function sidebarThree(): DefaultTheme.SidebarItem[] {
   return [
-    {
-      text: '1',
-      collapsed: false,
-      items: [{ text: '1', link: 'three-1' }]
-    }
+    // {
+    //   text: '1',
+    //   collapsed: false,
+    //   items: [{ text: '1', link: 'three-1' }]
+    // }
   ]
 }

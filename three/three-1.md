@@ -1,11 +1,1 @@
-## 光源
-
-环境光
-
-不要设置位置
-
-平行光
-
-点光源
-
-## 纹理贴图
+[![3D Image](https://cdn.jsdelivr.net/gh/imberZsk/3d/public/md.png)](https://imber-3d.netlify.app/)
