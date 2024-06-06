@@ -117,7 +117,11 @@ function sidebarEditor(): DefaultTheme.SidebarItem[] {
     { text: '相关功能', link: 'other' },
     {
       text: '所有功能（持续更新）',
-      link: '/editor-all/editor-all'
+      link: 'editor-all/editor-all'
+    },
+    {
+      text: 'selection和range',
+      link: 'selection'
     }
   ]
 }
