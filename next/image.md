@@ -100,6 +100,30 @@ placeholder = 'empty' // "empty" | "blur" | "data:image/..."
 
 在 `src` 成功加载图像之前用作占位符图像的数据 `URL`。仅当与 `placeholder="blur"`
 
+## 图片渐进加载
+
+静态图片（放项目的图片），不能用路径，只能 `import`，再加上`placeholder="blur"`就可以了
+
+```jsx
+import Image from 'next/image'
+import mountains from '../../../public/1.jpg'
+export default function Page() {
+  return <Image alt="Mountains" src={mountains} placeholder="blur" />
+}
+```
+
+这样就可以两张图片，先加载 `svg` 占位图，原图加载好了，再换成原图
+
+![alt text](placeholder.gif)
+
+对于动态图片，可以直接提供 base64
+
+```js
+placeholder={`data:image/svg+xml;base64,${xxxxx}`}
+```
+
+也可以用 [plaiceholder](https://plaiceholder.co/docs/examples/next)生成 `base64`
+
 ## 图片 CDN
 
 如果要使用云提供商来优化图像，而不是使用 `Next.js` 内置的图像优化 `API`，可以 `next.config.js` 按照如下方式进行配置 `loaderFile`（如果需要直接使用图片地址，而不是把图片下载到项目里）
@@ -136,5 +160,3 @@ export default function myImageLoader({ src, width, quality }) {
   return `${src}?w=${width}&q=${quality || 75}`
 }
 ```
-
-## 图片响应式
