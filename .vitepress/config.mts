@@ -47,7 +47,8 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
         { text: '服务端客户端渲染不一致', link: 'next-render-different' },
         { text: '部署相关', link: 'next-deploy' },
         { text: '日志', link: 'next-log' },
-        { text: '性能', link: 'next-performance' }
+        { text: '性能', link: 'next-performance' },
+        { text: '其它', link: 'other' }
       ]
     },
     {
