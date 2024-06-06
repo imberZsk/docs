@@ -2,108 +2,6 @@
 
 `eslint prettier lint-staged husky npmrc nvmrc turborepo engines packageManager editorconfig tailwind`
 
-## sitemap
-
-`app/sitemap.ts`
-
-```js
-import { siteConfig } from '@/config'
-import { MetadataRoute } from 'next'
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: `${siteConfig.domain}/`,
-      lastModified: new Date()
-    },
-    {
-      url: `${siteConfig.domain}/dashboard`,
-      lastModified: new Date()
-    }
-  ]
-}
-```
-
-## csp
-
-`src/middleware.ts`
-
-```js
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-export const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
-
-export function middleware(request: NextRequest) {
-  const cspHeader = `
-    default-src 'self' https://www.google-analytics.com/;
-    script-src 'self' 'nonce-${nonce}' https://www.googletagmanager.com https://www.google-analytics.com/;
-    style-src 'self' 'nonce-${nonce}';
-    img-src 'self' blob: data:;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    block-all-mixed-content;
-    upgrade-insecure-requests;
-`
-
-  const requestHeaders = new Headers()
-
-  requestHeaders.set('x-nonce', nonce)
-  requestHeaders.set(
-    'Content-Security-Policy',
-    cspHeader.replace(/\s{2,}/g, ' ').trim()
-  )
-
-  return NextResponse.next({
-    headers: requestHeaders,
-    request: {
-      headers: requestHeaders
-    }
-  })
-}
-
-export const config = {
-  matcher: [
-    {
-      source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
-      missing: [
-        { type: 'header', key: 'next-router-prefetch' },
-        { type: 'header', key: 'purpose', value: 'prefetch' }
-      ]
-    }
-  ]
-}
-```
-
-```js
-import { headers } from 'next/headers'
-
-const nonce = headers().get('x-nonce') || ''
-
- <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-3XQLVXB48J"
-        strategy="afterInteractive"
-        nonce={nonce}
-      ></Script>
-      <Script nonce={nonce} id="google-analytics">
-        {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-3XQLVXB48J');
-      `}
-      </Script>
-```
-
-## canonical
-
-```js
-<link rel="canonical" href={`${siteConfig.domain}`}></link>
-```
-
 ## 国际化
 
 middleware.ts
@@ -249,8 +147,6 @@ useEffect(() => {
 }, [])
 ```
 
-## 埋点
-
 ## 主题切换
 
 ```js
@@ -323,71 +219,6 @@ export default ThemeToggle
 </html>
 ```
 
-## eslint 里配置 tailwindcss/recommended'
-
-eslint-plugin-tailwindcss
-
-```js
-const prettierConfig = require('./prettier.config.js')
-
-module.exports = {
-  $schema: 'https://json.schemastore.org/eslintrc',
-  root: true,
-  extends: [
-    'next/core-web-vitals',
-    'prettier',
-    'plugin:tailwindcss/recommended'
-  ],
-  plugins: ['tailwindcss', 'unused-imports', 'prettier'],
-  rules: {
-    '@next/next/no-html-link-for-pages': 'off',
-    'prettier/prettier': ['warn', prettierConfig],
-    'react/jsx-key': 'off',
-    'tailwindcss/classnames-order': 'warn',
-    'tailwindcss/no-custom-classname': 'error',
-    'unused-imports/no-unused-imports': 'warn',
-    'unused-imports/no-unused-vars': [
-      'warn',
-      {
-        ignoreRestSiblings: true,
-        vars: 'all',
-        varsIgnorePattern: '^_',
-        args: 'none',
-        argsIgnorePattern: '^_'
-      }
-    ]
-  },
-  settings: {
-    tailwindcss: {
-      callees: ['cn'],
-      config: 'tailwind.config.js'
-    },
-    next: {
-      rootDir: ['./']
-    }
-  },
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx'],
-      parser: '@typescript-eslint/parser'
-    }
-  ]
-}
-```
-
-## tailwind-merge
-
-```js
-import { clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-import type { ClassValue } from 'clsx'
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
-```
-
 ## title 插槽
 
 ```js
@@ -395,54 +226,6 @@ title: {
     template: '%s | Acme Dashboard',
     default: 'Acme Dashboard',
   },
-```
-
-## 接口代理(解决跨域)
-
-next.config.js
-
-```js
-async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'https://xxx.com/:path*' // 配置代理地址为 https://myplus-api.meizu.cn
-      }
-    ]
-  },
-```
-
-.env.development
-
-```js
-NEXT_PUBLIC_BASE_URL=/api
-```
-
-.env.production
-
-```js
-NEXT_PUBLIC_BASE_URL=https://xxx.com
-```
-
-使用的时候
-
-```js
-process.enc.NEXT_PUBLIC_BASE_URL
-```
-
-## 图片安全
-
-```js
-images: {
-  remotePatterns: [
-    {
-      protocol: 'http',
-      hostname: 'xxx.com',
-      port: '',
-      pathname: '/xxx/**'
-    }
-  ]
-}
 ```
 
 ## 走 CDN 时打包不一致问题
@@ -467,3 +250,5 @@ generateBuildId: async () => {
 ```js
 export const dynamic = 'force-dynamic'
 ```
+
+## 路径别名
