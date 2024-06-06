@@ -3,17 +3,17 @@
 layout: home
 
 hero:
-  name: "imber Docs"
+  name: 'imber Docs'
   actions:
     - theme: brand
       text: Next
-      link: /next/next-1
+      link: /next/next-project
     - theme: brand
       text: Editor
-      link: /editor/select
+      link: /editor/selection
     - theme: brand
       text: Web Animation
-      link: /animation/gsap-1
+      link: /animation/useGSAP
     - theme: brand
       text: Web 3D
       link: /three/three-1

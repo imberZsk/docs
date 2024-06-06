@@ -93,4 +93,4 @@ generateBuildId: async () => {
 export const dynamic = 'force-dynamic'
 ```
 
-## 路径别名
+## dynamic await

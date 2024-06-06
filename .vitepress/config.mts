@@ -9,8 +9,8 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Next', link: '/next/next-project' },
-      { text: 'Editor', link: '/editor/tiptap' },
-      { text: 'Web Animation', link: '/animation/fm-codesandbox' },
+      { text: 'Editor', link: '/editor/selection' },
+      { text: 'Web Animation', link: '/animation/useGSAP' },
       { text: 'Web 3D', link: '/three/three-1' }
     ],
 
@@ -109,6 +109,10 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
 
 function sidebarEditor(): DefaultTheme.SidebarItem[] {
   return [
+    {
+      text: 'selection和range',
+      link: 'selection'
+    },
     { text: '编辑器技术选型', link: 'select' },
     { text: 'tiptap简介', link: 'tiptap' },
     { text: 'tiptap-nextjs初始化', link: 'project-standard' },
@@ -119,16 +123,25 @@ function sidebarEditor(): DefaultTheme.SidebarItem[] {
     {
       text: '所有功能（持续更新）',
       link: 'editor-all/editor-all'
-    },
-    {
-      text: 'selection和range',
-      link: 'selection'
     }
   ]
 }
 
 function sidebarAnimate(): DefaultTheme.SidebarItem[] {
   return [
+    {
+      text: 'GSAP',
+      collapsed: false,
+      items: [
+        { text: 'useGSAP', link: 'useGSAP' },
+        { text: 'gsap的各种包', link: 'gsap-core' },
+        { text: 'scrollTrigger', link: 'scrollTrigger' },
+        { text: '渐入效果', link: 'gsap-fade-in-1' },
+        { text: '渐入与滚动动画效果', link: 'gsap-fade-in-2' },
+        { text: '滚动钉住动画效果', link: 'gsap-pin-1' },
+        { text: '动态叠层滚动效果', link: 'gsap-pin-2' }
+      ]
+    },
     {
       text: 'Framer Motion',
       collapsed: false,
@@ -137,17 +150,8 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
         { text: 'Codesanbox视差效果', link: 'fm-codesandbox' },
         { text: 'tab切换效果', link: 'fm-tab' }
       ]
-    },
-    {
-      text: 'GSAP',
-      collapsed: false,
-      items: [
-        { text: 'useGSAP', link: 'useGSAP' },
-        { text: 'gsap的各种包', link: 'gsap-core' },
-        { text: 'scrollTrigger', link: 'scrollTrigger' },
-        { text: 'pin效果', link: 'gsap-pin-1' }
-      ]
     }
+
     // {
     //   text: 'FramerMotion',
     //   collapsed: false,

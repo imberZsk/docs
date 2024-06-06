@@ -2,6 +2,8 @@
 
 ![alt text](image-52.png)
 
+还要注意的是第三方库往往需要`"use client"`
+
 ## 一些关系
 
 服务端组件客户端组件和 `SSR/SSG/ISR` 有关系吗？
