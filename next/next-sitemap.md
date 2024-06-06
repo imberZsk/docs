@@ -74,8 +74,45 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
 ## canonical
 
-另一个 `seo` 友好的配置
+另一个 `seo` 友好的配置，集中权重
 
 ```js
 <link rel="canonical" href="https://imber.top"></link>
+```
+
+## TDK
+
+静态 `TDK` 很简单，这里就举例一下可以这样设置动态 `TDK`
+
+`layout.tsx`
+
+```js
+import type { Metadata } from 'next'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const tdkId = xxx
+
+  const product = await fetch(
+    `https://dms-dataapi.meizu.com/data/jsdata.json?blockIds=${tdkId}`
+  ).then((res) => res.json())
+
+  const productObject = product[`block_${tdkId}`][0]
+
+  const { title, description, keywords } = productObject
+
+  return {
+    title,
+    description,
+    keywords
+  }
+}
+```
+
+## Title 插槽
+
+```js
+title: {
+    template: '%s | Acme Dashboard',
+    default: 'Acme Dashboard',
+  },
 ```

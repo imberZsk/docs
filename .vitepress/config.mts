@@ -34,7 +34,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
         { text: '工程化配置', link: 'next-project' },
         { text: '图片配置', link: 'image' },
         { text: '配置代理', link: 'next-proxy' },
-        { text: 'Sitemap', link: 'next-sitemap' },
+        { text: 'Sitemap(SEO)', link: 'next-sitemap' },
         { text: 'CSP', link: 'next-csp' },
         { text: '国际化', link: 'next-i18n' },
         { text: '服务端组件和客户端组件', link: 'next-server-client' },

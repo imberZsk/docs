@@ -1,5 +1,3 @@
-## 服务端组件和客户端组件对服务端对操作
+## server action 的用处
 
-服务端组件可以直接调用服务端操作
-
-客户端组件可以通过 `server action` 调用服务端操作
+[之前](http://localhost:5173/next/next-server-client.html) 说了，服务端组件可以直接调用服务端操作，但是客户端组件只能通过 `server action` 调用服务端操作
