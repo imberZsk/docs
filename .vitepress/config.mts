@@ -41,7 +41,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
         { text: 'SSR/SSG/ISR', link: 'next-ssr' },
         { text: 'Server Action', link: 'next-server-action' },
         { text: 'APP 路由', link: 'next-app-router' },
-        { text: '3个路由 Hook', link: 'next-router-hook' },
+        { text: '4个路由 Hook', link: 'next-router-hook' },
         { text: '状态管理', link: 'context' },
         { text: '缓存问题', link: 'next-cache' },
         { text: '服务端客户端渲染不一致', link: 'next-render-different' },
