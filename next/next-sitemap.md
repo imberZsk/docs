@@ -1,3 +1,5 @@
+> [Google 支持的 meta 标记和属性](https://developers.google.com/search/docs/crawling-indexing/special-tags?hl=zh-cn)
+
 ## sitemap
 
 `sitemap` 是利于 `SEO` 的，如苹果官网的 `https://www.apple.com/sitemap.xml`
@@ -116,3 +118,40 @@ title: {
     default: 'Acme Dashboard',
   },
 ```
+
+## robots
+
+`app > robots.ts`
+
+```js
+import { MetadataRoute } from 'next'
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: '*',
+      allow: '/'
+      // disallow: '/private/'
+    },
+    sitemap: 'https://acme.com/sitemap.xml'
+  }
+}
+```
+
+生成如下格式
+
+```bash
+User-Agent: *
+Allow: /
+Disallow: /private/
+
+Sitemap: https://imber.top/sitemap.xml
+```
+
+## 直接添加站点
+
+[百度搜索资源平台](https://ziyuan.baidu.com/?castk=LTE%3D)
+
+## 其他
+
+`Open Graph protocol` 、 `RSS` 订阅 、 `Twitter Card`、`JSON-LD` 等
