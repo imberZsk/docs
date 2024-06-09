@@ -42,12 +42,14 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
         { text: 'Server Action', link: 'next-server-action' },
         { text: 'APP 路由', link: 'next-app-router' },
         { text: '4个路由 Hook', link: 'next-router-hook' },
+        { text: '2个表单 Hook', link: 'next-form-hook' },
+        // { text: '3个React 新 Hook', link: 'next-new-hook' },
         // { text: '缓存问题', link: 'next-cache' },
         { text: '水合不一致问题', link: 'next-render-different' },
         { text: '部署相关', link: 'next-deploy' },
         // { text: '日志', link: 'next-log' },
         { text: '性能指标', link: 'next-performance' },
-        { text: '状态管理', link: 'context' },
+        { text: '状态管理', link: 'next-context' },
         // { text: '数据请求', link: 'swr' },
         { text: '其它', link: 'other' }
       ]
