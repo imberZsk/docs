@@ -1,8 +1,8 @@
 ## 本地图片
 
-Next.js 将根据导入的文件自动确定图像的 width 和 height 。这些值用于防止在加载图像时出现累积布局偏移
+`Next.js` 将根据导入的文件自动确定图像的 `width` 和 `height` 。这些值用于防止在加载图像时出现累积布局偏移
 
-需要注意的是不是放在 `public` 文件里，因为 `public` 里不会打包图片
+`Image` 组件会给本地图片自动转 `webp` 格式，还会自动 `loading="lazy"` 来支持图片懒加载
 
 ```js
 import Image from 'next/image'

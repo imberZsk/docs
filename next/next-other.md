@@ -25,6 +25,34 @@ generateBuildId: async () => {
 export const dynamic = 'force-dynamic'
 ```
 
+## fetch 请求 cookie 跨域问题
+
+> 注意服务器上（测试环境/灰度环境/外网）也可能需要代理
+
+```js
+import { cookies } from 'next/headers'
+
+export default async function Page() {
+  const res = await requestDetail(cookies().toString())
+}
+
+export const requestDetail = async (
+  cookies: string,
+  activityId: string,
+  home: boolean
+) => {
+  const data = await fetch(`https://xxx`, {
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      Cookie: cookies
+    },
+    cache: 'no-store'
+  })
+  return data.json()
+}
+```
+
 ## 延迟加载
 
 加载阿里云 oss 的包的时候，`await import()`，可以等用到的时候再加载第三方包

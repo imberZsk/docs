@@ -32,7 +32,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '工程化配置', link: 'next-project' },
-        { text: '图片配置', link: 'image' },
+        { text: '图片配置', link: 'next-image' },
         { text: '配置代理', link: 'next-proxy' },
         { text: 'Sitemap(SEO)', link: 'next-sitemap' },
         { text: 'CSP', link: 'next-csp' },
@@ -51,7 +51,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
         { text: '性能指标', link: 'next-performance' },
         { text: '状态管理', link: 'next-context' },
         // { text: '数据请求', link: 'swr' },
-        { text: '其它', link: 'other' }
+        { text: '其它', link: 'next-other' }
       ]
     },
     {
