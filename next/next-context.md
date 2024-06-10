@@ -49,7 +49,9 @@ const toastShareValue = useContext(ToastContext)
 
 ## zustand
 
+- 不应该在服务端组件里使用
 - [Setup with Next.js](https://docs.pmnd.rs/zustand/guides/nextjs)
-- 对于嵌套的数据结构，不想用扩展运算符，还是 `immer`
+- 对于嵌套的数据结构，不想用扩展运算符，可以和 `immer` 配合
 - 对于协同文档 [zustand-middleware-yjs](https://github.com/joebobmiles/zustand-middleware-yjs)，[zustand-yjs](https://github.com/tandem-pt/zustand-yjs)
-- 数据持久化
+- [数据持久化](https://docs.pmnd.rs/zustand/integrations/persisting-store-data)
+- 如果不是每个 `route` 都需要状态共享，可以把 `provider` 在组件里下沉
