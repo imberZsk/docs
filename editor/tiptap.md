@@ -7,17 +7,17 @@
 
 ## why tiptap？
 
-`tiptap` 解决我的问题，概念清晰，有很多 `demo，extension`，能让我快速完成开发工作，基于 tiptap 实现了一款类似`notion`的编辑器，[block-editor](https://juejin.cn/post/6891840180198735886) 架构
+`tiptap` 解决我的问题，概念清晰，有很多 `demo`，`extension`，能让我快速完成开发工作，基于 tiptap 实现了一款类似`notion`的编辑器，[block-editor](https://juejin.cn/post/6891840180198735886) 架构
 
-![alt text](image-5.png)
+![alt text](tiptap-1.png)
 
 ## headless
 
 `tiptap` 支持自由控制页面样式，它自己本身没有样式只提供逻辑，比如自定义类
 
-![Alt text](1-1.jpg)
+![Alt text](tiptap-2.jpg)
 
-![Alt text](1-2.jpg)
+![Alt text](tiptap-3.jpg)
 
 通过配置插件 [@tiptap/starter-kit](https://tiptap.dev/docs/editor/api/extensions/starter-kit) `HTMLAttributes`，别的插件同理
 
@@ -194,7 +194,7 @@ const CustomExtension = Extension.create({
     // The editor is focused.
   },
   onBlur({ event }) {
-    // The editor isn’t focused anymore.
+    // The editor isn t focused anymore.
   },
   onDestroy() {
     // The editor is being destroyed.
@@ -215,11 +215,11 @@ editor.on('update', () => {
 
 **nodes**：节点大部分是块级元素，如 `h1`，不同的 `JSON` 的 `type` 字段，文本是`"paragraph"`，`h1` 是`"heading"（attrs:level:）`，可以套娃
 
-![1-3](1-3.png)
+![1-3](tiptap-4.png)
 
 **marks**：可以将一个或多个标记应用于节点，例如添加粗体和斜体等内联格式或其他附加信息。就是一个标记，和 `type` 同级的，像 `props`，在 `content > marks` 里标记
 
-![Alt text](1-4.png)
+![Alt text](tiptap-5.png)
 
 ## 可参考资料
 

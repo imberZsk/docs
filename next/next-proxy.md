@@ -4,6 +4,8 @@
 > - `router handler`
 > - `server action`
 
+![alt text](next-proxy-1.png)
+
 ## 接口代理(解决跨域)
 
 配置 `next.config.js`

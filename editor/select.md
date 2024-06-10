@@ -11,7 +11,7 @@
 
 我为 `KFC` 代盐
 
-![alt text](kfc.gif)
+![alt text](select-1.gif)
 
 ## 编辑器技术选型
 
@@ -25,7 +25,7 @@
 
 #### 首页
 
-![alt text](image-18.png)
+![alt text](select-1.png)
 
 - `Product` 里是 `tiptap` 几个厉害的功能(AI、协同、评论、一些 pro 拓展)，可以登陆它的云平台然后使用，也是免费
 - `Blog` 是一些更新功能的博客
@@ -34,7 +34,7 @@
 
 #### Docs 页
 
-![alt text](image-19.png)
+![alt text](select-2.png)
 
 `Docs` 里面关心这里好几个地方就行了，下面的都是些要米的功能，可以自己开发
 [examples](https://tiptap.dev/docs/editor/examples/default) 和 [extensions](https://tiptap.dev/docs/editor/extensions)这两个是重点，里面很多`Demo`让我们开箱即用
@@ -49,7 +49,7 @@
 
 做一些功能的时候，tiptap 的文档可能没有那么全，也需要了解下 `prosemirror`
 
-![alt text](image-20.png)
+![alt text](select-3.png)
 
 主要看这两部分，[Library guide](https://prosemirror.net/docs/guide/)为一些概念里面有一些 `demo`，[Reference manual](https://prosemirror.net/docs/ref/)为完整 `API` 说明
 

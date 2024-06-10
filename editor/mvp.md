@@ -6,7 +6,7 @@
 
 ## editor 组件划分
 
-![Alt text](image.png)
+![Alt text](mvp-0.png)
 
 编辑器组件为 `TipTap`，客户端组件，核心逻辑在`src/ui/tiptap/tiptap.tsx`
 
@@ -73,7 +73,7 @@ export default Tiptap
 
 结果是这样
 
-![Alt text](image-1.png)
+![Alt text](mvp-1.png)
 
 ## 社区开源插件 config 拆分
 
@@ -126,7 +126,7 @@ export const extensions = [
 
 结果是这样
 
-![Alt text](image-2.png)
+![Alt text](mvp-2.png)
 
 ## 页面组件拆分
 
@@ -160,11 +160,11 @@ export default Tiptap
 
 所以拆分一下，并且 `TS` 也拆分一下，减少臃肿，是这样：
 
-![Alt text](image-3.png)
+![Alt text](mvp-3.png)
 
 ## h1 h2 h3 样式
 
-![alt text](image-17.png)
+![alt text](mvp-4.png)
 
 初始样式是被 `tailwind` 重置的，所以需要自己写样式，同事标题是支持`MD`语法的
 
@@ -201,9 +201,9 @@ export default Tiptap
 
 插件效果如下
 
-![alt text](image-15.png)
+![alt text](mvp-5.png)
 
-![alt text](image-16.png)
+![alt text](mvp-6.png)
 
 #### 安装插件
 
@@ -239,7 +239,7 @@ export const extensions = [
 
 ## Image 图片上传插件
 
-![alt text](1.gif)
+![alt text](mvp-1.gif)
 
 #### 安装插件
 

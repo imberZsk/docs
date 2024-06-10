@@ -10,8 +10,8 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Nextjs', link: '/next/next-project' },
       { text: 'Editor', link: '/editor/selection' },
-      { text: 'Web Animation', link: '/animation/useGSAP' },
-      { text: 'Web 3D', link: '/three/three-1' }
+      { text: 'Web Animation', link: '/animation/gsap/useGSAP' },
+      { text: 'Web 3D', link: '/three/earth' }
     ],
 
     sidebar: {
@@ -41,15 +41,27 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
         { text: 'SSR/SSG/ISR', link: 'next-ssr' },
         { text: 'Server Action', link: 'next-server-action' },
         { text: 'APP 路由', link: 'next-app-router' },
+        { text: 'middleware(中间件)', link: 'next-middleware' },
         { text: '4个路由 Hook', link: 'next-router-hook' },
         { text: '2个表单 Hook', link: 'next-form-hook' },
         { text: '水合不一致问题', link: 'next-render-different' },
         { text: '部署相关', link: 'next-deploy' },
         { text: '性能指标', link: 'next-performance' },
-        { text: '状态管理', link: 'next-context' },
-        { text: '数据请求', link: 'next-swr' },
         { text: '其它', link: 'next-other' }
       ]
+    },
+    {
+      text: 'Zustand',
+      collapsed: true,
+      items: [
+        { text: 'Context', link: 'zustand/context' },
+        { text: 'Zustand', link: 'zustand/zustand' }
+      ]
+    },
+    {
+      text: 'SWR',
+      collapsed: true,
+      items: [{ text: 'SWR', link: 'swr/swr' }]
     },
     {
       text: 'Tailwind',
@@ -77,10 +89,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
     {
       text: 'Docker',
       collapsed: true,
-      items: [
-        { text: 'Docker', link: 'docker/docker' }
-        // { text: 'Strapi部署', link: 'strapi-deploy' }
-      ]
+      items: [{ text: 'Docker', link: 'docker/docker' }]
     },
     {
       text: 'TurboRepo',
@@ -101,11 +110,9 @@ function sidebarEditor(): DefaultTheme.SidebarItem[] {
     },
     { text: '编辑器技术选型', link: 'select' },
     { text: 'tiptap简介', link: 'tiptap' },
-    { text: 'tiptap-nextjs初始化', link: 'project-standard' },
     { text: 'tiptap mvp版本（快速使用）🔥', link: 'mvp' },
-    { text: 'tiptap 插件开发', link: 'tiptap-plugin' },
+    { text: 'tiptap 插件开发', link: 'plugin' },
     { text: '定制化 AI 功能 ', link: 'ai' },
-    { text: '相关功能', link: 'other' },
     {
       text: '所有功能（持续更新）',
       link: 'editor-all/editor-all'
@@ -119,49 +126,26 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
       text: 'GSAP',
       collapsed: false,
       items: [
-        { text: 'useGSAP', link: 'useGSAP' },
-        { text: 'gsap的各种包', link: 'gsap-core' },
-        { text: 'scrollTrigger', link: 'scrollTrigger' },
-        { text: '渐入效果', link: 'gsap-fade-in-1' },
-        { text: '渐入与滚动动画效果', link: 'gsap-fade-in-2' },
-        { text: '滚动钉住动画效果', link: 'gsap-pin-1' },
-        { text: '动态叠层滚动效果', link: 'gsap-pin-2' }
+        { text: 'useGSAP', link: 'gsap/useGSAP' },
+        { text: 'gsap的各种包', link: 'gsap/gsap-core' },
+        { text: 'scrollTrigger', link: 'gsap/scrollTrigger' },
+        { text: '渐入效果', link: 'gsap/gsap-fade-in-1' },
+        { text: '渐入与滚动动画效果', link: 'gsap/gsap-fade-in-2' },
+        { text: '滚动钉住动画效果', link: 'gsap/gsap-pin-1' },
+        { text: '动态叠层滚动效果', link: 'gsap/gsap-pin-2' }
       ]
     },
     {
       text: 'Framer Motion',
       collapsed: false,
       items: [
-        { text: 'pin效果', link: 'fm-pin-1' },
-        { text: 'Codesanbox视差效果', link: 'fm-codesandbox' },
-        { text: 'tab切换效果', link: 'fm-tab' }
+        { text: 'Codesanbox视差效果', link: 'fm/fm-codesandbox' },
+        { text: 'tab切换效果', link: 'fm/fm-tab' }
       ]
     }
-
-    // {
-    //   text: 'FramerMotion',
-    //   collapsed: false,
-    //   items: [{ text: 'tab切换效果', link: 'fm-1' }]
-    // },
-    // {
-    //   text: 'CSS',
-    //   collapsed: false,
-    //   items: [{ text: '全屏滚动效果', link: 'css-1' }]
-    // },
-    // {
-    //   text: 'Three',
-    //   collapsed: false,
-    //   items: [{ text: '3D模型', link: 'three-1' }]
-    // }
   ]
 }
 
 function sidebarThree(): DefaultTheme.SidebarItem[] {
-  return [
-    // {
-    //   text: '1',
-    //   collapsed: false,
-    //   items: [{ text: '1', link: 'three-1' }]
-    // }
-  ]
+  return [{ text: '3D地球', link: 'earth' }]
 }

@@ -8,13 +8,13 @@
 
 我这里选用的是气泡栏插件，AI 显示的文本在气泡栏，然后点击气泡栏的按钮，AI 输入的文本会替换到编辑器中。
 
-![alt text](kfc.gif)
+![alt text](mvp-1.gif)
 
 ## 接入流式数据
 
 后端 AI 接口返回的数据是流式数据，也就是`text/event-stream`这个头
 
-![alt text](image-21.png)
+![alt text](ai-1.png)
 
 #### 原生 sse EventSource 连接只能对接 get 接口，有一定局限性
 

@@ -13,10 +13,10 @@ hero:
       link: /editor/selection
     - theme: brand
       text: Web Animation
-      link: /animation/useGSAP
+      link: /animation/gsap/useGSAP
     - theme: brand
       text: Web 3D
-      link: /three/three-1
+      link: /three/earth
 
 features:
   - title: Nextjs

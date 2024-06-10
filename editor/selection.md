@@ -1,6 +1,6 @@
 ## [document.execCommand](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/execCommand)
 
-![alt text](image-25.png)
+![alt text](selection-1.png)
 
 `document.execCommand` 是一个已弃用的 API，它也是操作 `selection` 实现编辑器功能，`document.execCommand`可以不学，但是 `selection` 和 `range` 需要学习
 
@@ -15,7 +15,7 @@ document.execCommand('bold', false, null)
 
 `isCollapsed` 为 `true` 表示选区为空，`false` 表示选区不为空，`toString` 方法可以获取选区中的文本
 
-![alt text](image-24.png)
+![alt text](selection-2.png)
 
 ```js
 const selObj = window.getSelection() //选区
@@ -24,7 +24,7 @@ const range = selObj.getRangeAt(0) //选区有多个Range范围,我们常常是�
 
 ## anchor 和 focus
 
-![alt text](image-23.png)
+![alt text](selection-3.png)
 
 对于 `anchorOffset` 与 `focusOffset` ，他们的计算方式都是从**左到右**（是当前标签的开始位置而不是选中的也不是整段文本的）计算到选区的边界，总共有多少个字符
 
@@ -60,4 +60,4 @@ const range = selObj.getRangeAt(0) //选区有多个Range范围,我们常常是�
 </Button>
 ```
 
-![alt text](image-26.png)
+![alt text](selection-4.png)
