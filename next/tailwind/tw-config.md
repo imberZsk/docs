@@ -52,7 +52,7 @@ fontSize: {
 
 ## 怎么复用重复的样式？
 
-复用样式 `@apply`，可以设置几个常用的布局，如
+对于全局样式，可以使用 `@apply`，可以设置几个常用的布局，如
 
 ```css
 .margin-center {
@@ -66,6 +66,18 @@ fontSize: {
 .absolute-center {
   @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
 }
+```
+
+也可以用 `export const card = 'border rounded-md p-4'` 全局变量，而不是 `@apply`，这样做到无 `css`
+
+对于单个组件里重复的样式，可以抽离变量
+
+```jsx
+let card = `flex bg-pink-200 p-4 rounded-lg`
+
+<div className={card}></div>
+<div className={card}></div>
+<div className={card}></div>
 ```
 
 此外还有一个 `@layer`，可以把样式注入到对应层里，避免样式覆盖
@@ -86,19 +98,148 @@ fontSize: {
 
 ## 响应式布局
 
-通常最好先为设计实现移动布局
-vw
+- 一个方面是需要 UI 考虑更多尺寸，给出适配不同尺寸的设计稿方案
+- 重点：使用 `Tailwind` 的媒体查询应该先写小尺寸如 `H5`，再写大尺寸如 `PC`，因为大尺寸会覆盖小尺寸
 
-## clsx 解决类名冲突 cva tailwind-animate classnames
+## clsx/classnames tw-merge cva
 
-group
+首先，`clsx` 是一个打包体积比 `classnames` 更小的替代工具。他的功能与 `classnames` 类似，我们可以用它来组合字符串
 
 ## 性能
 
-https://www.tailwindcss.cn/blog/just-in-time-the-next-generation-of-tailwind-css
+[just-in-time](https://www.tailwindcss.cn/blog/just-in-time-the-next-generation-of-tailwind-css)，很早开始都是按需生成样式，性能不会差
 
-## 动态计算 vw
+## [封装思维的小转变，带来极致使用体验](https://mp.weixin.qq.com/s/glr73rMrwqbVmjm6GNLAzA)
 
-## QAQ
+这个转变思维让我觉得我的组件变得非常简单。这个思路从 unocss 的传参方式中获得了灵感。例如我们要封装一个 Button 组件。假设该 Button 组件需要支持的情况如下：
 
-- 如何在 TS 中提示字符串 Tailwind 类名?
+语义类型：`normal primary success danger`
+
+组件大小：`small medium large`
+
+实际情况会更多，我们这里只做演示
+
+那么，我们在参数设计上，会很自然的想到这样传参，如下，这是一种比较传统的传参思维
+
+`<Button type="primary" size="lg">he</Button>`
+
+从 unocss 的使用方式上，我获得了一个更简洁的传参思路。那就是把所有的参数类型都设计成布尔型，那么我就可以这样做
+
+```jsx
+<Button danger>Danger</Button>
+<Button primary sm>Primary SM</Button>
+```
+
+在组件的内部封装也很简单，这些属性都被设计成为了布尔型，那么在内部我们是否需要将一段属性加入到元素中，只需要简单判断就可以了
+
+```js
+// type: normal 为默认值
+const normal = 'bg-gray-100 hover:bg-gray-200'
+const _p = primary ? 'bg-blue-500 text-white hover:bg-blue-600' : ''
+const _d = danger ? 'bg-red-500 text-white hover:bg-red-600' : ''
+
+内部封装，主要是根据不同的参数拼接 className 的字符串，完整实现如下
+
+export default function Button(props) {
+  const {className, primary, danger, sm, lg, success, ...other} = props
+  const base = 'rounded-xl border border-transparent font-medium cursor-pointer transition'
+
+  // type
+  const normal = 'bg-gray-100 hover:bg-gray-200'
+  const _p = primary ? 'bg-blue-500 text-white hover:bg-blue-600' : ''
+  const _d = danger ? 'bg-red-500 text-white hover:bg-red-600' : ''
+  const _s = success ? 'bg-green-500 text-white hover:bg-green-600' : ''
+
+  // size
+  const md = 'text-sm py-2 px-4'
+  const _sm = sm ? 'text-xs py-1.5 px-3' : ''
+  const _lg = lg ? 'text-lg py-2 px-6' : ''
+
+  const cls = classnames(base, normal, md, _p, _d, _s, _sm, _lg)
+
+  return (
+    <button className={cls} {...other}>{props.children}</button>
+  )
+}
+```
+
+封装好之后，直接使用，可以感受一下极简的传参。我现在大爱这种使用方式。并且未来组件封装也准备都往这个方向发展。
+
+```jsx
+<Button>Normal</Button>
+<Button danger>Danger</Button>
+<Button primary>Primary</Button>
+<Button success>Success</Button>
+```
+
+## Shadcn 封装 Button
+
+```js
+import * as React from 'react'
+import { Slot } from '@radix-ui/react-slot'
+import { cva, type VariantProps } from 'class-variance-authority'
+
+import { cn } from '@/lib/utils'
+
+const buttonVariants = cva(
+  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  {
+    variants: {
+      variant: {
+        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+        outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+        ghost: 'hover:bg-accent hover:text-accent-foreground',
+        link: 'text-primary underline-offset-4 hover:underline'
+      },
+      size: {
+        default: 'h-10 px-4 py-2',
+        sm: 'h-9 rounded-md px-3',
+        lg: 'h-11 rounded-md px-8',
+        icon: 'h-10 w-10'
+      }
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default'
+    }
+  }
+)
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : 'button'
+    return <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
+  }
+)
+Button.displayName = 'Button'
+
+export { Button, buttonVariants }
+```
+
+## js 中支持 tailwind 提示
+
+配置 `vscode` 的 `setting.json`
+
+```json
+"tailwindCSS.experimental.classRegex": [
+  ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+  ["classnames\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+  ["classNames\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+  ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+  "(?:enter|leave)(?:From|To)?=\\s*(?:\"|')([^(?:\"|')]*)",
+  "(?:enter|leave)(?:From|To)?=\\s*(?:\"|'|{`)([^(?:\"|'|`})]*)",
+  ":\\s*?[\"'`]([^\"'`]*).*?,",
+  ["(?:twMerge|twJoin)\\(([^;]*)[\\);]", "[`'\"`]([^'\"`;]*)[`'\"`]"],
+  "tailwind\\('([^)]*)\\')",
+  "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)",
+  "(?:const|let|var)\\s+[\\w$_][_\\w\\d]*\\s*=\\s*['\\\"](.*?)['\\\"]"
+]
+```
