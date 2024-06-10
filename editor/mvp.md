@@ -261,7 +261,7 @@ export const extensions = [
 
 #### 使用插件
 
-如果要使用阿里云 OSS 等图片上传，可以参考[相关功能](/editor/other.html#%E5%8A%A8%E6%80%81%E5%BC%95%E5%85%A5-ali-oss)
+如果要使用阿里云 OSS 等图片上传，可以参考[相关功能](/next/next-other.html)
 
 ```jsx
 // 上传图片
