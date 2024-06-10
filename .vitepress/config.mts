@@ -8,7 +8,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Next', link: '/next/next-project' },
+      { text: 'Nextjs', link: '/next/next-project' },
       { text: 'Editor', link: '/editor/selection' },
       { text: 'Web Animation', link: '/animation/useGSAP' },
       { text: 'Web 3D', link: '/three/three-1' }
@@ -43,70 +43,53 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
         { text: 'APP 路由', link: 'next-app-router' },
         { text: '4个路由 Hook', link: 'next-router-hook' },
         { text: '2个表单 Hook', link: 'next-form-hook' },
-        // { text: '3个React 新 Hook', link: 'next-new-hook' },
-        // { text: '缓存问题', link: 'next-cache' },
         { text: '水合不一致问题', link: 'next-render-different' },
         { text: '部署相关', link: 'next-deploy' },
-        // { text: '日志', link: 'next-log' },
         { text: '性能指标', link: 'next-performance' },
         { text: '状态管理', link: 'next-context' },
-        // { text: '数据请求', link: 'swr' },
+        { text: '数据请求', link: 'next-swr' },
         { text: '其它', link: 'next-other' }
       ]
     },
     {
       text: 'Tailwind',
       collapsed: true,
-      items: [{ text: '优雅的使用Tailwind', link: 'tw-config' }]
-    },
-    {
-      text: 'TurboRepo',
-      collapsed: true,
-      items: [{ text: 'TurboRepo', link: 'turboRepo' }]
+      items: [{ text: '优雅的使用Tailwind', link: 'tailwind/tw-config' }]
     },
     {
       text: 'Prisma',
       collapsed: true,
-      items: [{ text: 'Prisma', link: 'prisma' }]
-    },
-    {
-      text: 'Supabase',
-      collapsed: true,
-      items: [{ text: 'Supabase', link: 'supabase' }]
-    },
-    {
-      text: 'Postgresql',
-      collapsed: true,
-      items: [{ text: 'Postgresql', link: 'postgresql' }]
+      items: [{ text: 'Prisma', link: 'prisma/prisma' }]
     },
     {
       text: 'NextAuth',
       collapsed: true,
-      items: [{ text: 'NextAuth', link: 'nextAuth' }]
+      items: [{ text: 'NextAuth', link: 'next-auth/nextAuth' }]
     },
     {
       text: 'Strapi',
       collapsed: true,
       items: [
-        { text: 'Strapi', link: 'strapi' }
-        // { text: 'Strapi部署', link: 'strapi-deploy' }
+        { text: 'Strapi', link: 'strapi/strapi' }
+        // { text: 'Strapi部署', link: 'strapi/strapi-deploy' }
       ]
     },
     {
       text: 'Docker',
       collapsed: true,
       items: [
-        { text: 'Strapi', link: 'strapi' }
+        { text: 'Docker', link: 'docker' }
         // { text: 'Strapi部署', link: 'strapi-deploy' }
       ]
+    },
+    {
+      text: 'TurboRepo',
+      collapsed: true,
+      items: [
+        { text: 'TurboRepo', link: 'turboRepo/turboRepo' },
+        { text: 'TurboPack', link: 'turboRepo/turboPack' }
+      ]
     }
-
-    // {
-    //   text: 'Typescript',
-    //   collapsed: true,
-    //   items: [{ text: 'Typescript规则问题', link: 'ts-qaq' }]
-    // }
-    // zustand
   ]
 }
 

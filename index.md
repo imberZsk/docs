@@ -6,7 +6,7 @@ hero:
   name: 'imber Docs'
   actions:
     - theme: brand
-      text: Next
+      text: Nextjs
       link: /next/next-project
     - theme: brand
       text: Editor
@@ -19,7 +19,7 @@ hero:
       link: /three/three-1
 
 features:
-  - title: Next
+  - title: Nextjs
     details: Tailwindcss、TypeScript、Next.js、Shadcn、Prisma、PostgreSql、Supabase、NextAuth、Docker、Github Action、Strapi 等海外技术栈
   - title: Editor
     details: 基于 ProseMirror、Tiptap 的 Block-editor 富文本编辑器，支持 MD、AI、协同

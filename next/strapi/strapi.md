@@ -86,7 +86,7 @@ export default {
 
 ## 使用 REST API
 
-现在接口就已经生成了，对于一个 ` COLLECTION TYPE``，Strapi ` 对应会生成这些接口，我们以这里的 `Note COLLECTION TYPE` 为例：
+现在接口就已经生成了，对于一个 ` COLLECTION TYPE`，`Strapi ` 对应会生成这些接口，我们以这里的 `Note COLLECTION TYPE` 为例：
 
 方法 `URL` 示例 作用
 
