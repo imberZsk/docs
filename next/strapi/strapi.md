@@ -8,7 +8,7 @@
 
 ## CMS 系统
 
-![alt text](image.png)
+![alt text](strapi-1.png)
 
 `strapi` 时 `CMS Headless` 系统，让前端 -> 全栈，适合 `C` 端项目
 
@@ -22,11 +22,11 @@
 npx create-strapi-app@latest my-project
 ```
 
-![alt text](image-9.png)
+![alt text](strapi-2.png)
 
 #### 注册第一个本地管理员
 
-![alt text](image-2.png)
+![alt text](strapi-3.png)
 
 ## 设置中文
 
@@ -76,13 +76,13 @@ export default {
 
 注意可能需要重启项目，然后点击左下角的用户名 -> Profile，拉到最下面，选择中文（简体）：
 
-![alt text](image-3.png)
+![alt text](strapi-4.png)
 
 ## 使用 Content-type 构建数据结构
 
 相当于数据库建表操作，添加各种字段
 
-![alt text](2.gif)
+![alt text](strapi-1.gif)
 
 ## 使用 REST API
 
@@ -90,17 +90,17 @@ export default {
 
 方法 `URL` 示例 作用
 
-![alt text](image-7.png)
+![alt text](strapi-5.png)
 
 注意这里用到的都是复数 `ID`。如果是 `SINGLE TYPES`，生成的接口会用到单数 `ID`：
 
-![alt text](image-8.png)
+![alt text](strapi-6.png)
 
 ## 生成 token
 
 打开 `Settings -> API Tokens`，点击 `Create new API Token`，生成 `API Token`，该 `Token` 决定了权限范围和使用时间
 
-![alt text](image-4.png)
+![alt text](strapi-7.png)
 
 生成之后，获取接口数据的时候就需要带上这个 token：
 
@@ -108,14 +108,14 @@ export default {
 
 那你可能会想：“好麻烦，我调用个接口，还要用 `token`，能不能不用 `token`，至少获取列表和获取条目不需要？”。当然也是可以的，我们点击 `Settings-> Roles`，选择 `Public` 角色进行编辑：
 
-![alt text](image-5.png)
+![alt text](strapi-8.png)
 
 勾选 `Note` 这个集合类型中的 `find` 和 `findOne，表示` `/api/notes` 和 `/api/note/1` 不再需要鉴权。
 
-![alt text](image-6.png)
+![alt text](strapi-9.png)
 
 ## 图片视频
 
 创建 图片/视频 模型后这里可以知道图片的地址，数据库在 `files` 表里
 
-![alt text](image-10.png)
+![alt text](strapi-10.png)

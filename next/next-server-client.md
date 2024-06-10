@@ -1,6 +1,6 @@
 ## 何时用？
 
-![alt text](image-52.png)
+![alt text](next-server-client-1.png)
 
 还要注意的是第三方库往往需要`"use client"`
 

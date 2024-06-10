@@ -78,7 +78,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
       text: 'Docker',
       collapsed: true,
       items: [
-        { text: 'Docker', link: 'docker' }
+        { text: 'Docker', link: 'docker/docker' }
         // { text: 'Strapi部署', link: 'strapi-deploy' }
       ]
     },

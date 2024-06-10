@@ -15,4 +15,4 @@ export function WebVitals() {
 
 支持的性能指标
 
-![alt text](image-56.png)
+![alt text](next-performance-1.png)

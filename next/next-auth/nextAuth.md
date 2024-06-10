@@ -4,7 +4,7 @@
 
 ## NextAuth
 
-![alt text](image-20.png)
+![alt text](nextAuth-1.png)
 
 `Nextjs` 中使用 `github` 登陆参考 [官网 OAuth 验证](https://authjs.dev/getting-started/providers/oauth-tutorial)（感觉不咋好，不如看 `demo`）
 
@@ -65,38 +65,40 @@ npx prisma migrate dev --name init
 
 有一个按钮，点击后跳转到 `login`，要登陆了你才能进到 `dashboard`
 
-![alt text](image-26.png)
+![alt text](nextAuth-2.png)
 
 #### 登陆页 /login
 
 用 `shadcn` 的登陆 `Block`，但只需要用到 `github` 登陆
 
-![alt text](image-31.png)
+![alt text](nextAuth-3.png)
 
 #### 注册页 /signUp
 
-![alt text](image-21.png)
+![alt text](nextAuth-4.png)
 
 #### 落地页 /dashboard
 
 如果用户登陆了，就跳转到 `dashboard`，并且展示获取到的用户信息
 
-![alt text](image-27.png)
+![alt text](nextAuth-5.png)
 
 ## Github 授权
 
 这里获取的数据后面配置到'.env'，为了安全，记得`.gitignore`忽略提交`.env`
-![alt text](image-23.png)
+![alt text](nextAuth-6.png)
 
-![alt text](image-24.png)
+![alt text](nextAuth-7.png)
 
-![alt text](image-25.png)
+![alt text](nextAuth-8.png)
 
 需要注意这个 `callback url` 为`http://localhost:3000/api/auth/callback/github`
-![alt text](image-30.png)
+
+![alt text](nextAuth-9.png)
 
 最终拿到 `AUTH_GITHUB_ID` 和 `AUTH_GITHUB_SECRET`，最后一个`AUTH_SECRET` 需要随机生成
-![alt text](image-32.png)
+
+![alt text](nextAuth-10.png)
 
 #### 生成随机字符串
 
@@ -159,7 +161,7 @@ export const { GET, POST } = handlers
 
 首先到根页面，因为访问需要权限才能去 `dashboard`，所以有个入口先去 `/login` 的入口，`/login` 可以 `Github` 登陆也可以`sign up`去注册账号，`Github` 登陆的话就跳回 `dashboard`，`sign up` 注册了账号的话还需要跳到 `login` 登陆
 
-![alt text](image-34.png)
+![alt text](nextAuth-11.png)
 
 在这里加代码
 
@@ -184,11 +186,11 @@ function LoginWithGitHub() {
 
 然后就能跳到这里
 
-![alt text](image-33.png)
+![alt text](nextAuth-12.png)
 
 点击就是 `Github` 登陆了，登陆后会看到多了 `3` 个 `cookie`
 
-![alt text](image-35.png)
+![alt text](nextAuth-13.png)
 
 ## 获取登陆信息
 
@@ -375,11 +377,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth(config)
 
 我用的网易邮箱大师，先回到旧版，然后开启服务
 
-![alt text](image-37.png)
+![alt text](nextAuth-14.png)
 
-![alt text](image-38.png)
+![alt text](nextAuth-15.png)
 
-![alt text](image-39.png)
+![alt text](nextAuth-16.png)
 
 然后就拿到了密钥
 
@@ -415,7 +417,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth(config)
 
 此时就多了一个邮箱选项，但是要项目上线后才能使用邮箱登陆
 
-![alt text](image-40.png)
+![alt text](nextAuth-17.png)
 
 <!-- ## 验证账号密码登陆 -->
 
@@ -494,12 +496,12 @@ export function ProfileForm() {
 
 使用 `shadcn` 的时候，它的 `input` 组件，默认是没有 `name` 属性的，无法被 `form` 和 `server action` 收集
 
-![alt text](image-28.png)
+![alt text](nextAuth-18.png)
 
 `server action` 里报错如下，重启 `vscode` 就行了
 
-![alt text](image-29.png)
+![alt text](nextAuth-19.png)
 
 使用 `adapter` 后会有报错，原因是不能直接在 `middleware` 里使用 `prisma/client`，也就是不能直接`export { auth as middleware } from 'auth'`，需要重新在中间价配置 `nextAuth`
 
-![alt text](image-36.png)
+![alt text](nextAuth-20.png)

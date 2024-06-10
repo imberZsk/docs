@@ -4,7 +4,7 @@
 
 用于获取动态路由的路由段
 
-![alt text](image-53.png)
+![alt text](next-router-hook-1.png)
 
 ```jsx
 'use client'
@@ -26,7 +26,7 @@ export default Page
 
 用于获取 `URL` 的路径名
 
-![alt text](image-54.png)
+![alt text](next-router-hook-2.png)
 
 如 `http://localhost:3000/photo/1` 返回 `/photo/1`
 

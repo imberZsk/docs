@@ -58,7 +58,7 @@ images: {
 
 ## 图片警告问题
 
-![alt text](image-41.png)
+![alt text](next-image-1.png)
 
 产生原因是这个图片设置的 `width` 和 `height` 和真实图片的宽高不一致，`next` 就认为图片发生了偏移，图片宽高有小数往往不行。所以先尝试设置匹配的 `width` 和 `height`。如果还不行可以给个父盒子，`Image` 上 `width` 为 0，`height` 为 0，然后 `className="h-auto w-full"` 就可以解决，但要注意清晰度问题。
 
@@ -114,7 +114,7 @@ export default function Page() {
 
 这样就可以两张图片，先加载 `svg` 占位图，原图加载好了，再换成原图
 
-![alt text](placeholder.gif)
+![alt text](next-image-1.gif)
 
 对于动态图片，可以直接提供 base64
 

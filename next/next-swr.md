@@ -2,4 +2,4 @@
 
 `swr` 下载量已经超过了 `react-query`
 
-![alt text](next-swr.png)
+![alt text](next-swr-1.png)

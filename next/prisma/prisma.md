@@ -1,6 +1,6 @@
 ## Prisma
 
-![alt text](prisma-image-2.png)
+![alt text](prisma-1.png)
 
 [examples](https://github.com/prisma/prisma-examples/tree/latest/typescript)
 
@@ -8,7 +8,7 @@
 
 语法高亮，直接商店下载插件
 
-![Alt text](prisma-image.png)
+![Alt text](prisma-2.png)
 
 然后格式化需要`setting.json`新增
 

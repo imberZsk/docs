@@ -13,7 +13,7 @@
 
 解决问题一
 
-![alt text](image-50.png)
+![alt text](next-i18n-1.png)
 
 新增代码
 
@@ -24,7 +24,7 @@ if (['/manifest.json', '/favicon.ico', '/_next/image'].includes(pathname))
 
 解决问题二
 
-![alt text](image-51.png)
+![alt text](next-i18n-2.png)
 
 新增代码
 

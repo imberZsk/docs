@@ -62,7 +62,7 @@ export async function addToCart(prevState, queryData) {
 - 重点注意：`useFormStatus` 将仅返回父 `<form>` 级的状态信息。它不会返回在同一组件或子组件中呈现的任何 `<form>` 状态信息
 - 使用 `data` 参数，还可以用来显示临时状态消息，确认他们请求的用户名
 
-![alt text](prisma-image-1.png)
+![alt text](next-form-hook-1.png)
 
 ```js
 import { useFormStatus } from 'react-dom'

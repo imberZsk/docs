@@ -6,7 +6,7 @@
 
 ## 静态导出
 
-![alt text](image-55.png)
+![alt text](next-deploy-1.png)
 
 静态导出相当于是 `SSG`，相当于传统 `SPA` 开发完打包成静态资源，所以不支持 `export const dynamic = 'force-dynamic'`
 

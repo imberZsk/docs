@@ -2,7 +2,7 @@
 
 构建工具主要是性能，利用按需编译，减少构建时间；支持开箱即用，`RSC` 环境；
 
-![alt text](image-12.png)
+![alt text](turbopack-1.png)
 
 ## 一、Turbopack 增量设计
 
