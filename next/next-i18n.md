@@ -1,6 +1,6 @@
 ## 国际化
 
-参考`https://github.com/vercel/next.js/tree/canary/examples/app-dir-i18n-routing`
+参考 [app-dir-i18n-routing](https://github.com/vercel/next.js/tree/canary/examples/app-dir-i18n-routing)
 
 注意 `middleware.ts` 一定要与 `app` 目录同级
 

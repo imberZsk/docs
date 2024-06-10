@@ -1,6 +1,6 @@
 ## csp
 
-参考`https://github.com/vercel/next.js/tree/canary/examples/with-strict-csp`
+参考 [with-strict-csp](https://github.com/vercel/next.js/tree/canary/examples/with-strict-csp)
 
 注意 `middleware.ts` 一定要与 `app` 目录同级
 
