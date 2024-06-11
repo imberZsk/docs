@@ -154,4 +154,4 @@ Sitemap: https://imber.top/sitemap.xml
 
 ## 其他
 
-`Open Graph protocol` 、 `RSS` 订阅 、 `Twitter Card`、`JSON-LD` 等
+`Open Graph protocol` 、 `RSS` 订阅 、 `Twitter Card`、`[JSON-LD](https://nextjs.org/docs/app/building-your-application/optimizing/metadata#json-ld)` 等

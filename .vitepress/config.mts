@@ -32,9 +32,9 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '工程化配置', link: 'next-project' },
-        { text: '图片配置', link: 'next-image' },
-        { text: '配置代理', link: 'next-proxy' },
-        { text: 'Sitemap(SEO)', link: 'next-sitemap' },
+        { text: 'Image', link: 'next-image' },
+        { text: '代理&环境变量', link: 'next-proxy' },
+        { text: 'SEO', link: 'next-sitemap' },
         { text: 'CSP', link: 'next-csp' },
         { text: '国际化', link: 'next-i18n' },
         { text: '服务端组件和客户端组件', link: 'next-server-client' },
@@ -61,7 +61,12 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
     {
       text: 'SWR',
       collapsed: true,
-      items: [{ text: 'SWR', link: 'swr/swr' }]
+      items: [
+        { text: '基础', link: 'swr/swr-base' },
+        { text: '复用请求', link: 'swr/swr-reuse' },
+        { text: '拒绝状态提升', link: 'swr/swr-status' },
+        { text: '串型请求', link: 'swr/swr-serial' }
+      ]
     },
     {
       text: 'Tailwind',
