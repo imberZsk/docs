@@ -65,7 +65,9 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
         { text: '基础', link: 'swr/swr-base' },
         { text: '复用请求', link: 'swr/swr-reuse' },
         { text: '拒绝状态提升', link: 'swr/swr-status' },
-        { text: '串型请求', link: 'swr/swr-serial' }
+        { text: '串型请求', link: 'swr/swr-serial' },
+        { text: '延迟加载数据', link: 'swr/swr-click' },
+        { text: 'with-nextjs', link: 'swr/swr-nextjs' }
       ]
     },
     {
