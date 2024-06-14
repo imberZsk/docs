@@ -239,6 +239,6 @@ jobs:
 
 新建一个 ssh key `https://github.com/settings/keys`，名字随便取
 
-## 清理缓存 🔥
+## docker 清理缓存 🔥
 
 `docker system prune` # 清理未使用的网络、容器和镜像缓存

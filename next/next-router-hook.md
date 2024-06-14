@@ -66,6 +66,8 @@ export default function Page() {
 
 ## useSearchParams
 
+注意：页面中使用 `useSearchParams` 必须要用 `Suspense` 包起来
+
 用于读取当前 `URL` 的查询字符串
 
 ```js
