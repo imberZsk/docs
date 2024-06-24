@@ -11,14 +11,13 @@ export default defineConfig({
       { text: 'Nextjs', link: '/next/next-project' },
       { text: 'Editor', link: '/editor/selection' },
       { text: 'Web Animation', link: '/animation/gsap/useGSAP' },
-      { text: 'Web 3D', link: '/three/earth' }
+      { text: 'Web 3D', link: 'https://imber-3d.netlify.app/' }
     ],
 
     sidebar: {
       '/next/': { base: '/next/', items: sidebarNext() },
       '/editor/': { base: '/editor/', items: sidebarEditor() },
-      '/animation/': { base: '/animation/', items: sidebarAnimate() },
-      '/three/': { base: '/three/', items: sidebarThree() }
+      '/animation/': { base: '/animation/', items: sidebarAnimate() }
     },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/imberZsk' }]
@@ -151,8 +150,4 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
       ]
     }
   ]
-}
-
-function sidebarThree(): DefaultTheme.SidebarItem[] {
-  return [{ text: '3D地球', link: 'earth' }]
 }
