@@ -85,3 +85,5 @@ const Page = () => {
 
 export default Page
 ```
+
+也可以这样获取 `searchParams` : `export default function Page({ searchParams }): JSX.Element `
