@@ -8,18 +8,20 @@
 
 `pnpm i eslint-config-prettier prettier prettier-plugin-tailwindcss -D`
 
-配置 `eslintrc.json`
+配置 `.eslintrc.json`
 
 ```json
 {
   "extends": ["next/core-web-vitals", "prettier"],
   "rules": {
-    "no-var": "error"
+    "no-empty-function": "error",
+    "no-var": "error",
+    "no-debugger": "error"
   }
 }
 ```
 
-配置 `prettierrc.json`
+配置 `.prettierrc.json`
 
 ```json
 {
@@ -52,6 +54,28 @@ pnpm-lock.yaml
   },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
+```
+
+配置 `.vscode/.rt.code-snippets`
+
+```json
+{
+  "react typescript component": {
+    "prefix": "rt",
+    "body": [
+      "const ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/} = () => {",
+      "  return (",
+      "    <div>",
+      "      <div></div>",
+      "    </div>",
+      "  )",
+      "}",
+      "",
+      "export default ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}"
+    ],
+    "description": "rt"
+  }
 }
 ```
 
@@ -124,4 +148,54 @@ npx --no -- commitlint --edit "$1"
 . "$(dirname -- "$0")/_/husky.sh"
 
 pnpm lint-staged
+```
+
+## 其它
+
+.npmrc
+
+```bash
+engine-strict=true
+```
+
+package.json
+
+```bash
+"preinstall": "node ./src/lib/preinstall.js"
+```
+
+```bash
+"engines": {
+  "node": ">=20.9.0"
+}
+```
+
+next.config.mjs
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://myplus-api.meizu.cn/:path*'
+      }
+    ]
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ssm.res.meizu.com',
+        port: '',
+        pathname: '/**'
+      }
+    ],
+    loader: 'custom',
+    loaderFile: './bin/image_loader.js'
+  }
+}
+
+export default nextConfig
 ```
