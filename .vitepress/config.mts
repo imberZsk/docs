@@ -132,6 +132,7 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
       text: 'GSAP',
       collapsed: false,
       items: [
+        { text: 'GSAP 动画从性能到核心概念', link: 'gsap/gsap-smooth' },
         { text: 'useGSAP', link: 'gsap/useGSAP' },
         { text: 'gsap的各种包', link: 'gsap/gsap-core' },
         { text: 'scrollTrigger', link: 'gsap/scrollTrigger' },
