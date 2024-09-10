@@ -65,7 +65,7 @@ gsap.to('.box', {
 
 ## 动画的时间
 
-除了补间动画，我们还知道 GSAP（以时间轴为维度的补间动画） 还有一个概念是时间轴，那我们怎么合理设置动画的时间呢？
+补间动画还跟时间有关，那我们怎么合理设置动画的时间呢？
 
 下面是 GSAP 关于时间的属性：
 
@@ -102,6 +102,41 @@ gsap.to('.box', {
 ```
 
 ![alt text](stagger.gif)
+
+## 时间轴（Timeline）
+
+除了补间动画，我们还知道 GSAP（以时间轴为维度的补间动画） 还有一个概念是时间轴
+
+让补间动画可以排序，可让动画及时放置在任何想要的位置，然后使用 `pause（）、play（）、progress（）、reverse（）、timeScale（）` 等方法轻松控制整个序列
+
+```text
+                        PLAYHEAD
+|--------------timeline-----|-----------|
+|--tween1--|                |
+           |-----tween2-----|-----------|
+```
+
+可以用 `addLabel` 标记时间线的点，通过第二个参数来做对应动画
+
+```js
+tl.addLabel("step2", 3)
+  .to(..., "step2")
+  .to(..., "step2+=0.75")
+```
+
+控制补间和时间线
+
+```js
+var tween = gsap.to(...);
+var tl = gsap.timeline();
+tl.to(...).to(...);
+
+tween.pause();
+tween.timeScale(2);
+tl.seek(3);
+tl.progress(0.5);
+...
+```
 
 ## GSAP ScrollTrigger 插件
 
