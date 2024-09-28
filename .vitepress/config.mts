@@ -11,13 +11,15 @@ export default defineConfig({
       { text: 'Nextjs', link: '/next/next-project' },
       { text: 'Editor', link: '/editor/selection' },
       { text: 'Web Animation', link: '/animation/gsap/useGSAP' },
-      { text: 'Web 3D', link: 'https://imber-3d.netlify.app/' }
+      { text: 'Web 3D', link: 'https://imber-3d.netlify.app/' },
+      { text: 'Cli', link: '/cli/cli/intro' }
     ],
 
     sidebar: {
       '/next/': { base: '/next/', items: sidebarNext() },
       '/editor/': { base: '/editor/', items: sidebarEditor() },
-      '/animation/': { base: '/animation/', items: sidebarAnimate() }
+      '/animation/': { base: '/animation/', items: sidebarAnimate() },
+      '/cli/': { base: '/cli/', items: sidebarCli() }
     },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/imberZsk' }]
@@ -135,7 +137,6 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
         { text: 'GSAP 动画从性能到核心概念', link: 'gsap/gsap-smooth' },
         { text: 'useGSAP', link: 'gsap/useGSAP' },
         { text: 'gsap的各种包', link: 'gsap/gsap-core' },
-        { text: 'scrollTrigger', link: 'gsap/scrollTrigger' },
         { text: '渐入效果', link: 'gsap/gsap-fade-in-1' },
         { text: '渐入与滚动动画效果', link: 'gsap/gsap-fade-in-2' },
         { text: '滚动钉住动画效果', link: 'gsap/gsap-pin-1' },
@@ -149,6 +150,24 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
         { text: 'Codesanbox视差效果', link: 'fm/fm-codesandbox' },
         { text: 'tab切换效果', link: 'fm/fm-tab' }
       ]
+    }
+  ]
+}
+
+function sidebarCli(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: '项目模版',
+      collapsed: false,
+      items: [
+        { text: '介绍', link: 'project/intro' },
+        { text: '功能', link: 'project/features' }
+      ]
+    },
+    {
+      text: '脚手架',
+      collapsed: false,
+      items: [{ text: '介绍', link: 'cli/intro' }]
     }
   ]
 }
