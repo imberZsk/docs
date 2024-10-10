@@ -48,7 +48,8 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
         { text: '水合不一致问题', link: 'next-render-different' },
         { text: '部署相关', link: 'next-deploy' },
         { text: '性能指标', link: 'next-performance' },
-        { text: '其它', link: 'next-other' }
+        { text: '其它', link: 'next-other' },
+        { text: 'Nextjs模拟XSS和CSRF', link: 'next-safe' }
       ]
     },
     {
