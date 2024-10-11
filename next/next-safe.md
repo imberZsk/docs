@@ -1,6 +1,23 @@
-用 nextjs + prisma + mysql 简单模拟 xss 攻击和 csrf 攻击
+> 用 nextjs + prisma + mysql 简单模拟 xss 攻击和 csrf 攻击
 
-[源码仓库](https://github.com/imberZsk/nextjs-safe)
+## Nextjs 模拟 XSS 和 CSRF
+
+- 初始化 XSS 项目
+- 下载 prisma
+- 初始化 prisma
+- 连接数据库
+- 定义模型
+- 同步数据库
+- 初始化 PrismaClient
+- 写接口
+- 写页面
+- 输入攻击代码
+- 解决 XSS
+- 初始化 CSRF 项目（钓鱼网站）
+- 银行网站新增用户和钱的模型
+- 钓鱼网站代码
+- 进入钓鱼网站，会自动转账
+- 解决 CSRF
 
 ## 初始化 XSS 项目
 
@@ -326,3 +343,7 @@ export default function Home() {
 2. token，验证 token，而不会像 cookie 一样自动携带
 3. 设置 cookie 的 samesite 属性
 4. 服务端检查 refer 头
+
+## 源码仓库
+
+https://github.com/imberZsk/nextjs-safe
