@@ -63,7 +63,3 @@ HelloTalk
 - 解决问题：
   - 对于 xss 来说，首先可以字符过滤转义也就是不用 dangerousSetInnerHTML，当做普通变量，react 会转成字符串，为了防止 cookie 被盗问题，可以采取一些手段来降低风险，可以服务端设置 http-only 和 secure，还可以设置 csp 指定哪些代码能执行比如 `default-src:self ; script-src 'self' 'nonce-${nonce}' 'strict-dynamic';`。
   - 对于 csrf 来说，首先是不要 get 请求改变状态，可以使用 jwt token，不会自动携带 cookie，还可以检查 refer，还可以服务端设置 cookie 的 samesite 为 strict 或者指定 域名
-
-## 架构设计
-
-## 项目基建

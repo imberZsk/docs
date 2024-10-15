@@ -243,3 +243,7 @@ export { Button, buttonVariants }
   "(?:const|let|var)\\s+[\\w$_][_\\w\\d]*\\s*=\\s*['\\\"](.*?)['\\\"]"
 ]
 ```
+
+## tailwind 的设计
+
+https://mp.weixin.qq.com/s/EGJ7h010NiW4RenL1an6fA
