@@ -63,7 +63,7 @@ function workLoop(deadline) {
     // 如果剩余时间少于 1 毫秒，则 shouldYield 被设置为 true，表示当前任务应该让出执行权。
     shouldYield = deadline.timeRemaining() < 1
   }
-  requestIdleCallback(nextUnitOfWork)
+  requestIdleCallback(workLoop)
 }
 
 requestIdleCallback(workLoop)
