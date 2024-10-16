@@ -8,14 +8,16 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'React', link: '/react/base' },
       { text: 'Nextjs', link: '/next/next-project' },
       { text: 'Editor', link: '/editor/selection' },
       { text: 'Web Animation', link: '/animation/gsap/useGSAP' },
-      { text: 'Web 3D', link: 'https://imber-3d.netlify.app/' },
-      { text: 'Cli', link: '/cli/cli/intro' }
+      { text: 'Web 3D', link: 'https://imber-3d.netlify.app/' }
+      // { text: 'Cli', link: '/cli/cli/intro' }
     ],
 
     sidebar: {
+      '/react/': { base: '/react/', items: sidebarReact() },
       '/next/': { base: '/next/', items: sidebarNext() },
       '/editor/': { base: '/editor/', items: sidebarEditor() },
       '/animation/': { base: '/animation/', items: sidebarAnimate() },
@@ -25,6 +27,31 @@ export default defineConfig({
     socialLinks: [{ icon: 'github', link: 'https://github.com/imberZsk' }]
   }
 })
+
+function sidebarReact(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'base',
+      link: 'base'
+    },
+    {
+      text: 'createElement',
+      link: 'createElement'
+    },
+    {
+      text: 'render',
+      link: 'render'
+    },
+    {
+      text: 'concurrent mode',
+      link: 'concurrentMode'
+    },
+    {
+      text: 'fiber',
+      link: 'fiber'
+    }
+  ]
+}
 
 function sidebarNext(): DefaultTheme.SidebarItem[] {
   return [
