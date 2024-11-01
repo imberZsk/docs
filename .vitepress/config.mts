@@ -8,6 +8,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
+      { text: '随笔', link: '/note/next-note1' },
       { text: 'React', link: '/react/base' },
       { text: 'Nextjs', link: '/next/next-project' },
       { text: 'Editor', link: '/editor/selection' },
@@ -17,6 +18,7 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/note/': { base: '/note/', items: sidebarNote() },
       '/react/': { base: '/react/', items: sidebarReact() },
       '/next/': { base: '/next/', items: sidebarNext() },
       '/editor/': { base: '/editor/', items: sidebarEditor() },
@@ -27,6 +29,19 @@ export default defineConfig({
     socialLinks: [{ icon: 'github', link: 'https://github.com/imberZsk' }]
   }
 })
+
+function sidebarNote(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'next小记',
+      link: 'next-note1'
+    },
+    {
+      text: 'react源码学习小记',
+      link: 'react-note1'
+    }
+  ]
+}
 
 function sidebarReact(): DefaultTheme.SidebarItem[] {
   return [
