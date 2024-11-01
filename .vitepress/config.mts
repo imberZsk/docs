@@ -39,6 +39,10 @@ function sidebarNote(): DefaultTheme.SidebarItem[] {
     {
       text: 'react源码学习小记',
       link: 'react-note1'
+    },
+    {
+      text: 'react小记',
+      link: 'react-note2'
     }
   ]
 }
