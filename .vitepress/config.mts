@@ -8,7 +8,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: '随笔', link: '/note/next-note1' },
+      { text: '小记', link: '/note/next-note1' },
       { text: 'React', link: '/react/base' },
       { text: 'Nextjs', link: '/next/next-project' },
       { text: 'Editor', link: '/editor/selection' },
@@ -43,6 +43,10 @@ function sidebarNote(): DefaultTheme.SidebarItem[] {
     {
       text: 'react小记',
       link: 'react-note2'
+    },
+    {
+      text: '编辑器tiptap小记',
+      link: 'editor-note1'
     }
   ]
 }
