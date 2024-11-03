@@ -72,6 +72,22 @@ function sidebarReact(): DefaultTheme.SidebarItem[] {
     {
       text: 'fiber',
       link: 'fiber'
+    },
+    {
+      text: 'render & commit',
+      link: 'render_commit'
+    },
+    {
+      text: 'reconciliation',
+      link: 'reconciliation'
+    },
+    {
+      text: 'function components',
+      link: 'function_components'
+    },
+    {
+      text: 'hooks',
+      link: 'hooks'
     }
   ]
 }
