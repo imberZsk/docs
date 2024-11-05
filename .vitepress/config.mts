@@ -33,21 +33,25 @@ export default defineConfig({
 function sidebarNote(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'next小记',
+      text: 'next小技巧',
       link: 'next-note1'
     },
     {
-      text: 'react源码学习小记',
+      text: 'react源码学习',
       link: 'react-note1'
     },
     {
-      text: 'react小记',
+      text: 'react排他思想',
       link: 'react-note2'
     },
     {
       text: '编辑器tiptap小记',
       link: 'editor-note1'
     }
+    // {
+    //   text: 'react官网学习',
+    //   link: 'editor-note1'
+    // }
   ]
 }
 
