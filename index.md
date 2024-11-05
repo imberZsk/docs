@@ -16,7 +16,7 @@ hero:
       link: /animation/gsap/useGSAP
     - theme: brand
       text: Web 3D
-      link: /three/earth
+      link: https://imber-3d.netlify.app/
 
 features:
   - title: Nextjs
