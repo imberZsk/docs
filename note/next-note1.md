@@ -12,6 +12,22 @@
 
 ![alt text](image.png)
 
+5. 用静态导出功能给外部人员访问
+
+配置 next.config.js
+
+```js
+output: 'export',
+assetPrefix: '../', //cdn前缀 访问静态资源的前缀
+```
+
+需要删除打包后的`html`里的`crossorigin=""`
+
+## 踩坑
+
+1. `Image` 组件和 `HtmlCanvas` 截图有些问题，在 `safari` 浏览器上截图失败
+2. 使用`output: 'export',`静态导出功能时，要把 `Link` 标签改为原生的 `a` 标签
+
 ## 思考？
 
 Image 组件的 width 和 height 如果遇到响应式，不确定宽高的情况咋办
