@@ -47,6 +47,14 @@ function sidebarNote(): DefaultTheme.SidebarItem[] {
     {
       text: '编辑器tiptap小记',
       link: 'editor-note1'
+    },
+    {
+      text: 'GSAP 动画开发小记',
+      link: '../animation/gsap/gsap-note'
+    },
+    {
+      text: '浏览器指纹',
+      link: 'browser'
     }
     // {
     //   text: 'react官网学习',
@@ -208,6 +216,7 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
         { text: 'GSAP 动画从性能到核心概念', link: 'gsap/gsap-smooth' },
         { text: 'useGSAP', link: 'gsap/useGSAP' },
         { text: 'gsap的各种包', link: 'gsap/gsap-core' },
+        { text: 'gsap动画开发小记', link: 'gsap/gsap-note' },
         { text: '渐入效果', link: 'gsap/gsap-fade-in-1' },
         { text: '渐入与滚动动画效果', link: 'gsap/gsap-fade-in-2' },
         { text: '滚动钉住动画效果', link: 'gsap/gsap-pin-1' },

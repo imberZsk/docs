@@ -16,7 +16,7 @@
 
 定义项目级的代码片段，输入 `up` 生成 gsap 的代码片段
 
-![alt text](image.png)
+![alt text](image-note.png)
 
 ## gsap 中的一些默认值
 
