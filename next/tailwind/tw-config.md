@@ -96,6 +96,42 @@ let card = `flex bg-pink-200 p-4 rounded-lg`
 
 ![alt text](tailwind-8.png)
 
+## @layer base component utilities
+
+<!-- TODO: -->
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+tailwind 是分层的
+
+@layer 抽离到 components 层，但是把这个 button 封装成组件会更好，要不然又会一直想类名了，也还有[其它问题](https://www.tailwindcss.cn/docs/reusing-styles)，请将其用于非常小的、高度可重用的东西，但还是尽量不使用
+
+```jsx
+<button class="py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75">
+  Save changes
+</button>
+
+<button class="btn-primary">
+  Save changes
+</button>
+```
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75;
+  }
+}
+```
+
 ## 响应式布局
 
 - 一个方面是需要 UI 考虑更多尺寸，给出适配不同尺寸的设计稿方案
@@ -246,4 +282,18 @@ export { Button, buttonVariants }
 
 ## tailwind 的设计
 
-https://mp.weixin.qq.com/s/EGJ7h010NiW4RenL1an6fA
+看到了一篇很不错的文章，`https://mp.weixin.qq.com/s/EGJ7h010NiW4RenL1an6fA`，看完后会发现 tailwind 的设计原来是这样，`0.25rem` 原来是回退值
+
+## refactoringui
+
+[refactoringui](https://www.refactoringui.com/) 这本书是 tailwind 作者写的，我的领导买了原版，可以[掘金私信我](https://juejin.cn/user/3378167164966920)，如果你喜欢 tailwind，可以免费分享给你。
+
+## 思考 tailwind & shadcn
+
+先区分组件和 UI，组件是更底层的，比如一个 button，而 UI 是由一个活多个组件组成的，是 UI 的上层封装，所以 shadcn 生成的目录才是这样子`components/组件` `components/ui/底层UI`
+
+![alt text](image-1.png)
+
+再细想一下，我们自己的页面的组件也可能写在了 `components` 里，如果是 `antd` 组件库会这样吗？肯定不会，因为 `antd` 它的组件在 `node_modules` 里，而 shadcn 是 `headless` 的，支持我们随意修改样式。但没有与我们自定义的组件分离。甚至 tailwind.config.js 也是如此，我们的预设和 shadcn 的预设都混合到了一起！
+
+所以好一点的做法，应该设置一下`components.json`，抽离 `shadcn` 的配置

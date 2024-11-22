@@ -226,10 +226,7 @@ function sidebarAnimate(): DefaultTheme.SidebarItem[] {
     {
       text: 'Framer Motion',
       collapsed: false,
-      items: [
-        { text: 'Codesanbox视差效果', link: 'fm/fm-codesandbox' },
-        { text: 'tab切换效果', link: 'fm/fm-tab' }
-      ]
+      items: [{ text: 'Codesanbox视差效果', link: 'fm/fm-codesandbox' }]
     }
   ]
 }
