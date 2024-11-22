@@ -106,7 +106,13 @@ let card = `flex bg-pink-200 p-4 rounded-lg`
 @tailwind utilities;
 ```
 
-tailwind 是分层的
+tailwind 是分层的，基础层、组件层和实用程序层，[为什么 Tailwind 将样式分层](https://www.tailwindcss.cn/docs/adding-custom-styles#using-css-and-layer)
+
+`Base` Layer 用于重置规则或应用于纯 HTML 元素的默认样式等内容。
+
+`components` Layer 适用于您希望能够使用实用程序覆盖的基于类的样式。
+
+`utilities` layer 适用于小型的单一用途类，这些类应始终优先于任何其他样式。
 
 @layer 抽离到 components 层，但是把这个 button 封装成组件会更好，要不然又会一直想类名了，也还有[其它问题](https://www.tailwindcss.cn/docs/reusing-styles)，请将其用于非常小的、高度可重用的东西，但还是尽量不使用
 
