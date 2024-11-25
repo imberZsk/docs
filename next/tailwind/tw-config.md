@@ -2,69 +2,86 @@
 
 ## 怎么解决滥用的[]（&主题切换）
 
-回头看之前写的 `Tailwind` 无数的 `[]`，非常不优雅
+回头看之前写的 `Tailwind` 无数的 `[]`，非常不优雅，这种`[]`可以分为两类，一类是`text-[1px]`这种单位类型的，一类是`text-[#ccc]`，这种特定值类型的
 
 ![alt text](tailwind-1.png)
 
-#### 配置字体解决字体的[]
+#### 解决单位类型的[]，也就是要做到 p-1 = padding:1px
 
-配置`theme.extend.fontSize`后，如 `text-[16px]` 应该写成 `text-md`，而不是方括号
+方案一，记住且习惯常用的预设，特别是要只知道，p-1 的 1，在页面的时候是 4px，也就是翻了 4 倍
 
-![alt text](tailwind-2.png)
+![alt text](image.png)
 
-```js
-fontSize: {
-  xs: '1.2rem',
-  sm: '1.4rem',
-  md: '1.6rem',
-  lg: '2.0rem',
-  xl: '2.4rem',
-  '2xl': '3.6rem',
-  '3xl': '4.8rem'
-}
-```
+方案二，如果习惯 p-1 就是 `padding:1px`的人来说，可以设置 `global.css` 的`:root` 中配置 `font-size: 25%;`，让 `1rem` 等于 `4px`，而不是 `16px`，
+这个原理其实是 tailwind 预设的默认值就是 p-1 等于 0.25rem，也就是 16 \* 0.25 = 4px，而设置了 25%后，就是 16 \* 0.25 \* 0.25 = 1px，也就是想要的结果了
 
-#### 配置颜色解决颜色的[] (主题切换也是这个功能)
+![alt text](image-2.png)
 
-`theme.extend.colors` 配置和 `global.css` 配置结合，`text-[#fff]` 写成 `text-primary`
+![alt text](image-3.png)
+
+#### 解决特定值类型的[] (主题切换也是这个功能)
+
+比如颜色值，`theme.extend.colors` 配置和 `global.css` 配置结合，`text-[#fff]` 写成 `text-primary`，也就是通过**预设的值来复用**
 
 ![alt text](tailwind-3.png)
 
-这里`:root` 中配置 `font-size: 62.5%;`，让 `1rem` 等于 `10px`
-
-![alt text](tailwind-4.png)
-
-再结合 [Next-Theme](https://ui.shadcn.com/docs/dark-mode/next)，可以轻松实现切换主题
-
-同理，别的`[]`也可以这样解决，但是长宽目前还是得`[]`，`unocss`这点就更好，可以不用 `[]`
+再结合 [Next-Theme](https://ui.shadcn.com/docs/dark-mode/next)，可以轻松实现切换主题，如果要自己写，略微麻烦，之前写过一篇文章，可以了解主题切换原理：[主题切换文章](https://juejin.cn/post/7331070714766082074)
 
 ## 怎么优化 Tailwind 杂乱的排序方式
 
-参考 [官网](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted)，`prettier-plugin-tailwindcss` 这个插件可以自动格式化 `Tailwind` 类名排序
+比如这样一段代码，在不考虑复用的情况，明明是一样的几个类名，因为顺序问题，导致难以维护
+
+```css
+<div class="mt-3 flex -space-x-2 overflow-hidden">
+    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+    <img class="w-12 h-12 rounded-full ring-2 ring-white inline-block" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+    <img class="inline-block h-12 w-12  ring-2 ring-white rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt=""/>
+  </div>
+```
+
+参考 [官网](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted)，`prettier-plugin-tailwindcss` 这个插件可以自动格式化 `Tailwind` 类名排序，就能得到工整的类名
+
+```css
+<div class="mt-3 flex -space-x-2 overflow-hidden">
+  <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+  <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+  <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt=""/>
+</div>
+```
+
+只需要下载，和一个简单的配置：
 
 ![alt text](tailwind-5.png)
 
-## 不用 class 怎么给标签设置类名？
+## 不用 class 怎么给统一给标签设置类名？
 
-如果项目中渲染一段 `html`，这个时候无法添加类名怎么办？如果项目中有个模块挺多 `<h1>,<h2>,<h3>,<p>` 这样标签怎么办？富文本编辑器场景的时候也有这个问题，一个一个的加类名很麻烦，有个优雅的解决方案！[tailwindcss-typography](https://github.com/tailwindlabs/tailwindcss-typography)
+如果项目中渲染一段 `html`，这个时候无法添加类名怎么办？如果项目中有个模块挺多 `<h1>,<h2>,<h3>,<p>`，而且不想因为这里的样式影响其它的标签样式，这种情况怎么办？富文本编辑器场景的时候也有这个问题，一个一个的加类名很麻烦，有个优雅的解决方案！[tailwindcss-typography](https://github.com/tailwindlabs/tailwindcss-typography)
 
 ![alt text](tailwind-6.png)
+
+但这个库或多或少有我们不会用到的样式，想要极致一点，要使用这个库的时候，最好去看一下源码，然后自己抽离需要的样式放到项目，而不是直接下载
 
 ## 怎么复用重复的样式？
 
 对于全局样式，可以使用 `@apply`，可以设置几个常用的布局，如
 
 ```css
-.margin-center {
-  @apply mx-auto my-0;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.flex-center {
-  @apply flex items-center justify-center;
-}
+@layer base {
+  .margin-center {
+    @apply mx-auto my-0;
+  }
 
-.absolute-center {
-  @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .absolute-center {
+    @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
 }
 ```
 
@@ -80,7 +97,7 @@ let card = `flex bg-pink-200 p-4 rounded-lg`
 <div className={card}></div>
 ```
 
-此外还有一个 `@layer`，可以把样式注入到对应层里，避免样式覆盖
+关于 `@layer`，可以把样式注入到对应层里，避免样式覆盖，这里我写的几个类，是想当层基础的类名，后面的类名可以覆盖它，所以我放到了 base，tailwind 文档是建议复杂的组件，重 UI 的时候，用@apply，并且放到 components 层里，另外，文档建议能不用就不用
 
 ![alt text](tailwind-7.png)
 
@@ -96,9 +113,7 @@ let card = `flex bg-pink-200 p-4 rounded-lg`
 
 ![alt text](tailwind-8.png)
 
-## @layer base component utilities
-
-<!-- TODO: -->
+## 细说 @layer base component utilities
 
 ```css
 @tailwind base;
@@ -147,11 +162,24 @@ tailwind 是分层的，基础层、组件层和实用程序层，[为什么 Tai
 
 首先，`clsx` 是一个打包体积比 `classnames` 更小的替代工具。他的功能与 `classnames` 类似，我们可以用它来组合字符串
 
+`shadncn` 初始化后的这个 函数，挺有用的，不仅支持函数式拼接字符串，过滤多余空格，后面的样式覆盖前面的样式（比如 px-2 p-4，最终为 p-4）
+
+```js
+import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+```
+
 ## 性能
 
-[just-in-time](https://www.tailwindcss.cn/blog/just-in-time-the-next-generation-of-tailwind-css)，很早开始都是按需生成样式，性能不会差
+[just-in-time](https://www.tailwindcss.cn/blog/just-in-time-the-next-generation-of-tailwind-css)，很早开始都是按需生成样式，性能不会差，用这点反击下有些人可能不了解，就说 tailwind 性能差
 
 ## [封装思维的小转变，带来极致使用体验](https://mp.weixin.qq.com/s/glr73rMrwqbVmjm6GNLAzA)
+
+这是 shadcn 的封装方式
 
 这个转变思维让我觉得我的组件变得非常简单。这个思路从 unocss 的传参方式中获得了灵感。例如我们要封装一个 Button 组件。假设该 Button 组件需要支持的情况如下：
 
@@ -216,6 +244,8 @@ export default function Button(props) {
 
 ## Shadcn 封装 Button
 
+完整一个 Button 封装
+
 ```js
 import * as React from 'react'
 import { Slot } from '@radix-ui/react-slot'
@@ -268,6 +298,8 @@ export { Button, buttonVariants }
 
 ## js 中支持 tailwind 提示
 
+比如之前说的复用方式，`export const card = 'border rounded-md p-4'`，这是一段 js，本来不会有鼠标放到上面提示，自己配置一下，就可以有提示，会更方便
+
 配置 `vscode` 的 `setting.json`
 
 ```json
@@ -292,7 +324,7 @@ export { Button, buttonVariants }
 
 ## refactoringui
 
-[refactoringui](https://www.refactoringui.com/) 这本书是 tailwind 作者写的，我的领导买了原版，可以[掘金私信我](https://juejin.cn/user/3378167164966920)，如果你喜欢 tailwind，可以免费分享给你。
+[refactoringui](https://www.refactoringui.com/) 这本书是 tailwind 作者写的，我的领导买了原版（挺贵，99 刀），可以[掘金私信我](https://juejin.cn/user/3378167164966920)，如果你喜欢 tailwind，可以免费分享给你。
 
 ## 思考 tailwind & shadcn
 
@@ -303,3 +335,13 @@ export { Button, buttonVariants }
 再细想一下，我们自己的页面的组件也可能写在了 `components` 里，如果是 `antd` 组件库会这样吗？肯定不会，因为 `antd` 它的组件在 `node_modules` 里，而 shadcn 是 `headless` 的，支持我们随意修改样式。但没有与我们自定义的组件分离。甚至 tailwind.config.js 也是如此，我们的预设和 shadcn 的预设都混合到了一起！
 
 所以好一点的做法，应该设置一下`components.json`，抽离 `shadcn` 的配置
+
+<!--
+- 不了解的人的角度，说明重点
+- 会简单实用的人的角度，说明原理细节
+- 带着疑问，一开始的疑问，看了之后的疑问
+-->
+
+## 总结
+
+<!-- TODO: -->
