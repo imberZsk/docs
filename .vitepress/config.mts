@@ -55,6 +55,10 @@ function sidebarNote(): DefaultTheme.SidebarItem[] {
     {
       text: '浏览器指纹',
       link: 'browser'
+    },
+    {
+      text: 'shadcn小记',
+      link: 'shadcn'
     }
     // {
     //   text: 'react官网学习',

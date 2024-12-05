@@ -8,9 +8,25 @@
 
 3. 当遇到 `mouse` 事件切换 `ui` 的时候，可以考虑使用 `tailwind` 的 `group` 切换类名，来减少客户端渲染
 
-4. 在服务端组件中获取路由参数，`params` 参数 和 `searchParams` 参数由于 `next` 直接注入到服务端页面组件了，可以直接获取，但是没有注入 `pathname`，但是可以用 [`next/headers`](https://nextjs.org/docs/app/api-reference/functions/headers) 间接获取
+4. 在服务端组件中获取路由参数，`params` 参数 和 `searchParams` 参数由于 `next` 直接注入到服务端页面组件了，可以直接获取，但是没有注入 `pathname`，但是可以用 [`next/headers`](https://nextjs.org/docs/app/api-reference/functions/headers) 间接获取，也可以组件下沉，把服务端组件传入客户端组件，调用客户端 usePathname
 
 ![alt text](image.png)
+
+比如判断微信环境
+
+```jsx
+import { headers } from 'next/headers'
+
+const headersList = headers()
+
+const ua = headersList.get('user-agent')?.toLowerCase()
+
+const isWeChat = (ua: string | undefined) => {
+  return ua?.includes('micromessenger')
+}
+
+const inWeChat = isWeChat(ua)
+```
 
 5. 用静态导出功能给外部人员访问
 
@@ -22,6 +38,8 @@ assetPrefix: '../', //cdn前缀 访问静态资源的前缀
 ```
 
 需要删除打包后的`html`里的`crossorigin=""`
+
+6. 减少客户端组件，抽离客户端组件，并且一个组件里可以写多个函数，。。。。
 
 ## 踩坑
 

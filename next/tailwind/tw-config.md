@@ -29,7 +29,7 @@
 
 ## 怎么优化 Tailwind 杂乱的排序方式
 
-比如这样一段代码，在不考虑复用的情况，明明是一样的几个类名，因为顺序问题，导致难以维护
+比如这样一段代码，在不考虑复用的情况，明明是一样的几个类名，因为顺序问题，导致难以维护，这是 tailwind[推荐的排序方式](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted)，第三方类名>布局类名>装饰类名
 
 ```css
 <div class="mt-3 flex -space-x-2 overflow-hidden">
@@ -156,6 +156,7 @@ tailwind 是分层的，基础层、组件层和实用程序层，[为什么 Tai
 ## 响应式布局
 
 - 一个方面是需要 UI 考虑更多尺寸，给出适配不同尺寸的设计稿方案
+- 使用 tailwind 之后，参考 tailwind 官网的响应式，不应该使用 vw，否则很多`[]`(预设设置太多值了，得不偿失)，屏幕拉伸也没有动态设置 rem，使用的是百分比和 flex 布局
 - 重点：使用 `Tailwind` 的媒体查询应该先写小尺寸如 `H5`，再写大尺寸如 `PC`，因为大尺寸会覆盖小尺寸
 
 ## clsx/classnames tw-merge cva
@@ -175,11 +176,9 @@ export function cn(...inputs: ClassValue[]) {
 
 ## 性能
 
-[just-in-time](https://www.tailwindcss.cn/blog/just-in-time-the-next-generation-of-tailwind-css)，很早开始都是按需生成样式，性能不会差，用这点反击下有些人可能不了解，就说 tailwind 性能差
+[just-in-time](https://www.tailwindcss.cn/blog/just-in-time-the-next-generation-of-tailwind-css)，这个包已经合并到 tailwind 主框架，我使用 tailwind 挺长时间，性能上没有发现问题，然后打包后的 css 体积明显比正常写 css 体积小很多
 
 ## [封装思维的小转变，带来极致使用体验](https://mp.weixin.qq.com/s/glr73rMrwqbVmjm6GNLAzA)
-
-这是 shadcn 的封装方式
 
 这个转变思维让我觉得我的组件变得非常简单。这个思路从 unocss 的传参方式中获得了灵感。例如我们要封装一个 Button 组件。假设该 Button 组件需要支持的情况如下：
 
@@ -208,11 +207,12 @@ const normal = 'bg-gray-100 hover:bg-gray-200'
 const _p = primary ? 'bg-blue-500 text-white hover:bg-blue-600' : ''
 const _d = danger ? 'bg-red-500 text-white hover:bg-red-600' : ''
 
-内部封装，主要是根据不同的参数拼接 className 的字符串，完整实现如下
+// 内部封装，主要是根据不同的参数拼接 className 的字符串，完整实现如下
 
 export default function Button(props) {
-  const {className, primary, danger, sm, lg, success, ...other} = props
-  const base = 'rounded-xl border border-transparent font-medium cursor-pointer transition'
+  const { className, primary, danger, sm, lg, success, ...other } = props
+  const base =
+    'rounded-xl border border-transparent font-medium cursor-pointer transition'
 
   // type
   const normal = 'bg-gray-100 hover:bg-gray-200'
@@ -225,10 +225,12 @@ export default function Button(props) {
   const _sm = sm ? 'text-xs py-1.5 px-3' : ''
   const _lg = lg ? 'text-lg py-2 px-6' : ''
 
-  const cls = classnames(base, normal, md, _p, _d, _s, _sm, _lg)
+  const cls = clsx(base, normal, md, _p, _d, _s, _sm, _lg, className)
 
   return (
-    <button className={cls} {...other}>{props.children}</button>
+    <button className={cls} {...other}>
+      {props.children}
+    </button>
   )
 }
 ```
@@ -244,7 +246,17 @@ export default function Button(props) {
 
 ## Shadcn 封装 Button
 
-完整一个 Button 封装
+另外一种封装方式， shadcn 的封装方式，完整一个 Button 封装
+
+Slot 功能是把 props 合并到它的子元素上，可以传入 asChild，这个元素就不会显示，然后把属性传递给儿子
+
+cva 是一个函数，跟 tailwind-merge 和 clsx 一样，最好在 ssr/ssg 中使用，减少包的体积，这里主要用了扩展，可能是想不要定义太多变量，使用如下
+
+```jsx
+<Button variant="destructive" size="lg">
+  button
+</Button>
+```
 
 ```js
 import * as React from 'react'
@@ -279,6 +291,10 @@ const buttonVariants = cva(
   }
 )
 
+// ButtonProps 接口定义了 Button 组件的属性类型
+// 继承了原生 button 元素的所有 HTML 属性
+// 同时也继承了 buttonVariants 函数生成的 variant 和 size 属性
+// asChild 属性用于决定是否将 Button 渲染为其子元素
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
@@ -291,6 +307,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
   }
 )
+
 Button.displayName = 'Button'
 
 export { Button, buttonVariants }
@@ -300,7 +317,7 @@ export { Button, buttonVariants }
 
 比如之前说的复用方式，`export const card = 'border rounded-md p-4'`，这是一段 js，本来不会有鼠标放到上面提示，自己配置一下，就可以有提示，会更方便
 
-配置 `vscode` 的 `setting.json`
+配置 `vscode` 的 `setting.json`，这个配置 [cva](https://cva.style/docs/getting-started/installation) 里出现过
 
 ```json
 "tailwindCSS.experimental.classRegex": [
@@ -344,4 +361,7 @@ export { Button, buttonVariants }
 
 ## 总结
 
-<!-- TODO: -->
+- tailwind 的好处，一个是效率，一个是性能，一个是规范。
+- tailwind 的优势在于快速构建 UI，当然前期可能需要 1 周的时间经常查文档去记住常用的类名，熟悉后的收益是巨大的。第一点是可以极大提升开放效率和减少 css 体积，第二点是做响应式和主题切换也非常方便。
+- 更深入的使用 tailwind，应该合理的使用预设，并且习惯比例关系，来减少`[]`的使用。同时要让项目具有一个合理的设计系统，规律的使用样式，特别是 size，color。
+- 对于分层，这个能不设置就不设置。对于复用样式，抽离组件是最好的选择（其次考虑抽离 css 和@apply）。
