@@ -13,3 +13,5 @@
 ## form + server action
 
 ## next15 的 Form
+
+next-headers 这类的可以拿到 ua，就不用放弃服务端渲染了
