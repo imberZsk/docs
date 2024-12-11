@@ -59,6 +59,10 @@ function sidebarNote(): DefaultTheme.SidebarItem[] {
     {
       text: 'shadcn小记',
       link: 'shadcn'
+    },
+    {
+      text: 'ps & 蓝湖',
+      link: 'ps'
     }
     // {
     //   text: 'react官网学习',
