@@ -269,6 +269,16 @@ content: [
 
 ![alt text](image-11.png)
 
+当然，shadcn 的组件样式，并不是全用得上，有些反而有点兼容性问题，所以用的时候可以删点无用代码
+
+比如它的按钮
+
+```css
+inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 dark:focus-visible:ring-neutral-300
+```
+
+可以删除 focus-visible:xxx 、 disable:xxx 、 [&_svg]:xxx、gap-2 这种如果没用上的代码，同理，它的很多组件上都有用不到的代码
+
 ## next.config.ts 中配置代理和图片安全域名
 
 ```ts
@@ -641,3 +651,7 @@ export default LayoutClient
 比如我放了这些，这样下次使用的时候，不用去关心别的地方，只需要在 config 里修改对应的配置就好了
 
 ![alt text](image-16.png)
+
+同理，公共的一些东西如 🪧hook，fetch 请求，都可以放这里，如果只跟当前页面或者组件相关的再就近原则
+
+![alt text](image-18.png)
