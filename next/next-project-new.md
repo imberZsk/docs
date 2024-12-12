@@ -236,7 +236,7 @@ button {
 
 ![alt text](image-9.png)
 
-修改一下 `components.json`，原因之前[思考过](http://localhost:5173/next/tailwind/tw-config.html#%E6%80%9D%E8%80%83-tailwind-shadcn)，还是不要混着比较好
+修改一下 `components.json`，原因之前[思考过](https://imber-docs.netlify.app/next/tailwind/tw-config.html#%E6%80%9D%E8%80%83-tailwind-shadcn)，还是不要混着比较好
 
 ```json
 {
