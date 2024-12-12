@@ -1,6 +1,18 @@
-## next15 项目初始化
+## 目录
 
-next15 更新，重新做一个架子，再熟悉一下项目初始化的流程。
+- 初始化
+- README.md
+- next-snippets
+- eslint & prettier
+- simple-git-hook & lint-staged & commitlint
+- shadcn
+- next.config.ts 中配置代理和图片安全域名
+- 环境变量
+- nextjs 预设文件
+- seo 相关文件
+- tdk & opengraph
+- layout-client
+- config
 
 ## 初始化
 
@@ -496,15 +508,7 @@ function addPage(page: string) {
 export default async function sitemap() {
   const pages = await globby(['src/app/**/page.tsx'])
 
-  const cleanPages = pages.map((item) => {
-    return item.replace('/(pages)', '')
-  })
-
-  const cleanPolicy = cleanPages.map((item) => {
-    return item.replace('/(policy)', '')
-  })
-
-  const routes = cleanPolicy.map((page: string) => ({
+  const routes = pages.map((page: string) => ({
     url: `${WEBSITE_URL}${addPage(page)}`,
     // ISO标准
     lastModified: new Date().toISOString()
@@ -642,7 +646,7 @@ const LayoutClient = () => {
 export default LayoutClient
 ```
 
-## 关于 config
+## config
 
 应该在 src 目录下建一个 config，用来放配置
 
