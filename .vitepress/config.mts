@@ -118,6 +118,7 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
       text: 'Nextjs',
       collapsed: false,
       items: [
+        { text: 'Next15最新初始化配置🔥', link: 'next-project-new' },
         { text: '工程化配置', link: 'next-project' },
         { text: 'Image', link: 'next-image' },
         { text: '代理&环境变量', link: 'next-proxy' },
