@@ -46,6 +46,21 @@ assetPrefix: '../', //cdn前缀 访问静态资源的前缀
 1. `Image` 组件和 `HtmlCanvas` 截图有些问题，在 `safari` 浏览器上截图失败
 2. 使用`output: 'export',`静态导出功能时，要把 `Link` 标签改为原生的 `a` 标签
 
+## 区分环境
+
+不是区分本地 dev 和 build，这个好区分，这个直接使用 `progress.NODE_ENV` 区分，但是如果都是 build 怎么办，比如要实现 scripts 里面的 `build:test`，`build:gray`
+
+```js
+ "build:test": " NEXT_PUBLIC_ENV=test next build",
+ "build:gray": "NEXT_PUBLIC_ENV=gray next build",
+```
+
+然后页面用 `process.env.NEXT_PUBLIC_ENV` 获取
+
+![alt text](image-24.png)
+
 ## 思考？
 
 Image 组件的 width 和 height 如果遇到响应式，不确定宽高的情况咋办
+
+width 和 height 和图片真实宽高无关，所以只有比例关系有用
