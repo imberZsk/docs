@@ -2,35 +2,21 @@
 
 ## 目录
 
-怎么解决滥用的[]（&主题切换）？
-
-怎么优化 Tailwind 杂乱的排序方式？
-
-不用 class 怎么给统一给标签设置类名？
-
-怎么复用重复的样式？
-
-Tailwind 中的选择器也很强大
-
-@layer base component utilities
-
-响应式布局
-
-clsx/classnames tw-merge cva
-
-性能
-
-封装思维的小转变，带来极致使用体验
-
-Shadcn 封装 Button
-
-js 中支持 tailwind 提示
-
-tailwind 的设计
-
-refactoringui
-
-思考 tailwind & shadcn
+- 怎么解决滥用的[]（&主题切换）？
+- 怎么优化 Tailwind 杂乱的排序方式？
+- 不用 class 怎么给统一给标签设置类名？
+- 怎么复用重复的样式？
+- Tailwind 中的选择器也很强大
+- @layer base component utilities
+- 响应式布局
+- clsx/classnames tw-merge cva
+- 性能
+- 封装思维的小转变，带来极致使用体验
+- Shadcn 封装 Button
+- js 中支持 tailwind 提示
+- tailwind 的设计
+- refactoringui
+- 思考 tailwind & shadcn
 
 ## 怎么解决滥用的[]（&主题切换）
 
