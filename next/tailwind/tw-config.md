@@ -1,5 +1,37 @@
 # 优雅的使用 Tailwind
 
+## 目录
+
+怎么解决滥用的[]（&主题切换）？
+
+怎么优化 Tailwind 杂乱的排序方式？
+
+不用 class 怎么给统一给标签设置类名？
+
+怎么复用重复的样式？
+
+Tailwind 中的选择器也很强大
+
+@layer base component utilities
+
+响应式布局
+
+clsx/classnames tw-merge cva
+
+性能
+
+封装思维的小转变，带来极致使用体验
+
+Shadcn 封装 Button
+
+js 中支持 tailwind 提示
+
+tailwind 的设计
+
+refactoringui
+
+思考 tailwind & shadcn
+
 ## 怎么解决滥用的[]（&主题切换）
 
 回头看之前写的 `Tailwind` 无数的 `[]`，非常不优雅，这种`[]`可以分为两类，一类是`text-[1px]`这种单位类型的，一类是`text-[#ccc]`，这种特定值类型的
@@ -113,7 +145,7 @@ let card = `flex bg-pink-200 p-4 rounded-lg`
 
 ![alt text](tailwind-8.png)
 
-## 细说 @layer base component utilities
+## @layer base component utilities
 
 ```css
 @tailwind base;
@@ -178,7 +210,7 @@ export function cn(...inputs: ClassValue[]) {
 
 [just-in-time](https://www.tailwindcss.cn/blog/just-in-time-the-next-generation-of-tailwind-css)，这个包已经合并到 tailwind 主框架，我使用 tailwind 挺长时间，性能上没有发现问题，然后打包后的 css 体积明显比正常写 css 体积小很多
 
-## [封装思维的小转变，带来极致使用体验](https://mp.weixin.qq.com/s/glr73rMrwqbVmjm6GNLAzA)
+## 封装思维的小转变，带来极致使用体验
 
 这个转变思维让我觉得我的组件变得非常简单。这个思路从 unocss 的传参方式中获得了灵感。例如我们要封装一个 Button 组件。假设该 Button 组件需要支持的情况如下：
 
@@ -243,6 +275,8 @@ export default function Button(props) {
 <Button primary>Primary</Button>
 <Button success>Success</Button>
 ```
+
+本段参考 `https://mp.weixin.qq.com/s/glr73rMrwqbVmjm6GNLAzA`
 
 ## Shadcn 封装 Button
 
