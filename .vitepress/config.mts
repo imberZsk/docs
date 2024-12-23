@@ -63,6 +63,10 @@ function sidebarNote(): DefaultTheme.SidebarItem[] {
     {
       text: 'ps & 蓝湖',
       link: 'ps'
+    },
+    {
+      text: '网站字体',
+      link: 'font'
     }
     // {
     //   text: 'react官网学习',
