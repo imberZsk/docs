@@ -71,6 +71,10 @@ vscode 更新后，这里有个 copilot 小图标
 ![alt text](image-37.png)
 ![alt text](image-38.png)
 
+终端的这里，还可以右键问题，然后让 copilot 修复
+
+![alt text](image-48.png)
+
 #### 免费版本的限制
 
 可以看到[免费版本](https://github.com/features/copilot/plans?cft=copilot_li.features_copilot)是有一些限制的：回复限制为每月 2000 次代码完成和 50 条聊天消息。
