@@ -83,4 +83,52 @@ vscode 更新后，这里有个 copilot 小图标
 
 ## cursor
 
-cursor 的优势，支持图片，没有上限，编辑功能支持快捷标识符
+cursor 也有上限，但还没遇到
+
+![alt text](image-42.png)
+
+先从它[官网](https://www.cursor.com/)下载安装，打开后它和 vscode 基本一摸一样，甚至插件也一样，性能也是一样好，要挑点问题的话，我觉得是布局有一点点不一样，然后我用的 vscode 主题色和 cursor 显示出来的有点小差异
+
+它这里的 welcome 很人性化，把核心功能放在这里，触发过就打勾，等你都触发完成后，可以关掉这个 welcome 碳层
+
+![alt text](image-41.png)
+
+它可能因为版本，页面有所不同，注意右下角要点击更新
+
+![alt text](image-40.png)
+
+#### 聊天功能
+
+聊天快捷键`command + l`，代码应用可以这里点两下
+
+![alt text](image-43.png)
+
+有多个聊天框，在不同上下文聊天
+
+![alt text](image-44.png)
+
+聊天和编辑都可以上传图片，可以上传一张图片，然后 ai 帮忙根据这张图写代码
+
+![alt text](image-45.png)
+
+同理 command + k 可以终端 chat
+
+![alt text](image-47.png)
+
+还有一些@这种命令符和 copilot 差不多，就不说了
+
+#### 编辑功能 Composer
+
+在 Cursor 里，ai 写代码叫 Composer
+
+edit 快捷键`command + i`
+
+![alt text](image-46.png)
+
+## 总结
+
+目前看，就 cursor 支持图片这个点更好，然后 copilot 支持语音，都是些小细节，总体差不多
+
+## 思考
+
+AI 功能虽然强大，但它的作用其实和我们描述问题的能力成正比（当然还得有解决问题的能力，一定的经验等等），当遇到复杂的问题的时候，还是需要自己理清思路，明白问题，再描述给 AI 才能做得更好
