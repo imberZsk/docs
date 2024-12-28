@@ -67,6 +67,14 @@ function sidebarNote(): DefaultTheme.SidebarItem[] {
     {
       text: '网站字体',
       link: 'font'
+    },
+    {
+      text: 'AI工具小记',
+      link: 'ai'
+    },
+    {
+      text: '抽奖组件',
+      link: 'lottery'
     }
     // {
     //   text: 'react官网学习',
