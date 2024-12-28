@@ -45,6 +45,10 @@ vscode 更新后，这里有个 copilot 小图标
 
 ![alt text](image-31.png)
 
+因为和 vscode 深度集成，还有一些小功能，比如可以直接让命令复制到终端
+
+![alt text](image-39.png)
+
 另外还有语音功能，这个因为没耳机，所以没试，不过看起来挺有意思的
 
 #### 编辑功能 edit 🔥
