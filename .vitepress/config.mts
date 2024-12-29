@@ -71,11 +71,11 @@ function sidebarNote(): DefaultTheme.SidebarItem[] {
     {
       text: '抽奖逻辑',
       link: 'lottery'
-    },
-    {
-      text: '优雅的使用Nextjs',
-      link: 'nextjs'
     }
+    // {
+    //   text: '优雅的使用Nextjs',
+    //   link: 'nextjs'
+    // }
     // {
     //   text: 'react官网学习',
     //   link: 'editor-note1'
