@@ -2,8 +2,7 @@
 
 偷下 juejin 的年度人气作者投票抽奖的图
 
-<video controls src="./1.mov">
-</video>
+![alt text](1.gif)
 
 ## 核心逻辑
 
