@@ -49,10 +49,6 @@ function sidebarNote(): DefaultTheme.SidebarItem[] {
       link: 'editor-note1'
     },
     {
-      text: 'GSAP 动画开发小记',
-      link: '../animation/gsap/gsap-note'
-    },
-    {
       text: '浏览器指纹',
       link: 'browser'
     },
@@ -73,8 +69,12 @@ function sidebarNote(): DefaultTheme.SidebarItem[] {
       link: 'ai'
     },
     {
-      text: '抽奖组件',
+      text: '抽奖逻辑',
       link: 'lottery'
+    },
+    {
+      text: '优雅的使用Nextjs',
+      link: 'nextjs'
     }
     // {
     //   text: 'react官网学习',
