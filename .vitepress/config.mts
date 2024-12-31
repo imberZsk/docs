@@ -71,6 +71,10 @@ function sidebarNote(): DefaultTheme.SidebarItem[] {
     {
       text: '抽奖逻辑',
       link: 'lottery'
+    },
+    {
+      text: '封装fetch',
+      link: 'fetch'
     }
     // {
     //   text: '优雅的使用Nextjs',
