@@ -129,6 +129,12 @@ edit 快捷键`command + i`
 
 ![alt text](image-46.png)
 
+#### agent 🔥
+
+新版的 cursor 可以选择 agent 功能 可以理解全局上下文，去一点一点的查你的 prompt，然后做出修改，很有用的功能
+
+![alt text](image-50.png)
+
 ## 总结
 
 目前看，就 cursor 支持图片这个点更好，然后 copilot 支持语音，都是些小细节，总体差不多
