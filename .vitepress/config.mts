@@ -178,7 +178,10 @@ function sidebarNext(): DefaultTheme.SidebarItem[] {
     {
       text: 'Tailwind',
       collapsed: true,
-      items: [{ text: '优雅的使用Tailwind', link: 'tailwind/tw-config' }]
+      items: [
+        { text: '优雅的使用Tailwind', link: 'tailwind/tw-config' },
+        { text: 'Tailwind实用的类名', link: 'tailwind/tw-class' }
+      ]
     },
     {
       text: 'Prisma',
