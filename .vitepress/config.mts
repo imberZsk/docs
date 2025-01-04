@@ -75,6 +75,10 @@ function sidebarNote(): DefaultTheme.SidebarItem[] {
     {
       text: '封装fetch',
       link: 'fetch'
+    },
+    {
+      text: 'github图床&jsdelivr cdn',
+      link: 'github-image'
     }
     // {
     //   text: '优雅的使用Nextjs',
