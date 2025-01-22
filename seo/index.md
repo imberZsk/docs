@@ -1,4 +1,6 @@
 > https://developers.google.com/search/docs?hl=zh-cn
+>
+> Google 不会通过收取费用来提高网页排名 ，网页排名是程序化地完成的。
 
 ## SEO 优化后多久才有能看到效果？
 
