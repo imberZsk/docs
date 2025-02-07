@@ -18,3 +18,9 @@ useEffect(() => {
   setText('2')
 }, [])
 ```
+
+- 服务器/客户端分支‘ if (typeof window !== ’undefined‘) ’
+- 变量输入，如‘ Date.now() ’或‘ Math.random() ’，每次调用时都会更改。
+- 用户语言环境中的日期格式与服务器不匹配。
+- 外部更改数据，而不发送与 HTML 一起的快照。
+- 无效的 HTML 标签嵌套。
