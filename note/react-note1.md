@@ -1,6 +1,6 @@
 ## 源码学习
 
-通过 [pomb 的博客](https://pomb.us/build-your-own-react/) 学到了 react 源码的一些流程
+通过 [pomb 的博客](https://pomb.us/build-your-own-react/) 学到了 react 源码的一些流程，然后 [React 技术揭秘](https://react.iamkasong.com/)，可以学到一些理念
 
 - createElement
 - render
