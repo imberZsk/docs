@@ -4,6 +4,7 @@ layout: home
 
 hero:
   name: 'imber Docs'
+  tagline: '⚠️ 当前项目已经废弃，新地址：<a href="https://imber.netlify.app/" target="_blank">https://imber.netlify.app/</a>'
   actions:
     - theme: brand
       text: Nextjs
