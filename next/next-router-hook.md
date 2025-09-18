@@ -87,3 +87,7 @@ export default Page
 ```
 
 也可以这样获取 `searchParams` : `export default function Page({ searchParams }): JSX.Element `
+
+## 思考
+
+如何在服务端组件中获取页面路径？
